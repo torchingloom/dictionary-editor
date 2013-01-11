@@ -642,9 +642,37 @@ button.ui-datepicker-close {
 	height: 100%;
 }
 
-._menu{
-	background-color: #e1e1e1;
-	margin: 20px;
+.menu_cont{
+	padding: 5px 0;
+	margin: 20px 20px 0 20px;
+	padding-bottom:20px;
+}
+
+.menu_cont .menu{
+	margin-left: -20px;
+}
+
+.menu_cont .menu LI{
+	padding: 0 0 0 20px;
+}
+
+.menu_cont .menu LI A{
+	background: url(../img/icon_menu.png) no-repeat 0 -24px;
+	display: block;
+	padding: 5px 5px 5px 20px;
+
+}
+
+.menu_cont .menu LI A:hover{
+	background-position: 0px -54px;
+}
+
+.menu_cont .menu LI.select A{
+	background-position: 0px -54px;
+}
+
+.menu_cont .menu LI.select ul A{
+	background: none;
 }
 
 .cont_right{
