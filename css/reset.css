@@ -1,0 +1,116 @@
+HTML, BODY, DIV, SPAN, APPLET, OBJECT, IFRAME,
+H1, H2, H3, H4, H5, H6, P, BLOCKQUOTE, PRE,
+A, ABBR, ACRONYM, ADDRESS, BIG, CITE, CODE,
+DEL, DFN, EM, FONT, IMG, INS, KBD, Q, S, SAMP,
+SMALL, STRIKE, STRONG, SUB, SUP, TT, VAR,
+B, U, I, CENTER,
+DL, DT, DD, OL, UL, LI,
+FORM, LABEL, FIELDSET,
+TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD {
+	background: none;
+	border: 0 none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+ADDRESS, VAR {
+	font-style: normal;
+}
+
+OL, UL {
+	list-style: none;
+}
+
+BLOCKQUOTE, Q {
+	quotes: none;
+}
+BLOCKQUOTE:before, Q:before,
+BLOCKQUOTE:after, Q:after {
+	content: '';
+	content: none;
+}
+
+:focus, :active {
+	outline: 0 none;
+	ie-dummy: expression(this.hideFocus=true);
+}
+
+INS {
+	text-decoration: none;
+}
+
+DEL {
+	text-decoration: line-through;
+}
+
+TABLE {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+	font-size: 100%;
+}
+
+
+/* === abstract === */
+
+A {
+	-o-transition-duration: 0.2s;
+	-o-transition-property: color, background-color, border-color;
+	
+	-moz-transition-duration: 0.2s;
+	-moz-transition-property: color, background-color, border-color;
+	
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-property: color, background-color, border-color;
+	
+	transition-duration: 0.2s;
+	transition-property: color, background-color, border-color;
+}
+
+.nobr {
+	white-space: nowrap;
+}
+
+.center-toleft,
+.center-toright {
+	position: relative;
+	right: 50%;
+	float: right;
+}
+.center-toright {
+	right: -50%;
+	float: none;
+	z-index: 1;
+}
+
+.hr {
+	position: relative;
+	line-height: 0;
+	height: 0;
+	overflow: hidden;
+	margin: 1ex 0;
+	border-bottom: 1px solid #d8d8d8;
+}
+.boldhr {
+	height: 2px;
+	border: 0 none;
+	background: #111;
+	margin: 0 0 18px 0;
+}
+.hr HR {
+	display: none;
+}
+
+.clearfix {
+	//zoom: 1;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	overflow: hidden;
+}
