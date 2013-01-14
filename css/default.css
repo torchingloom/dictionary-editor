@@ -215,7 +215,7 @@ A:hover {
 }
 
 
-.cancelButton, .deleteButton {
+.cancelButton, .deleteButton{
 	width: 24px;
 	height: 24px;
 	overflow: hidden;
@@ -469,6 +469,8 @@ A:hover {
 	line-height: 11px;
 }
 
+
+
 DIV.permissionError {
     display: inline;
     position: relative;
@@ -643,36 +645,8 @@ button.ui-datepicker-close {
 }
 
 .menu_cont{
-	padding: 5px 0;
 	margin: 20px 20px 0 20px;
 	padding-bottom:20px;
-}
-
-.menu_cont .menu{
-	margin-left: -20px;
-}
-
-.menu_cont .menu LI{
-	padding: 0 0 0 20px;
-}
-
-.menu_cont .menu LI A{
-	background: url(../img/icon_menu.png) no-repeat 0 -24px;
-	display: block;
-	padding: 5px 5px 5px 20px;
-
-}
-
-.menu_cont .menu LI A:hover{
-	background-position: 0px -54px;
-}
-
-.menu_cont .menu LI.select A{
-	background-position: 0px -54px;
-}
-
-.menu_cont .menu LI.select ul A{
-	background: none;
 }
 
 .cont_right{
@@ -682,13 +656,28 @@ button.ui-datepicker-close {
 }
 
 .cont_table{
-	padding: 20px 0;
-	margin-top:20px;
+	position: relative;
 }
 
 .cont_table.scroll{
 	height: 300px;
 	overflow-y: scroll;
+}
+
+.wrapper_head{
+	position: relative;
+}
+
+.fixed_head{
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	right: 16px;
+	top: 0px;
+}
+
+#tables .fixed_head TABLE TH{
+	border-top: 0 none;
 }
 
 .cont_item{
@@ -701,15 +690,120 @@ button.ui-datepicker-close {
 
 .cont_item.select{
 	position: relative;
+	background-color: #faa;
 	top: 0;
 	left: 0;
 }
 
+.menu_viewtab,
+.cont_table_bar{
+	margin-bottom: 10px;
+}
 
+#tables .edit_but{
+	padding: 0;
+	width: 24px;
+}
 
+.cont_table_bar SPAN,
+.menu_viewtab SPAN{
+	position: relative;
+	margin: 0;
+	text-align: center;
+	display:block;
+	float: left;
+	border: 1px solid #ccc;
+	border-bottom-color: #aaa;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 21px;
+	cursor: pointer;
+	color: #333;
+	text-shadow: 1px 1px 0 #f3f3f3;
+	background-color: #fff;
 
+	background-image: -webkit-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:    -moz-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:     -ms-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:      -o-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:   linear-gradient(to bottom, transparent 25%, rgba(0,0,0,0.2) 100%);
+}
 
+.menu_viewtab SPAN:first-child{
+	border-radius:4px 0 0 0;
+	width: 49%;
+}
+.menu_viewtab SPAN:first-child + SPAN{
+	border-radius:0 4px 0 0;
+	border-left: 0px;
+	width: 49%;
+}
 
+.cont_table_bar{
+	margin-top: 20px;
+}
+
+.cont_table_bar.right{
+	float: right;
+	margin-bottom:0;
+}
+
+.cont_table_bar.left SPAN{
+	float: left;
+}
+
+.cont_table_bar SPAN{
+	float: right;
+	border-radius: 4px;
+	margin-right: 10px;
+	padding: 0 5px;
+}
+
+.cont_table_bar SPAN,
+.ie9 .menu_viewtab SPAN{
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPg0KCTxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KCQk8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDAuMCkiIG9mZnNldD0iMC4yNSIgLz4NCgkJPHN0b3Agc3RvcC1jb2xvcj0icmdiYSgwLDAsMCwwLjIpIiBvZmZzZXQ9IjEiIC8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgkNCgk8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDp1cmwoI2dyYWQpIiAvPg0KPC9zdmc+');
+}
+.lte-ie8 .menu_viewtab SPAN,
+.lte-ie8 .cont_table_bar SPAN{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#33000000', GradientType=0);
+}
+.menu_viewtab SPAN:hover,
+.cont_table_bar SPAN:hover{
+	border-color: #bbb;
+	border-bottom-color: #999;
+	color: #111;
+	text-shadow: 1px 1px 0 #fff;
+	background-image: -webkit-linear-gradient(top, transparent 5%, rgba(0,0,0,0.3) 100%);
+	background-image:    -moz-linear-gradient(top, transparent 5%, rgba(0,0,0,0.3) 100%);
+	background-image:     -ms-linear-gradient(top, transparent 5%, rgba(0,0,0,0.3) 100%);
+	background-image:      -o-linear-gradient(top, transparent 5%, rgba(0,0,0,0.3) 100%);
+	background-image:   linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.3) 100%);
+}
+.ie9 .menu_viewtab SPAN:hover,
+.ie9 .cont_table_bar SPAN:hover{
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPg0KCTxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KCQk8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDAuMCkiIG9mZnNldD0iMC4wNSIgLz4NCgkJPHN0b3Agc3RvcC1jb2xvcj0icmdiYSgwLDAsMCwwLjMpIiBvZmZzZXQ9IjEiIC8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgkNCgk8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDp1cmwoI2dyYWQpIiAvPg0KPC9zdmc+');
+}
+.lte-ie8 .menu_viewtab SPAN:hover,
+.lte-ie8 .cont_table_bar SPAN:hover{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#44000000', GradientType=0);
+}
+.ie7 .menu_viewtab SPAN,
+.ie7 .cont_table_bar SPAN{
+	line-height: 11px;
+}
+
+.edit_but .editForm INPUT[type="submit"]{
+	width: 24px;
+	background: url('../img/close_button.png') no-repeat;
+	background-position: -48px 0;
+	border: 0 none;
+	border-radius:0;
+}
+.edit_but .editForm INPUT[type="submit"]:hover{
+	background: url('../img/close_button.png') no-repeat;
+	background-position: -48px 0;
+
+}
 
 
 
