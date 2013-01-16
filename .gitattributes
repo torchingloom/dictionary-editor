@@ -1,0 +1,8 @@
+# *	text=auto
+*.php   eol=lf
+*.html  eol=lf
+*.css   eol=lf
+*.js    eol=lf
+*.ini   eol=lf
+*.phtml eol=lf
+*.xml   eol=lf
