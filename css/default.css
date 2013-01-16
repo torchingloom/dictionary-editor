@@ -669,7 +669,7 @@ button.ui-datepicker-close {
 }
 
 .fixed_head{
-	background-color: #fff;
+	background-color: #F3F4F6;
 	position: absolute;
 	left: 0;
 	right: 16px;
@@ -681,8 +681,8 @@ button.ui-datepicker-close {
 }
 
 .cont_item{
-	margin-top: 20px;
-	padding-bottom:20px;
+	margin: 20px 20px 0px 0;
+	padding-bottom: 20px;
 	position: absolute;
 	top: -100%;
 	left: -100%;
@@ -690,10 +690,50 @@ button.ui-datepicker-close {
 
 .cont_item.select{
 	position: relative;
-	background-color: #faa;
 	top: 0;
 	left: 0;
 }
+
+.card_item{
+	background-color: #F3F4F6;
+	border: 1px solid #a1a1a1;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.card_item p{
+	margin-bottom: 10px;
+}
+
+.card_item p label{
+	font-size: 12px;
+	display: block;
+}
+
+.card_item p input[type="text"]{
+	border: 1px solid #a1a1a1;
+	width: 290px;
+	padding: 5px;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.card_item p input[type="checkbox"]{
+	float: left;
+}
+
+.card_item p textarea{
+	width: 290px;
+	padding: 5px;
+	resize: vertical;
+	height: 100px;
+}
+
+.card_item p select{
+	width: 300px;
+}
+
+
 
 .menu_viewtab,
 .cont_table_bar{
@@ -739,9 +779,23 @@ button.ui-datepicker-close {
 	width: 49%;
 }
 
-.cont_table_bar{
-	margin-top: 20px;
+.right_top_cont{
+	background-color: #F3F4F6;
+	border-radius: 5px;
+
+	padding: 20px;
+	margin: 20px 20px 0 0;
 }
+
+/*.cont_right.curt .right_top_cont{
+
+	float: left;
+}
+
+.cont_right.curt .cont_item.select{
+	float: right;
+}*/
+
 
 .cont_table_bar.right{
 	float: right;
@@ -759,7 +813,7 @@ button.ui-datepicker-close {
 	padding: 0 5px;
 }
 
-.cont_table_bar SPAN,
+.ie9 .cont_table_bar SPAN,
 .ie9 .menu_viewtab SPAN{
 	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPg0KCTxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KCQk8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDAuMCkiIG9mZnNldD0iMC4yNSIgLz4NCgkJPHN0b3Agc3RvcC1jb2xvcj0icmdiYSgwLDAsMCwwLjIpIiBvZmZzZXQ9IjEiIC8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgkNCgk8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDp1cmwoI2dyYWQpIiAvPg0KPC9zdmc+');
 }
