@@ -2,7 +2,7 @@
 
 class Dict
 {
-    private $ident, $display_type = 1, $fieldsets = array(), $fields = array(), $items = array(), $fields_in_list = array(), $list_sort = array(), $source;
+    private $ident, $display_type = 1, $fieldsets = array(), $fields = array(), $items = array(), $fields_in_list = array(), $list_sort = array(), $source, $chosen;
 
     public function __construct($ident)
     {
@@ -33,7 +33,7 @@ class Dict
         
         foreach ($this->items AS &$item)
         {
-            $item = new DictItem($item, $this->fields);
+            $item = new DictItem($item, $this->fields, $this->chosen);
         }
 
         unset($this->source['items']);
@@ -88,10 +88,11 @@ class DictFieldset
 
 class DictItem
 {
-    private $__data__ = array(), $fields = array();
-    public function __construct($data, &$fields)
+    private $__data__ = array(), $fields = array(), $chosen = array();
+    public function __construct($data, &$fields, &$chosen)
     {
         $this->fields = $fields;
+        $this->chosen = $chosen;
         $i = 0;
         foreach ($this->fields AS $f)
         {
@@ -106,5 +107,9 @@ class DictItem
     public function toArray()
     {
         return $this->__data__;
+    }
+    public function matchChosenValue($value)
+    {
+        return strpos(mb_strtolower($this->__data__[$this->chosen['title']]), mb_strtolower($value)) !== false;
     }
 }

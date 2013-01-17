@@ -9,6 +9,7 @@ return array
         'code' => array('title' => 'Код по ISO', 'type' => 'varchar', 'maxlength' => 3),
         'title' => array('title' => 'Локальное название', 'type' => 'varchar', 'maxlength' => 20),
     ),
+    'chosen' => array('value' => 'id', 'title' => 'title'),
     'fields_in_list' => array('id', 'code', 'title'),
     'list_sort' => array('field' => 'id', 'type' => 'asc',),
     'fieldsets' => array
