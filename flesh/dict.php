@@ -48,6 +48,11 @@ class Dict
     {
         return array_slice($this->items, $from, $count);
     }
+
+    public function getItem($id)
+    {
+        return @$this->items[$id];
+    }
 }
 
 class DictField
