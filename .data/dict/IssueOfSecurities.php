@@ -43,7 +43,7 @@ $arr = array
 $row = 1;
 if (($handle = fopen(APP_DIR ."/.data/dict/IssueOfSecurities.csv", "r")) !== FALSE)
 {
-    while (($arr['items'][] = fgetcsv($handle, 1000, ";")) !== FALSE)
+    while (($arr['items'][] = fgetcsv($handle, 300, ";")) !== FALSE)
     {
     }
     fclose($handle);
