@@ -37,22 +37,7 @@
 				</div>
 			</div>
 
-			<div class="cont_right horizontal">
-
-
-				<div class="content content-horizotal hidden">
-					<div class="content-list"></div>
-					<div class="content-item"></div>
-				</div>
-
-				<div class="content content-vertical hidden">
-					<div class="content-list col"></div>
-					<div class="content-item col"></div>
-				</div>
-
-				<div class="content content-widescreen ">
-					<div class="content-list"></div>
-				</div>
+			<div class="cont_right">
 
 			</div>
 
@@ -76,6 +61,9 @@
 
 <script type="text/javascript" src="js/lodash.js"></script>
 <script type="text/javascript" src="js/backbone.js"></script>
+
+<script type="text/javascript" src="js/app/template/table.js"></script>
+
 
 <script type="text/javascript" src="js/app/app.js"></script>
 

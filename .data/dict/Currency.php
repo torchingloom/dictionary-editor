@@ -17,7 +17,7 @@ return array
     ),
     'fieldsets' => array
     (
-        array('title' => 'По ISO', 'fields' => array('code', 'name')),
+        array('title' => 'По ISO', 'fields' => array('id', 'code')),
         array('title' => 'Локальное', 'fields' => array('title')),
     ),
     'items' => array
