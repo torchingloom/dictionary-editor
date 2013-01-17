@@ -7,10 +7,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"><!--<![endif]--><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><? echo Config::get('title') ?></title>
+
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="js/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
   <link rel="stylesheet" type="text/css" href="/js/xtree/js/xtree.css" />
+
 </head>
 <body>
 
@@ -34,9 +36,26 @@
 		      <div id="treeDiv"></div>
 				</div>
 			</div>
+
 			<div class="cont_right horizontal">
 
+
+				<div class="content content-horizotal hidden">
+					<div class="content-list"></div>
+					<div class="content-item"></div>
+				</div>
+
+				<div class="content content-vertical hidden">
+					<div class="content-list col"></div>
+					<div class="content-item col"></div>
+				</div>
+
+				<div class="content content-widescreen ">
+					<div class="content-list"></div>
+				</div>
+
 			</div>
+
 		</div>
 	</div>
 
