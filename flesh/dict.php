@@ -2,14 +2,14 @@
 
 class Dict
 {
-    private $ident, $display_type = 1, $fieldsets = array(), $fields = array(), $items = array();
+    private $ident, $display_type = 1, $fieldsets = array(), $fields = array(), $items = array(), $source;
 
     public function __construct($ident)
     {
         $this->ident = $ident;
-        $data = include realpath(APP_DIR ."/.data/dict/{$ident}.php");
+        $this->source = include realpath(APP_DIR ."/.data/dict/{$ident}.php");
 
-        foreach ($data AS $key => $valuev)
+        foreach ($this->source AS $key => $valuev)
         {
             if (property_exists($this, $key))
             {
@@ -35,16 +35,17 @@ class Dict
         {
             $item = new DictItem($item, $this->fields);
         }
+
+        unset($this->source['items']);
     }
 
     public function getMeta()
     {
-
+        return $this->source;
     }
 
     public function getDisplayType()
     {
-
     }
 
     public function getFieldList()
