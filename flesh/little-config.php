@@ -10,6 +10,7 @@ class Config
         (
             3 => array(1),
             4 => array(1),
+            7 => array(1),
             5 => array(2),
             6 => array(2),
         ),
@@ -24,6 +25,7 @@ class Config
                 (
                     3 => array('title' => 'Валюты', 'type' => 'dict', 'dict' => 'Currency'),
                     4 => array('title' => 'Страны', 'type' => 'dict', 'dict' => 'Country'),
+                    7 => array('title' => 'Все для теста', 'type' => 'dict', 'dict' => 'CoolDict'),
                 )
             ),
             2 => array

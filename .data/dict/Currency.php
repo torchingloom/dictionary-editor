@@ -10,11 +10,7 @@ return array
         'title' => array('title' => 'Локальное название', 'type' => 'varchar', 'maxlength' => 20),
     ),
     'fields_in_list' => array('id', 'code', 'title'),
-    'list_sort' => array
-    (
-        'field' => 'id',
-        'type' => 'asc',
-    ),
+    'list_sort' => array('field' => 'id', 'type' => 'asc',),
     'fieldsets' => array
     (
         array('title' => 'По ISO', 'fields' => array('id', 'code')),
