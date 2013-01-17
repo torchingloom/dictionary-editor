@@ -44,23 +44,9 @@ class Dict
         return $this->source;
     }
 
-    public function getDisplayType()
+    public function getItemList($count = 10, $from = 0)
     {
-    }
-
-    public function getFieldList()
-    {
-
-    }
-
-    public function getFieldsetList()
-    {
-
-    }
-
-    public function getItemList()
-    {
-
+        return array_slice($this->items, $from, $count);
     }
 }
 
@@ -111,5 +97,9 @@ class DictItem
     public function __get($key)
     {
         return @$this->__data__['key'];
+    }
+    public function toArray()
+    {
+        return $this->__data__;
     }
 }
