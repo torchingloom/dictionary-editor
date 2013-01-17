@@ -36,6 +36,10 @@ foreach ($items AS $id => $item)
     {
         echo '    src="/tree-node-list.xml.php?pid='. $id .'"';
     }
+    if (@$item['type'] == 'dict')
+    {
+        echo '    action="#'. $item['dict'] .'"';
+    }
     echo '
 />';
 }
