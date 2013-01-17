@@ -140,7 +140,6 @@ $(document).ready(function() {
 
 		}
 
-
-
 	});
+
 });

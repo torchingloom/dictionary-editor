@@ -11,12 +11,9 @@
 	<link href="css/reset.css" type="text/css" rel="stylesheet">
 	<link href="js/jquery-ui.css" type="text/css" rel="stylesheet">
 	<link href="css/default.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="js/treeview/jquery.treeview.css" />
 
    	<script src="js/jquery.js" type="text/javascript"></script>
    	<script src="js/jquery.cookie.js" type="text/javascript"></script>
-   	<script src="js/treeview/jquery.treeview.js" type="text/javascript"></script>
-   	<script src="js/treeview/demo.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 
     <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
@@ -24,6 +21,10 @@
     <script type="text/javascript" src="/js/xtree/js/xloadtree.js"></script>
     <link type="text/css" rel="stylesheet" href="/js/xtree/js/xtree.css" />
     <script type="text/javascript" src="/js/xtree-starter.js"></script>
+
+
+
+
 
 </head>
 
@@ -49,16 +50,14 @@
 	<div class="cont_left">
 
 		<div class="menu_cont">
-            <div id="treeDiv" style="margin:0 5 5 5;"></div>
-
-
+            <div id="treeDiv"></div>
 		</div>
 
 	</div>
 
-	<div class="cont_right vertical">
+	<div class="cont_right horizontal">
 
-	<!--<div class="horizontal_view">
+	<div class="horizontal_view">
 
 		<div class="right_top_cont">
 			<div class="cont_table_bar right clearfix">
@@ -1046,9 +1045,9 @@
 
 			</div>
 
-		</div> -->
+		</div>
 
- 		<div class="vertical_view clearfix">
+ 		<!--<div class="vertical_view clearfix">
 
 			 <div class="vv_right">
 
@@ -1828,211 +1827,9 @@
 								</td>
 							</tr>
 
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>172.29.1.18</td>
-								<td>01.11.2012 00:00</td>
-								<td>30.11.2013 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="21" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>192.168.245.26</td>
-								<td>01.12.2012 00:00</td>
-								<td>31.12.2013 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="20" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>172.29.1.175</td>
-								<td>01.01.2013 00:00</td>
-								<td>01.01.2020 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="94" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>172.29.1.18</td>
-								<td>01.11.2012 00:00</td>
-								<td>30.11.2013 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="21" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>192.168.245.26</td>
-								<td>01.12.2012 00:00</td>
-								<td>31.12.2013 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="20" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>172.29.1.175</td>
-								<td>01.01.2013 00:00</td>
-								<td>01.01.2020 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="94" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>172.29.1.18</td>
-								<td>01.11.2012 00:00</td>
-								<td>30.11.2013 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="21" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
-								</td>
-							</tr>
-
-							<tr class="">
-								<td><input type="checkbox"></td>
-								<td class="edit_but">
-									<form class="editForm"
-										  action="/seclimits/admin/editRestriction.htm"
-										  method="get">
-										<input type="hidden" value="62" name="id"/>
-										<input type="submit" value=" " class="editButton" title="Редактировать"/>
-									</form>
-								</td>
-								<td>jsmith</td>
-								<td>192.168.245.26</td>
-								<td>01.12.2012 00:00</td>
-								<td>31.12.2013 23:59</td>
-								<td>
-
-									<form class="deleteForm"
-										  action="/seclimits/admin/deleteRestriction.htm"
-										  method="post">
-										<input type="hidden" value="20" name="id"/>
-										<input type="submit" value=" " class="deleteButton" title="Удалить"/>
-									</form>
-
+							<tr>
+								<td colspan="7">
+									<div class="progress_icon" title="Loading..."></div>
 								</td>
 							</tr>
 
@@ -2047,10 +1844,10 @@
 
 			</div>
 
+				-->
 	</div>
 
 </div>
-
 
 
 </div>

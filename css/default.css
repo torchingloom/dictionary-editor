@@ -38,6 +38,14 @@ A:hover {
 	color: #fff;
 }
 
+.progress_icon{
+	display: none;
+	background: url('../img/progress-icon.gif') no-repeat center;
+	text-align: center;
+	height: 16px;
+}
+.progress_icon.on{display: block;}
+
 
 #main, #header, #footer {
 	position: relative;
@@ -673,7 +681,7 @@ button.ui-datepicker-close {
 
 .wrapper_head{
 	position: relative;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .fixed_head{
@@ -834,8 +842,9 @@ button.ui-datepicker-close {
 
 }
 
-.cont_right.vertical .right_top_cont{
-
+.cont_right.vertical .right_top_cont .cont_table{
+	/*height: 300px;*/
+	overflow: auto;
 }
 
 .cont_right.vertical .cont_item.select{
