@@ -614,6 +614,10 @@ button.ui-datepicker-close {
 	border-bottom: 0 none;
 }
 
+#tables TH{
+	white-space: nowrap;
+}
+
 #tables TH:first-child,
 #tables TD:first-child{
 	width: 14px;
@@ -642,7 +646,7 @@ button.ui-datepicker-close {
 }
 
 .cont_left{
-	width: 20%;
+	width: 250px;
 	height: 100%;
 }
 
@@ -652,9 +656,10 @@ button.ui-datepicker-close {
 }
 
 .cont_right{
-	width: 80%;
 	height: 100%;
-	position: relative;
+	position: absolute;
+	right: 0;
+	left: 250px;
 }
 
 .cont_table{
@@ -668,6 +673,7 @@ button.ui-datepicker-close {
 
 .wrapper_head{
 	position: relative;
+	overflow: auto;
 }
 
 .fixed_head{
@@ -685,7 +691,7 @@ button.ui-datepicker-close {
 .cont_item{
 	margin: 20px 20px 0px 0;
 	padding-bottom: 20px;
-	position: absolute;
+	/*position: absolute;*/
 	top: -1000%;
 	left: -1000%;
 }
@@ -806,19 +812,54 @@ button.ui-datepicker-close {
 	margin: 20px 20px 0 0;
 }
 
-.cont_right.curt{
+.horizontal_view,
+.vertical_view{
+	position: absolute;
+	top: -1000%;
+	left: -1000%;
+}
+
+.cont_right.horizontal{
 
 }
 
-.cont_right.curt .right_top_cont{
-	float: left;
+.cont_right.vertical .vertical_view,
+.cont_right.horizontal .horizontal_view{
+	position: relative;
+	top: 0;
+	left: 0;
 }
 
-.cont_right.curt .cont_item.select{
+.cont_right.vertical{
+
+}
+
+.cont_right.vertical .right_top_cont{
+
+}
+
+.cont_right.vertical .cont_item.select{
 	width: 362px;
 	float: right;
 }
 
+.cont_right.vertical .vertical_view .vv_left{
+	width: 35%;
+	float: left;
+}
+
+.cont_right.vertical .vertical_view .vv_right{
+	width: 65%;
+	float: right;
+}
+
+/*@media screen and (max-width: 1240px) {
+
+	.cont_right.vertical .vertical_view .vv_left .right_top_cont{
+		overflow: auto;
+	}
+
+}*/
 
 .cont_table_bar.right{
 	float: right;

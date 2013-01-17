@@ -109,15 +109,15 @@ $(document).ready(function() {
 
 	$("#jsmith_curt").click(function(){
 
-		if($('.cont_item').hasClass('select') && $('.cont_right').hasClass('curt')){
+		if($('.cont_item').hasClass('select') && $('.cont_right').hasClass('vertical')){
 
-			$('.cont_right').removeClass('curt');
+			$('.cont_right').removeClass('vertical');
 
 			$('.cont_item').removeClass('select');
 
 		}else{
 
-			$('.cont_right').addClass('curt');
+			$('.cont_right').addClass('vertical');
 			$('.right_top_cont').css('width', $('.right_top_cont').width() - 390 + "px");
 
 
