@@ -10,201 +10,13 @@
 	<link href="css/reset.css" type="text/css" rel="stylesheet">
 	<link href="js/jquery-ui.css" type="text/css" rel="stylesheet">
 	<link href="css/default.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="js/treeview/jquery.treeview.css" />
 
-	<script type="text/javascript" src="ipAccessRestrictions_files/jquery-1.htm"></script>
-	<script type="text/javascript" src="ipAccessRestrictions_files/jquery-ui.htm"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			if ($.browser.msie && parseInt($.browser.version) < 10) {
-				$('#header H1, #header .currentime').each(function() {
-					var el = $(this);
-					el.append($('<ins />').text(el.text()));
-				});
-			}
-
-			if ($.browser.msie && parseInt($.browser.version) < 9) {
-				$('#tables tbody').each(function() {
-					$('tr:odd', this).addClass('even');
-				});
-			}
-
-			var showErrorMessage = function (el, er, ep) {
-				el.closest('#form').find('SPAN.error').css({
-					top  : -9999,
-					left : -9999
-				});
-
-				er.css({
-					top  : ep.top - er.outerHeight(true) - 6,
-					left : ep.left - 10
-				});
-			};
-
-			var hideErrorMessage = function (er) {
-				er.css({
-					top  : -9999,
-					left : -9999
-				});
-			};
-
-			$('#form INPUT.error, #form SELECT.error').each(function(i) {
-				var el = $(this),
-						ep = el.position(),
-						er = el.next();
-
-				if (!el.next().is('SPAN.error')) er = el.parent().find('SPAN.error');
-
-				if (i == 0) {
-					er.css({
-						top  : ep.top - er.outerHeight(true) - 6,
-						left : ep.left - 10
-					});
-				}
-
-				$(el).bind({
-					'focusin mouseenter': function() {
-						showErrorMessage(el, er, ep);
-					},
-					'focusout mouseleave': function() {
-						hideErrorMessage(er);
-					},
-					keypress: function() {
-						hideErrorMessage(er);
-					}
-				});
-			});
-
-			$("#dialog-applicationInfo").dialog({
-				autoOpen: false,
-				modal: false,
-				minHeight: 230,
-				minWidth: 500,
-				buttons: {
-					Закрыть: function() {
-						$(this).dialog("close");
-					}
-				}
-			});
-
-			$('#aboutBoxLink').click(function(event) {
-				event.preventDefault();
-				$("#dialog-applicationInfo").load("/seclimits/about.htm");
-				$("#dialog-applicationInfo").dialog("open");
-				return false;
-			});
-		});
-
-	</script>
-
-
-	<script type="text/javascript" src="ipAccessRestrictions_files/jquery.htm"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$("#dateFrom, #dateTo").datepicker({
-				changeMonth:true,
-				changeYear:true
-			});
-			$("#dateFrom, #dateTo").datepicker($.datepicker.regional[ "ru" ]);
-
-			$(".deleteForm").live('submit', function () {
-				return confirm("Удалить ограничение доступа?");
-			});
-		});
-	</script>
-
-	<link rel="stylesheet" href="js/treeview/jquery.treeview.css" />
-	<script src="js/treeview/jquery.js" type="text/javascript"></script>
-	<script src="js/treeview/jquery.cookie.js" type="text/javascript"></script>
-	<script src="js/treeview/jquery.treeview.js" type="text/javascript"></script>
-	<script src="js/treeview/demo.js" type="text/javascript"></script>
-
-
-	<script type="text/javascript">
-
-		$(document).ready(function () {
-
-			var head = $('#tables table thead TR');
-
-			$('.wrapper_head').append('<div class="fixed_head"><table></table></div>');
-
-			head.find('TH').each(function() {
-
-				var el = $(this);
-
-				el.css({
-					width : el.width()
-				});
-
-			}).end().clone().appendTo('.fixed_head table').end();
-
-			$("#jsmith").click(function(){
-
-				if($('.cont_table').hasClass('scroll') && $('.cont_item').hasClass('select')){
-
-					$('.cont_table').removeClass('scroll');
-					$('.cont_item').removeClass('select');
-
-				}else{
-
-					$('.cont_table').addClass('scroll');
-					if($('.cont_item').height() > 100){
-						$('.cont_item').addClass('select');
-					}else{
-						$('.cont_item').addClass('select');
-
-							$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 70 + "px");
-
-							$(window).resize(function(){
-								var height = $(window).height();
-								$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 70 + "px") + height;
-						});
-					}
-
-				}
-
-			});
-
-			$("#jsmith_curt").click(function(){
-
-				if($('.cont_item').hasClass('select') && $('.cont_right').hasClass('curt')){
-
-					$('.cont_right').removeClass('curt');
-
-					$('.cont_item').removeClass('select');
-
-				}else{
-
-					$('.cont_right').addClass('curt');
-					$('.right_top_cont').css('width', $('.right_top_cont').width() - 390 + "px");
-
-
-					$(window).resize(function(){
-						var width = $(window).width();
-
-						$('.right_top_cont').css('width', $('.cont_right').width() - $('.cont_item').width() - 90 + "px") + width;
-					});
-
-					$('.cont_table').addClass('scroll');
-					$('.cont_item').addClass('select');
-
-					$('.cont_table').css('height', $('.cont_right').height() - 96 + "px");
-
-					$(window).resize(function(){
-						var height = $(window).height();
-						$('.cont_table').css('height', $('.cont_right').height() - 96 + "px") + height;
-					});
-
-
-				}
-
-
-
-			});
-
-		});
-
-	</script>
+   	<script src="js/jquery.js" type="text/javascript"></script>
+   	<script src="js/jquery.cookie.js" type="text/javascript"></script>
+   	<script src="js/treeview/jquery.treeview.js" type="text/javascript"></script>
+   	<script src="js/treeview/demo.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 
 </head>
 
@@ -213,23 +25,11 @@
 <div id="header">
 	<div class="header clearfix">
 		<h1>Ввод параметров операций на денежном и валютном рынке</h1>
-
-		<p class="currentime">11.01.2013</p>
+		<p class="currentime"><? echo date('d.m.Y') ?></p>
 	</div>
 	<div class="menu clearfix">
 		<ul>
-
-			<li class="selected"><a href="http://portale.msd.local:7777/seclimits/admin/ipAccessRestrictions.htm">Права доступа</a></li>
-			<li class=""><a href="http://portale.msd.local:7777/seclimits/admin/ipAccessArchive.htm">Архив прав доступа</a></li>
-
 		</ul>
-
-		<p class="metalinks">
-			<a href="http://portale.msd.local:7777/seclimits/logout.htm">Выход</a>
-
-			&nbsp;|&nbsp;<a href="#" id="aboutBoxLink">О программе</a>
-
-		</p>
 	</div>
 </div>
 
@@ -1266,11 +1066,3 @@
 <div id="footer">
 	Версия: 1.1.0-SNAPSHOT
 </div>
-
-
-<div aria-labelledby="ui-id-1" role="dialog" tabindex="-1" style="display: none; outline: 0px none; z-index: 1000; position: absolute;" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable ui-dialog-buttons"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-id-1">О программе</span><a role="button" class="ui-dialog-titlebar-close ui-corner-all" href="#"><span class="ui-icon ui-icon-closethick">close</span></a></div><div class="ui-dialog-content ui-widget-content" id="dialog-applicationInfo">
-	<h3>Загрузка...</h3>
-	<br>
-	<img id="loadingAjax" src="ipAccessRestrictions_files/ajax-loader.gif" alt="Идет загрузка...">
-
-</div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-n"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-e"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-s"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-w"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-sw"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-ne"></div><div style="z-index: 1000;" class="ui-resizable-handle ui-resizable-nw"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button"><span class="ui-button-text">Закрыть</span></button></div></div></div><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div></body></html>
