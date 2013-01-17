@@ -1,3 +1,4 @@
+<? include_once 'flesh/__starter.php' ?>
 <!DOCTYPE html>
 <!--[if IE 7]><html class="lte-ie9 lte-ie8 ie7" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
 <!--[if IE 8]><html class="lte-ie9 lte-ie8 ie8" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
@@ -5,7 +6,7 @@
 <!--[if gte IE 9]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"><!--<![endif]--><head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>SecLims - Редактирование/просмотр прав доступа / Пользователь : admin</title>
+	<title><? echo Config::get('title') ?></title>
 
 	<link href="css/reset.css" type="text/css" rel="stylesheet">
 	<link href="js/jquery-ui.css" type="text/css" rel="stylesheet">
@@ -24,7 +25,7 @@
 <div id="main">
 <div id="header">
 	<div class="header clearfix">
-		<h1>Ввод параметров операций на денежном и валютном рынке</h1>
+		<h1><? echo Config::get('title') ?></h1>
 		<p class="currentime"><? echo date('d.m.Y') ?></p>
 	</div>
 	<div class="menu clearfix">
