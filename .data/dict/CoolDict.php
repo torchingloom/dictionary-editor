@@ -17,6 +17,7 @@ $arr =  array
         'checkbox' => array('title' => 'Галка', 'type' => 'checkbox'),
     ),
     'fields_in_list' => array('id', 'name', 'title', 'country_choice'),
+    'chosen' => array('value' => 'id', 'title' => 'name'),
     'list_sort' => array('field' => 'id', 'type' => 'asc',),
     'fieldsets' => array
     (
