@@ -55,7 +55,7 @@
 \----------------------------------------------------------------------------*/
 
 
-webFXTreeConfig.loadingText = "Загрузка...";
+webFXTreeConfig.loadingText = "Р—Р°РіСЂСѓР·РєР°...";
 webFXTreeConfig.loadErrorTextTemplate = "Error loading \"%1%\"";
 webFXTreeConfig.emptyErrorTextTemplate = "";//Error \"%1%\" does not contain any tree items";
 
