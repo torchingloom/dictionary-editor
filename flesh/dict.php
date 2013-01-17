@@ -2,7 +2,7 @@
 
 class Dict
 {
-    private $ident, $display_type = 1, $fieldsets = array(), $fields = array(), $items = array(), $source;
+    private $ident, $display_type = 1, $fieldsets = array(), $fields = array(), $items = array(), $fields_in_list = array(), $list_sort = array(), $source;
 
     public function __construct($ident)
     {
