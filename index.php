@@ -19,9 +19,18 @@
    	<script src="js/treeview/demo.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 
+    <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
+    <script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>
+    <script type="text/javascript" src="/js/xtree/js/xloadtree.js"></script>
+    <link type="text/css" rel="stylesheet" href="/js/xtree/js/xtree.css" />
+    <script type="text/javascript" src="/js/xtree-starter.js"></script>
+
 </head>
 
 <body>
+
+
+
 <div id="main">
 <div id="header">
 	<div class="header clearfix">
@@ -40,28 +49,8 @@
 	<div class="cont_left">
 
 		<div class="menu_cont">
+            <div id="treeDiv" style="margin:0 5 5 5;"></div>
 
-			<div class="menu_viewtab clearfix">
-				<span title="подробный вид">подробный вид</span>
-				<span title="подробный вид">подробный вид</span>
-			</div>
-
-			<ul id="red" class="treeview-red tab">
-				<li>
-					<span>Справочник - 1</span>
-
-					<ul>
-						<li><span>Страны</span></li>
-						<li><span>Города</span></li>
-						<li><span>Округа</span></li>
-						<li><span>Районы</span></li>
-					</ul>
-
-				</li>
-				<li><span>Справочник - 2</span></li>
-				<li><span>Справочник - 3</span></li>
-				<li><span>Справочник - 4</span></li>
-			</ul>
 
 		</div>
 

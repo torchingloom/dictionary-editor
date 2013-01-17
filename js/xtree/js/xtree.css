@@ -1,0 +1,41 @@
+.webfx-tree-container {
+    margin: 0px;
+    padding: 0px;
+    font: icon;
+    white-space: nowrap;
+    background-color:transparent;
+}
+
+.webfx-tree-item {
+    padding: 0px;
+    margin: 0px;
+    font: icon;
+    color: WindowText;
+    white-space: nowrap;
+    height: 16px;
+    background-color: #FFFFFF;
+}
+
+.webfx-tree-item a, .webfx-tree-item a:active, .webfx-tree-item a:hover {
+    margin-left: 3px;
+    padding: 0px 2px 1px 2px;
+}
+
+.webfx-tree-item a {
+	text-decoration: none;
+}
+
+.webfx-tree-item a:hover, .webfx-tree-item-hover {
+    color: highlighttext;
+    background-color:highlight;
+}
+
+.webfx-tree-item img {
+    vertical-align: middle;
+    border: 0px;
+}
+
+.webfx-tree-icon {
+    width: 16px;
+    height: 16px;
+}
