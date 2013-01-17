@@ -165,6 +165,43 @@
 
 			});
 
+			$("#jsmith_curt").click(function(){
+
+				if($('.cont_item').hasClass('select') && $('.cont_right').hasClass('curt')){
+
+					$('.cont_right').removeClass('curt');
+
+					$('.cont_item').removeClass('select');
+
+				}else{
+
+					$('.cont_right').addClass('curt');
+					$('.right_top_cont').css('width', $('.right_top_cont').width() - 390 + "px");
+
+
+					$(window).resize(function(){
+						var width = $(window).width();
+
+						$('.right_top_cont').css('width', $('.cont_right').width() - $('.cont_item').width() - 90 + "px") + width;
+					});
+
+					$('.cont_table').addClass('scroll');
+					$('.cont_item').addClass('select');
+
+					$('.cont_table').css('height', $('.cont_right').height() - 96 + "px");
+
+					$(window).resize(function(){
+						var height = $(window).height();
+						$('.cont_table').css('height', $('.cont_right').height() - 96 + "px") + height;
+					});
+
+
+				}
+
+
+
+			});
+
 		});
 
 	</script>
@@ -229,7 +266,7 @@
 
 	</div>
 
-	<div class="cont_right curt">
+	<div class="cont_right">
 
 		<div class="right_top_cont">
 			<div class="cont_table_bar right clearfix">
@@ -300,7 +337,7 @@
 									<input type="submit" value=" " class="editButton" title="Редактировать"/>
 								</form>
 							</td>
-							<td>jsmith</td>
+							<td><a id="jsmith_curt">jsmith</a></td>
 							<td>172.29.1.121</td>
 							<td>05.11.2012 00:00</td>
 							<td>31.12.2019 23:59</td>
@@ -1131,46 +1168,88 @@
 		<div class="cont_item">
 
 			<form>
-			<fieldset class="card_item">
-				<legend>Эта выбраная карточка</legend>
+			<div class="card_item">
 
-				<p>
-					<label for="">Название карточки:</label>
-					<input type="text">
-				</p>
-				<p>
-					<label for="">Втрое называние:</label>
-					<input type="text">
-				</p>
-				<p>
-					<label for="">Календарь:</label>
-					<input type="text">
-				</p>
-				<p>
-					<label for="">Тип:</label>
-					<select>
-						<option>Карточка с бубенцами</option>
-						<option>Карточка обыкновенная</option>
-						<option>Карточка перекидная</option>
-						<option>Карточка без подложки</option>
-					</select>
-				</p>
-				<p>
-					<label for="">Описание карточки:</label>
-					<textarea placeholder="Добавить описаине к карточке..."></textarea>
-				</p>
-				<p>
-					<input type="checkbox">
-					<label for="">Отметить карточку как новую</label>
-				</p>
-				<p>
-					<input type="checkbox">
-					<label for="">Добавить в избранное</label>
-				</p>
+				<div class="cont_table_bar right clearfix">
+					<span title="кнопка"> >>></span>
+					<span title="кнопка"><<< </span>
+				</div>
+
+				<div class="cont_table_bar left clearfix">
+					<span title="кнопка">сохранить</span>
+					<span title="кнопка">отмена</span>
+				</div>
+
+				<fieldset>
+
+					<legend>Группа 1</legend>
+
+					<p>
+						<label for="">Название карточки:</label>
+						<input type="text">
+					</p>
+					<p>
+						<label for="">Втрое называние:</label>
+						<input type="text">
+					</p>
+
+				</fieldset>
+
+				<fieldset>
+
+					<legend>Группа 2</legend>
+
+					<p>
+						<label for="">Календарь:</label>
+						<input type="text">
+					</p>
+					<p>
+						<label for="">Тип:</label>
+						<select>
+							<option>Карточка с бубенцами</option>
+							<option>Карточка обыкновенная</option>
+							<option>Карточка перекидная</option>
+							<option>Карточка без подложки</option>
+						</select>
+					</p>
+
+				</fieldset>
+
+				<fieldset>
+
+					<legend>Группа 2.1</legend>
+
+					<p>
+						<input type="checkbox">
+						<label for="">Отметить карточку как новую</label>
+					</p>
+					<p>
+						<input type="checkbox">
+						<label for="">Добавить в избранное</label>
+					</p>
+
+					<p>
+						<input type="checkbox">
+						<label for="">Что-то очень важное без отлагательное</label>
+					</p>
+
+				</fieldset>
+
+				<fieldset>
+
+					<legend>Группа 3</legend>
+
+					<p>
+						<label for="">Описание карточки:</label>
+						<textarea placeholder="Добавить описаине к карточке..."></textarea>
+					</p>
+
+
+				</fieldset>
 
 				<p>Все права &copy;</p>
 
-			</fieldset>
+			</div>
 			</form>
 
 		</div>

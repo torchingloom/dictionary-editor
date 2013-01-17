@@ -605,6 +605,8 @@ button.ui-datepicker-close {
 	bottom: 30px;
 	padding: 0 !important;
 	overflow: auto;
+	overflow-y: scroll;
+
 }
 
 #tables table{
@@ -684,8 +686,8 @@ button.ui-datepicker-close {
 	margin: 20px 20px 0px 0;
 	padding-bottom: 20px;
 	position: absolute;
-	top: -100%;
-	left: -100%;
+	top: -1000%;
+	left: -1000%;
 }
 
 .cont_item.select{
@@ -698,11 +700,28 @@ button.ui-datepicker-close {
 	background-color: #F3F4F6;
 	border: 1px solid #a1a1a1;
 	border-radius: 5px;
-	padding: 20px;
+	padding: 16px;
+}
+
+.card_item fieldset{
+	background-color: #e6e2af;
+	border: 1px solid #305f5f;
+	border-radius: 5px;
+	padding: 10px 4px 10px 10px;
+	margin: 0 0 10px 0;
+}
+
+.card_item fieldset legend{
+	color: #fff;
+	font-weight: bold;
+	background-color: #305f5f;
+	padding: 3px 5px;
+	border-radius: 4px;
 }
 
 .card_item p{
-	margin-bottom: 10px;
+	margin:0 10px 10px 0;
+	display: inline-block;
 }
 
 .card_item p label{
@@ -787,14 +806,18 @@ button.ui-datepicker-close {
 	margin: 20px 20px 0 0;
 }
 
-/*.cont_right.curt .right_top_cont{
+.cont_right.curt{
 
+}
+
+.cont_right.curt .right_top_cont{
 	float: left;
 }
 
 .cont_right.curt .cont_item.select{
+	width: 362px;
 	float: right;
-}*/
+}
 
 
 .cont_table_bar.right{
