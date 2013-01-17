@@ -1,20 +1,16 @@
 window.JST = {};
 window.JST['dictionary'] = _.template(''+
-  '<% var type = "" %>'+
+  '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
 
-  '<div class="content content-horizotal">'+
+
+  '<div class="content <%= type %>">'+
     '<div class="content-list">'+
 
   '<div class="cont_table_bar right clearfix">'+
     '<span title="кнопка">кнопка</span>'+
-    '<span title="кнопка">кнопка</span>'+
-    '<span title="кнопка">кнопка</span>'+
-    '<span title="кнопка">кнопка</span>'+
   '</div>'+
 
   '<div class="cont_table_bar left clearfix">'+
-    '<span title="кнопка">кнопка</span>'+
-    '<span title="кнопка">кнопка</span>'+
     '<span title="кнопка">кнопка</span>'+
     '<span title="кнопка">кнопка</span>'+
   '</div>'+
@@ -75,7 +71,7 @@ window.JST['cards'] = _.template(''+
   '<% _.each( fieldset.fields, function( key ){ %>'+
             '<p>'+
               '<label for=""><%= settings["fields"][key]["title"]  %></label>'+
-              '<input type="text" value="<%= data[key] %>" />'+
+              '<input type="text" value="<%= filds[key] %>" />'+
             '</p>'+
   '<% }); %>'+
 

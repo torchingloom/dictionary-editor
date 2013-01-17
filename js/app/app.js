@@ -9,15 +9,16 @@ App.Viws = {};
 
 App.Router = Backbone.Router.extend({
   routes: {
-    ":catalog": "catalog"
+    ":catalog": "catalog",
+    ":catalog/:id": "catalog"
   },
-  catalog: function(catalog) {
+  catalog: function(catalog, id) {
+
     app.settings = new App.Models.Settings( { name: catalog } );
     app.dictionary = new App.Collections.Dictionary( { name: catalog, from: 0, count: 100  } );
 
     $.when( app.settings.fetch(), app.dictionary.fetch() ).done(function(){
-      app.view = new App.Viws.Dictionary( { settings: app.settings, data:app.dictionary } );
-      // console.log(app.settings.toJSON(), app.dictionary.toJSON());
+      app.view = new App.Viws.Dictionary( {"curent": id} );
     });
 
   }
@@ -37,7 +38,6 @@ App.Collections.Dictionary = Backbone.Collection.extend({
     this.from = options.from || 0;
     this.count = options.count || 100;
   }
-
 });
 
 App.Models.Settings = Backbone.Model.extend({
@@ -49,7 +49,6 @@ App.Models.Settings = Backbone.Model.extend({
   initialize: function( options ){
     this.name = options.name;
   }
-
 });
 
 
@@ -58,26 +57,25 @@ App.Viws.Dictionary = Backbone.View.extend({
   el: ".cont_right",
 
   events: {
-    "click .item": "showCard"
+    "click .item": "getId"
   },
 
   initialize: function( options ){
-    this.settings = _.extend( {}, options.settings.toJSON() );
-    this.data = _.extend( {}, options.data.toJSON() );
 
-    this.model_settings = options.settings;
-    this.collection_data = options.data;
-    this.render({"settings": this.settings, "filds": this.data});
-
+    this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
   },
 
   render: function(data){
     this.$el.html(this.template(data));
   },
 
-  showCard: function(event) {
-    model = this.collection_data.get($(event.target).parent("tr").data("id"));
-    this.cards = new App.Viws.Cards({ model: model, settings: this.model_settings });
+  getId: function(event){
+    this.showCard( $(event.target).parent("tr").data("id") );
+  },
+
+  showCard: function(id) {
+    var model = app.dictionary.get( id );
+    var cards = new App.Viws.Cards( { "model": model } );
   }
 
 });
@@ -88,13 +86,11 @@ App.Viws.Cards = Backbone.View.extend({
   el: ".content-item",
 
   initialize: function( options ){
-    this.model = options.model;
-    this.settings = options.settings;
-    this.render();
+    this.render( options.model );
   },
 
-  render: function() {
-    this.$el.html(this.template( { data: this.model.toJSON(), settings: this.settings.toJSON() } ));
+  render: function(model) {
+    this.$el.html(this.template( {"settings": app.settings.toJSON(), "filds": model.toJSON()} ));
   }
 
 });

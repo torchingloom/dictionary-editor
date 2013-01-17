@@ -948,11 +948,17 @@ button.ui-datepicker-close {
 }
 
 .content-vertical .content-list {
-  width: 35%;
+	position: relative;
+	float: left;
+	margin-right: -100%;
+  width: 32%;
   left: 0;
   height: 400px;
 }
 .content-vertical .content-item {
+	position: relative;
+	float: left;
+	margin-right: -100%;
   width: 65%;
   left: 35%;
   height: 400px;
