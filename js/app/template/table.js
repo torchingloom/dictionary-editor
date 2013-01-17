@@ -1,7 +1,7 @@
 window.JST = {};
 window.JST['dictionary'] = _.template(''+
+  '<% var type = "" %>'+
 
-  '<% var type =  %>'
   '<div class="content content-horizotal">'+
     '<div class="content-list">'+
 
