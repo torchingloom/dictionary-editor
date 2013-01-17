@@ -5,15 +5,15 @@ App.Router = {};
 App.Router = Backbone.Router.extend({
 
   routes: {
-    "help": "catalog"
+    ":catalog": "catalog"
   },
 
   initialize: function() {
 
   },
 
-  catalog: function(id) {
-    console.log("asdasdasdas");
+  catalog: function(catalog) {
+    console.log(catalog);
   }
 
 });
@@ -23,6 +23,6 @@ $(function(){
 
   var app = {};
   app.routr = new App.Router();
-  console.log(Backbone.history.start());
+  Backbone.history.start();
 
 });
