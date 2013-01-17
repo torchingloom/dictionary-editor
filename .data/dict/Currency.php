@@ -2,12 +2,18 @@
 
 return array
 (
-    'display_type' => 2, // split vertical
+    'display_type' => 3, // list only
     'fields' => array
     (
         'id' => array('title' => 'ID', 'type' => 'int', 'readonly' => true),
         'code' => array('title' => 'Код по ISO', 'type' => 'varchar', 'maxlength' => 3),
         'title' => array('title' => 'Локальное название', 'type' => 'varchar', 'maxlength' => 20),
+    ),
+    'fields_in_list' => array('id', 'code', 'title'),
+    'list_sort' => array
+    (
+        'field' => 'id',
+        'type' => 'asc',
     ),
     'fieldsets' => array
     (

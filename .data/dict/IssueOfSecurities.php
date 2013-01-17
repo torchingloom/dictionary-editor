@@ -23,6 +23,12 @@ $arr = array
         'currency' => array('title' => 'Валюта', 'type' => 'dictchoice', 'dict' => 'Currency'),
         'osobo' => array('title' => 'Особое состояние', 'type' => 'varchar', 'maxlength' => 256),
     ),
+    'fields_in_list' => array('id', 'type_fi', 'isin_code'),
+    'list_sort' => array
+    (
+        'field' => 'id',
+        'type' => 'asc',
+    ),
     'fieldsets' => array
     (
         array('title' => 'ФИ & ISIN', 'fields' => array('type_fi', 'isin_code')),
