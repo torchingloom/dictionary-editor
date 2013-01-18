@@ -682,11 +682,18 @@ button.ui-datepicker-close {
 }
 
 .fixed_head{
-	background-color: #F3F4F6;
-	position: absolute;
-	left: 0;
-	right: 16px;
-	top: 0px;
+    background-color: #F3F4F6;
+    position: fixed;
+    left: 271px;
+    right: 39px;
+    top: 146px;
+}
+.content-vertical .fixed_head{
+    background-color: #F3F4F6;
+    position: fixed;
+    left: 271px;
+    right: 39px;
+    top: 146px;
 }
 
 #tables .fixed_head TABLE TH{
