@@ -705,7 +705,9 @@ button.ui-datepicker-close {
 	left: 0;
 	right: 16px;
 	top: 0px;
+	display: none;
 }
+
 .content-vertical .fixed_head{
     background-color: #F3F4F6;
     position: fixed;
@@ -716,6 +718,7 @@ button.ui-datepicker-close {
 
 #tables .fixed_head TABLE TH{
 	border-top: 0 none;
+	font-size: 11px;
 }
 
 
@@ -772,9 +775,11 @@ button.ui-datepicker-close {
     vertical-align: top;
 }
 
+.card_item label,
 .card_item p label{
 	font-size: 12px;
 	display: block;
+	padding: 0 0 0 20px;
 }
 
 .card_item p input[type="text"]{
@@ -783,7 +788,8 @@ button.ui-datepicker-close {
 	font-size: 12px;
 	line-height: 14px;
 }
-
+.card_item input[type="radio"],
+.card_item input[type="checkbox"],
 .card_item p input[type="checkbox"]{
 	float: left;
 }
@@ -985,10 +991,11 @@ button.ui-datepicker-close {
 .content table tr td{
     text-align: left;
 }
+.fixed_head TABLE th,
 .content table thead {
     color: #fff;
     font-weight: bold;
-    background-color: #305f5f;
+    background-color: #305f5f !important;
 }
 .content-horizotal .content-list {
 	/*position: absolute;

@@ -163,26 +163,23 @@ window.JST['сhoice'] = _.template(''+
     '');
 window.JST['radio'] = _.template(''+
     '<div>'+
-
     ''+
-    '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
     '<input type="radio" value="<%= value %>" disabled="disabled" class="date"  />'+
     '<% } else { %>'+
     '<input type="radio" value="<%= value %>" class="date" />'+
     '<% }; %>'+
+	'<label for=""><%= settings["title"]  %></label>'+
     ''+
-
-
     '</div>'+
     '');
 window.JST['checkbox'] = _.template(''+
     '<div>'+
-    '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
     '<input type="checkbox" value="<%= value %>" disabled="disabled" class="date"  />'+
     '<% } else { %>'+
     '<input type="checkbox" value="<%= value %>" class="date" />'+
     '<% }; %>'+
+	'<label for=""><%= settings["title"]  %></label>'+
     '</div>'+
     '');

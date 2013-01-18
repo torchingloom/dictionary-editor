@@ -67,7 +67,8 @@ $(document).ready(function() {
 	});
 
 	var head = $('table thead TR');
-  $('.wrapper_head').append('<div class="fixed_head"><table></table></div>');
+
+  	$('.wrapper_head').append('<div class="fixed_head"><table></table></div>');
 
 	head.find('TH').each(function() {
 
@@ -79,32 +80,32 @@ $(document).ready(function() {
 
 	}).end().clone().appendTo('.fixed_head table').end();
 
-	$("#jsmith").click(function(){
-
-		if($('.cont_table').hasClass('scroll') && $('.cont_item').hasClass('select')){
-
-			$('.cont_table').removeClass('scroll');
-			$('.cont_item').removeClass('select');
-
-		}else{
-
-			$('.cont_table').addClass('scroll');
-			if($('.cont_item').height() > 100){
-				$('.cont_item').addClass('select');
-			}else{
-				$('.cont_item').addClass('select');
-
-					$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 70 + "px");
-
-					$(window).resize(function(){
-						var height = $(window).height();
-						$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 70 + "px") + height;
-				});
-			}
-
-		}
-
-	});
+//	$("#jsmith").click(function(){
+//
+//		if($('.cont_table').hasClass('scroll') && $('.cont_item').hasClass('select')){
+//
+//			$('.cont_table').removeClass('scroll');
+//			$('.cont_item').removeClass('select');
+//
+//		}else{
+//
+//			$('.cont_table').addClass('scroll');
+//			if($('.cont_item').height() > 100){
+//				$('.cont_item').addClass('select');
+//			}else{
+//				$('.cont_item').addClass('select');
+//
+//					$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 70 + "px");
+//
+//					$(window).resize(function(){
+//						var height = $(window).height();
+//						$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 70 + "px") + height;
+//				});
+//			}
+//
+//		}
+//
+//	});
 
 	$("#jsmith_curt").click(function(){
 
