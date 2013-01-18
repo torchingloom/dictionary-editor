@@ -121,14 +121,14 @@ window.JST['varchar'] = _.template(''+
     '');
 
 window.JST['textarea'] = _.template(''+
-    '<p>'+
+    '<div>'+
     '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
     '<textarea disabled="disabled" ><%= value %></textarea>'+
     '<% } else { %>'+
     '<textarea ><%= value %></textarea>'+
     '<% }; %>'+
-    '</p>'+
+    '</div>'+
     '');
 window.JST['date'] = _.template(''+
     '<p class="input-append date datepicker" data-date="<%= value %>" data-date-format="yyyy-mm-dd">'+
@@ -148,12 +148,17 @@ window.JST['сhoice'] = _.template(''+
     '');
 window.JST['radio'] = _.template(''+
     '<div>'+
+
+    ''+
     '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
     '<input type="radio" value="<%= value %>" disabled="disabled" class="date"  />'+
     '<% } else { %>'+
     '<input type="radio" value="<%= value %>" class="date" />'+
     '<% }; %>'+
+    ''+
+
+
     '</div>'+
     '');
 window.JST['checkbox'] = _.template(''+

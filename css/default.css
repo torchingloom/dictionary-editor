@@ -748,6 +748,7 @@ button.ui-datepicker-close {
 .card_item p{
 	margin:0 10px 10px 0;
 	display: inline-block;
+    vertical-align: top;
 }
 
 .card_item p label{
@@ -947,7 +948,7 @@ button.ui-datepicker-close {
 	left: 250px;
 	right: 10px;
 	top:125px;
-	bottom: 30px;
+	bottom: 50px;
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -994,7 +995,7 @@ button.ui-datepicker-close {
 
 .content-vertical .content-list {
 	position: absolute;
-    width: 45%;
+    width: 53%;
 	height: 100%;
 	overflow: auto;
 	background: #f9f9f9;
@@ -1005,7 +1006,7 @@ button.ui-datepicker-close {
 	position: absolute;
     width: 45%;
 	height: 100%;
-  left: 50%;
+    left: 55%;
 	overflow: auto;
     background: #f9f9f9;
     border: 1px solid #a1a1a1;
@@ -1031,6 +1032,13 @@ button.ui-datepicker-close {
 	font-size: 0;
 }
 
+textarea {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
 
 
 

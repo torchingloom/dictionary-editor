@@ -66,17 +66,20 @@ App.Viws.Dictionary = Backbone.View.extend({
 
   render: function(data){
     this.$el.html(this.template(data));
+    if (data.settings.display_type === 1) {
+      this.setFixedHeader();
+    };
+  },
 
+  setFixedHeader: function(){
     var head = $('table thead TR');
     $('.wrapper_head').append('<div class="fixed_head"><table class="table table-striped table-bordered table-main"></table></div>');
-
     head.find('TH').each(function() {
       var el = $(this);
       el.css({
         width : el.width()
       });
     }).end().clone().appendTo('.fixed_head table').end();
-
   },
 
   getId: function(event){
@@ -117,7 +120,6 @@ App.Viws.Cards = Backbone.View.extend({
 
     this.$el.html(this.template({ "settings": app.settings.toJSON(), "filds": model.toJSON(), "not_in_group": not_in_group }));
 
-    this.$el.find(".datepicker").datepicker();
   }
 
 });

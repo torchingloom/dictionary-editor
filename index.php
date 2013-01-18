@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="/css/select2.css" />
+
     <link rel="stylesheet" type="text/css" href="/js/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="/js/xtree/js/xtree.css" />
 
@@ -51,11 +53,12 @@
 	Версия: 1.1.0-SNAPSHOT
 </div>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/custom.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<!--<script type="text/javascript" src="/js/bootstrap-datepicker.js"></script>-->
+<script type="text/javascript" src="/js/select2.js"></script>
 
 <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>
