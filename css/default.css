@@ -693,8 +693,8 @@ button.ui-datepicker-close {
 }
 
 .cont_item{
-	margin: 20px 20px 0px 0;
-	padding-bottom: 20px;
+	/*margin: 20px 20px 0px 0;*/
+	/*padding-bottom: 20px;*/
 	/*position: absolute;*/
 	top: -1000%;
 	left: -1000%;
@@ -1031,8 +1031,13 @@ button.ui-datepicker-close {
 	overflow: hidden;
 	font-size: 0;
 }
-
-
+form {
+    margin: 0;
+}
+.row-current-view td{
+    background: #0088cc !important;
+    color: #fff !important;
+}
 
 
 

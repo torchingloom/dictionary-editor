@@ -69,12 +69,18 @@ App.Viws.Dictionary = Backbone.View.extend({
   },
 
   getId: function(event){
-    this.showCard( $(event.target).parent("tr").data("id") );
+    var id = $(event.target).parent("tr").data("id");
+    this.showCard(id);
+    this.setCurrentRow(id);
   },
 
   showCard: function(id) {
     var model = app.dictionary.get( id );
     var cards = new App.Viws.Cards( { "model": model } );
+  },
+  setCurrentRow: function(id) {
+    this.$el.find(".row-current-view").removeClass("row-current-view");
+    this.$el.find(".item-"+id).addClass("row-current-view");
   }
 
 });

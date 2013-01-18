@@ -23,19 +23,23 @@ window.JST['dictionary'] = _.template(''+
 
       '<thead>'+
         '<tr>'+
+        '<th><input type="checkbox" class="main"></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
       '<th><%= settings["fields"][key]["title"] %></th>'+
     '<% }); %>'+
+        '<th></th>'+
         '</tr>'+
       '</thead>'+
 
 
       '<tbody>'+
     '<% _.each( filds, function(fild) {%>'+
-        '<tr data-id="<%= fild.id %>">'+
+        '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
+          '<td><input type="checkbox"></td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
           '<td class="item"><%= fild[key] %></td>'+
     '<% }); %>'+
+        '<td><div class="btn-group"><button class="btn btn-mini" type="button"><i class="icon-pencil"></i></button><button class="btn btn-mini" type="button"><i class="icon-remove"></i></button><button class="btn btn-mini" type="button"><i class="icon-edit"></i></button></div></button></td>'+
         '</tr>'+
     '<% }); %>'+
 
