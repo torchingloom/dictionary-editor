@@ -2,6 +2,7 @@
 
 $arr = array
 (
+    'display_type' => 1, // vertical split
     'fields' => array
     (
         'id' => array('title' => 'ID', 'type' => 'int', 'readonly' => true),
