@@ -18,7 +18,7 @@ window.JST['dictionary'] = _.template(''+
   '<div class="wrapper_head">'+
   '<div class="cont_table">'+
 
-    '<table id="tables"  class="table table-striped">'+
+    '<table class="table table-striped table-bordered table-fixed-header">'+
 
 
       '<thead>'+

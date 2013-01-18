@@ -8,10 +8,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><? echo Config::get('title') ?></title>
 
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="js/jquery-ui.css" />
-	<link rel="stylesheet" type="text/css" href="css/default.css" />
-  <link rel="stylesheet" type="text/css" href="/js/xtree/js/xtree.css" />
+	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="/js/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/js/xtree/js/xtree.css" />
 
 </head>
 <body>
@@ -53,6 +54,8 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/table-fixed-header.js"></script>
 
 <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>

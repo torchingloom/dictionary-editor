@@ -61,7 +61,6 @@ App.Viws.Dictionary = Backbone.View.extend({
   },
 
   initialize: function( options ){
-
     this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
   },
 

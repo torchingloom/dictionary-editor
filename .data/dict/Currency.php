@@ -2,7 +2,7 @@
 
 return array
 (
-    'display_type' => 1, // list only
+    'display_type' => 3, // list only
     'fields' => array
     (
         'id' => array('title' => 'ID', 'type' => 'int', 'readonly' => true),
