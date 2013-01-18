@@ -106,7 +106,16 @@ App.Viws.Cards = Backbone.View.extend({
   },
 
   render: function(model) {
-    this.$el.html(this.template( {"settings": app.settings.toJSON(), "filds": model.toJSON()} ));
+    var not_in_group = _.extend( {}, app.settings.toJSON().fields );
+    var fieldsets = app.settings.toJSON().fieldsets;
+
+    _.each(fieldsets, function(fieldset){
+      _.each(fieldset.fields, function(key){
+        delete not_in_group[key];
+      });
+    });
+
+    this.$el.html(this.template({ "settings": app.settings.toJSON(), "filds": model.toJSON(), "not_in_group": not_in_group }));
   }
 
 });
