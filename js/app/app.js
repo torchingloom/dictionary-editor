@@ -95,6 +95,33 @@ App.Viws.Dictionary = Backbone.View.extend({
   setCurrentRow: function(id) {
     this.$el.find(".row-current-view").removeClass("row-current-view");
     this.$el.find(".item-"+id).addClass("row-current-view");
+
+	// ---- Добавил Repa ----
+	// суть такая,  пока карточка не выбрана, вся таблица по высоте занимает правую часть,
+	// если при клике на строчку в таблице выбранная карточка по инфе и высоте маленькая
+	// (ну скажем как тут 200px я сделал), то высота таблички на всю высотку правой части
+	// - высота карточки и появляется скроллинг только у блока с таблицей, а не у страницы.
+	// А типо если высота у карточки большая, то просто таблица принимает жесткую высотку
+	// минимальную имеет свой скроллинг, а карточка полотенцем вниз и скроллица уже браузером.
+
+	if($('.cont_table').hasClass('scroll')){
+		$('.cont_table').removeClass('scroll');
+	}else{
+	$('.cont_table').addClass('scroll');
+		if($('.cont_item').height() > 200){
+		  $('.cont_item').addClass('select');
+		}else{
+		  $('.cont_item').addClass('select');
+
+		  $('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px");
+
+		  $(window).resize(function(){
+			  var height = $(window).height();
+			  $('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px") + height;
+		  });
+		}
+	}
+	// ----
   }
 
 });

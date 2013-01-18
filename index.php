@@ -10,11 +10,12 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="/css/default.css" />
-	<link rel="stylesheet" type="text/css" href="/css/select2.css" />
+	<link rel="stylesheet" type="text/css" href="/js/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="/js/xtree/js/xtree.css" />
 
-    <link rel="stylesheet" type="text/css" href="/js/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="/js/xtree/js/xtree.css" />
+	<link rel="stylesheet" type="text/css" href="/css/select2.css" />
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+
 
 </head>
 <body>

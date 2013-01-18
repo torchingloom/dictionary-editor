@@ -2,6 +2,8 @@ window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
 
+  '<div class="right_top_cont">'+
+
   '<div class="cont_table_bar right clearfix">'+
     '<span title="кнопка">кнопка</span>'+
   '</div>'+
@@ -50,14 +52,16 @@ window.JST['dictionary'] = _.template(''+
     '</div>'+
 
   '</div>'+
-
-  '<div class="content-item">'+
-    '<div class="card_item">'+
-    'Выберете строку'+
-    '</div>'+
   '</div>'+
 
+'</div>'+
+
+'<div class="content-item">'+
+'<p style="position: absolute;top:100px;left:-100px;">'+
+	'Выберете строку'+
+'</p>'+
 '</div>'
+
 );
 
 window.JST['cards'] = _.template(''+
