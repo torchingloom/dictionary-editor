@@ -18,15 +18,15 @@ window.JST['dictionary'] = _.template(''+
   '<div class="wrapper_head">'+
   '<div class="cont_table">'+
 
-    '<table class="table table-striped table-bordered table-fixed-header">'+
+    '<table class="table table-striped table-bordered table-main">'+
 
 
       '<thead>'+
-        '<tr>'+
-        '<th><input type="checkbox" class="main"></th>'+
-    '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<th><%= settings["fields"][key]["title"] %></th>'+
-    '<% }); %>'+
+        '<tr class="">'+
+        '<th><input type="checkbox" ></th>'+
+        '<% _.each( settings.fields_in_list, function(key) {%>'+
+        '<th><%= settings["fields"][key]["title"] %></th>'+
+        '<% }); %>'+
         '<th></th>'+
         '</tr>'+
       '</thead>'+
@@ -80,17 +80,50 @@ window.JST['cards'] = _.template(''+
           '<fieldset>'+
             '<legend><%= fieldset.title %></legend>'+
   '<% _.each( fieldset.fields, function( key ){ %>'+
-            '<p>'+
-              '<label for=""><%= settings["fields"][key]["title"]  %></label>'+
-              '<input type="text" value="<%= filds[key] %>" />'+
-            '</p>'+
+            '<%= JST[ settings["fields"][key]["type"] ]( { settings: settings["fields"][key], value: filds[key]  } ) %>'+
   '<% }); %>'+
-
           '</fieldset>'+
-'<% }); %>'+
+
+    '<% }); %>'+
 
         '</div>'+
       '</form>'+
     '</div>'+
   '</div>'
 );
+
+
+window.JST['int'] = _.template(''+
+    '<p>'+
+    '<label for=""><%= settings["title"]  %></label>'+
+    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+    '<input type="text" value="<%= value %>" disabled="disabled"  />'+
+    '<% } else { %>'+
+    '<input type="text" value="<%= value %>"  />'+
+    '<% }; %>'+
+    '</p>'+
+'');
+
+window.JST['varchar'] = _.template(''+
+    '<p>'+
+    '<label for=""><%= settings["title"]  %></label>'+
+    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+    '<input type="text" value="<%= value %>" disabled="disabled"  />'+
+    '<% } else { %>'+
+    '<input type="text" value="<%= value %>"  />'+
+    '<% }; %>'+
+    '</p>'+
+    '');
+
+window.JST['textarea'] = _.template(''+
+    '');
+window.JST['date'] = _.template(''+
+    '');
+window.JST['dictchoice'] = _.template(''+
+    '');
+window.JST['сhoice'] = _.template(''+
+    '');
+window.JST['radio'] = _.template(''+
+    '');
+window.JST['checkbox'] = _.template(''+
+    '');

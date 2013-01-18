@@ -66,6 +66,17 @@ App.Viws.Dictionary = Backbone.View.extend({
 
   render: function(data){
     this.$el.html(this.template(data));
+
+    var head = $('table thead TR');
+    $('.wrapper_head').append('<div class="fixed_head"><table class="table table-striped table-bordered table-main"></table></div>');
+
+    head.find('TH').each(function() {
+      var el = $(this);
+      el.css({
+        width : el.width()
+      });
+    }).end().clone().appendTo('.fixed_head table').end();
+
   },
 
   getId: function(event){

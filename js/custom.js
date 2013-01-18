@@ -66,9 +66,8 @@ $(document).ready(function() {
 		return false;
 	});
 
-	var head = $('#tables table thead TR');
-
-	$('.wrapper_head').append('<div class="fixed_head"><table></table></div>');
+	var head = $('table thead TR');
+  $('.wrapper_head').append('<div class="fixed_head"><table></table></div>');
 
 	head.find('TH').each(function() {
 

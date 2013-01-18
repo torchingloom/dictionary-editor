@@ -98,6 +98,7 @@ A:hover {
 }
 #header .menu {
 	position: relative;
+	padding: 8px 12px;
 	background-color: #e6e2af;
 	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
 	background-image:    -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
@@ -693,8 +694,8 @@ button.ui-datepicker-close {
 }
 
 .cont_item{
-	/*margin: 20px 20px 0px 0;*/
-	/*padding-bottom: 20px;*/
+	margin: 20px 20px 0px 0;
+	padding-bottom: 20px;
 	/*position: absolute;*/
 	top: -1000%;
 	left: -1000%;
@@ -940,7 +941,7 @@ button.ui-datepicker-close {
 	left: 250px;
 	right: 10px;
 	top:125px;
-	bottom: 40px;
+	bottom: 30px;
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -966,11 +967,11 @@ button.ui-datepicker-close {
 	height: 48%;
 	overflow: auto;
 	background: #f9f9f9;
-    border: 1px solid #a1a1a1;
+  border: 1px solid #a1a1a1;
 	border-radius: 10px;
 }
 .wrapper_head {
-    padding: 20px 10px 20px 20px;
+    padding: 20px;
     background: #f9f9f9;
     margin: 0 10px 0 0;
 }
@@ -987,7 +988,7 @@ button.ui-datepicker-close {
 
 .content-vertical .content-list {
 	position: absolute;
-    width: 48%;
+    width: 45%;
 	height: 100%;
 	overflow: auto;
 	background: #f9f9f9;
@@ -996,25 +997,17 @@ button.ui-datepicker-close {
 }
 .content-vertical .content-item {
 	position: absolute;
-    width: 50%;
+    width: 45%;
 	height: 100%;
-    left: 50%;
+  left: 50%;
 	overflow: auto;
     background: #f9f9f9;
     border: 1px solid #a1a1a1;
     border-radius: 10px;
 }
 .content-widescreen .content-list {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background: #f9f9f9;
-    border: 1px solid #a1a1a1;
-    border-radius: 10px;
-}
-.content-widescreen .content-item {
-    display: none;
+  width: 100%;
+  height: 400px;
 }
 
 .hidden {
@@ -1031,13 +1024,8 @@ button.ui-datepicker-close {
 	overflow: hidden;
 	font-size: 0;
 }
-form {
-    margin: 0;
-}
-.row-current-view td{
-    background: #0088cc !important;
-    color: #fff !important;
-}
+
+
 
 
 

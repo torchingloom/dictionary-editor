@@ -55,7 +55,6 @@
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/table-fixed-header.js"></script>
 
 <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>
