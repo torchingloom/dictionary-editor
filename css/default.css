@@ -722,17 +722,17 @@ button.ui-datepicker-close {
 }
 
 .card_item fieldset{
-	background-color: #e6e2af;
-	border: 1px solid #305f5f;
+	/*background-color: #e6e2af;*/
+	border: 1px solid #a3a3a3;
 	border-radius: 5px;
 	padding: 10px 4px 10px 10px;
 	margin: 0 0 10px 0;
 }
 
 .card_item fieldset legend{
-	color: #fff;
+	/*color: #fff;*/
 	font-weight: bold;
-	background-color: #305f5f;
+	/*background-color: #305f5f;*/
 	padding: 3px 5px;
 	border-radius: 4px;
 

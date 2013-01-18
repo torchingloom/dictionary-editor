@@ -109,6 +109,17 @@ window.JST['int'] = _.template(''+
     '</p>'+
 '');
 
+window.JST['float'] = _.template(''+
+    '<p>'+
+    '<label for=""><%= settings["title"]  %></label>'+
+    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+    '<input type="text" value="<%= value %>" disabled="disabled"  />'+
+    '<% } else { %>'+
+    '<input type="text" value="<%= value %>"  />'+
+    '<% }; %>'+
+    '</p>'+
+'');
+
 window.JST['varchar'] = _.template(''+
     '<p>'+
     '<label for=""><%= settings["title"]  %></label>'+
