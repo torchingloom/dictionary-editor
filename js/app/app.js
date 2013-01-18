@@ -116,6 +116,8 @@ App.Viws.Cards = Backbone.View.extend({
     });
 
     this.$el.html(this.template({ "settings": app.settings.toJSON(), "filds": model.toJSON(), "not_in_group": not_in_group }));
+
+    this.$el.find(".datepicker").datepicker();
   }
 
 });

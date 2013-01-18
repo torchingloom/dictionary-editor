@@ -131,12 +131,14 @@ window.JST['textarea'] = _.template(''+
     '</p>'+
     '');
 window.JST['date'] = _.template(''+
-    '<p>'+
-    '<label for=""><%= settings["title"]  %></label>'+
+    '<p class="input-append date datepicker" data-date="<%= value %>" data-date-format="yyyy-mm-dd">'+
+      '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<input type="text" value="<%= value %>" disabled="disabled" class="date"  />'+
+      '<input type="text" value="<%= value %>">'+
+      '<span class="add-on"><i class="icon-calendar"></i></span>'+
     '<% } else { %>'+
-    '<input type="text" value="<%= value %>" class="date" />'+
+      '<input type="text" value="<%= value %>">'+
+      '<span class="add-on"><i class="icon-calendar"></i></span>'+
     '<% }; %>'+
     '</p>'+
     '');
