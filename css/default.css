@@ -665,6 +665,7 @@ button.ui-datepicker-close {
 .cont_left{
 	width: 250px;
 	height: 100%;
+	position: fixed;
 }
 
 .menu_cont{
@@ -684,8 +685,13 @@ button.ui-datepicker-close {
 }
 
 .cont_table.scroll{
-	height: 300px;
+	max-height: 300px;
 	overflow-y: scroll;
+}
+
+.content-vertical .cont_table.scroll{
+	overflow: auto;
+	max-height: 100%;
 }
 
 .wrapper_head{
@@ -892,14 +898,14 @@ button.ui-datepicker-close {
 	float: right;
 }
 
-.cont_right.vertical .vertical_view .vv_left{
+.vv_left{
 	width: 35%;
 	float: left;
 }
 
-.cont_right.vertical .vertical_view .vv_right{
+.vv_right{
 	width: 65%;
-	float: right;
+	float: left;
 }
 
 /*@media screen and (max-width: 1240px) {
@@ -1023,13 +1029,13 @@ button.ui-datepicker-close {
 }
 
 .content-vertical .content-list {
-	position: absolute;
+	/*position: absolute;
     width: 53%;
 	height: 100%;
 	overflow: auto;
 	background: #f9f9f9;
     border: 1px solid #a1a1a1;
-	border-radius: 10px;
+	border-radius: 10px;*/
 }
 .content-vertical .content-item {
 	position: absolute;
@@ -1042,8 +1048,8 @@ button.ui-datepicker-close {
     border-radius: 10px;
 }
 .content-widescreen .content-list {
-  width: 100%;
-  height: 400px;
+  /*width: 100%;
+  height: 400px;*/
 }
 
 .hidden {

@@ -8,151 +8,161 @@ App.Viws = {};
 
 
 App.Router = Backbone.Router.extend({
-  routes: {
-    ":catalog": "catalog",
-    ":catalog/:id": "catalog"
-  },
-  catalog: function(catalog, id) {
+	routes: {
+		":catalog": "catalog",
+		":catalog/:id": "catalog"
+	},
+	catalog: function(catalog, id) {
 
-    app.settings = new App.Models.Settings( { name: catalog } );
-    app.dictionary = new App.Collections.Dictionary( { name: catalog, from: 0, count: 100  } );
+		app.settings = new App.Models.Settings( { name: catalog } );
+		app.dictionary = new App.Collections.Dictionary( { name: catalog, from: 0, count: 100 } );
 
-    $.when( app.settings.fetch(), app.dictionary.fetch() ).done(function(){
-      app.view = new App.Viws.Dictionary( {"curent": id} );
-    });
+		$.when( app.settings.fetch(), app.dictionary.fetch() ).done(function(){
+			app.view = new App.Viws.Dictionary( {"curent": id} );
+		});
 
-  }
+	}
 });
 
 App.Collections.Dictionary = Backbone.Collection.extend({
 
-  url: function() {
-    var url = "/dict-items.json.php?dict=" + this.name;
-    url = (this.from !== '') ? url + "&form=" + this.from : url;
-    url = (this.count !== '') ? url + "&count=" + this.count : url;
-    return url;
-  },
+	url: function() {
+		var url = "/dict-items.json.php?dict=" + this.name;
+		url = (this.from !== '') ? url + "&form=" + this.from : url;
+		url = (this.count !== '') ? url + "&count=" + this.count : url;
+		return url;
+	},
 
-  initialize: function( options ){
-    this.name = options.name;
-    this.from = options.from || 0;
-    this.count = options.count || 100;
-  }
+	initialize: function( options ){
+		this.name = options.name;
+		this.from = options.from || 0;
+		this.count = options.count || 100;
+	}
 });
 
 App.Models.Settings = Backbone.Model.extend({
 
-  url: function() {
-    return "/dict-meta.json.php?dict=" + this.name;
-  },
+	url: function() {
+		return "/dict-meta.json.php?dict=" + this.name;
+	},
 
-  initialize: function( options ){
-    this.name = options.name;
-  }
+	initialize: function( options ){
+		this.name = options.name;
+	}
 });
 
 
 App.Viws.Dictionary = Backbone.View.extend({
-  template:  JST[ "dictionary" ],
-  el: ".cont_right",
+	template: JST[ "dictionary" ],
+	el: ".cont_right",
 
-  events: {
-    "click .item": "getId"
-  },
+	events: {
+		"click .item": "getId"
+	},
 
-  initialize: function( options ){
-    this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
-  },
+	initialize: function( options ){
+		this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
+	},
 
-  render: function(data){
-    this.$el.html(this.template(data));
-    if (data.settings.display_type === 1) {
-      this.setFixedHeader();
-    };
-  },
+	render: function(data){
+		this.$el.html(this.template(data));
+		if (data.settings.display_type === 1) {
+			this.setFixedHeader();
+		};
+	},
 
-  setFixedHeader: function(){
-    var head = $('table thead TR');
-    $('.wrapper_head').append('<div class="fixed_head"><table class="table table-striped table-bordered table-main"></table></div>');
-    head.find('TH').each(function() {
-      var el = $(this);
-      el.css({
-        width : el.width()
-      });
-    }).end().clone().appendTo('.fixed_head table').end();
-  },
+	setFixedHeader: function(){
+		var head = $('table thead TR');
+		$('.wrapper_head').append('<div class="fixed_head"><table class="table table-striped table-bordered table-main"></table></div>');
+		head.find('TH').each(function() {
+			var el = $(this);
+			el.css({
+				width : el.width()
+			});
+		}).end().clone().appendTo('.fixed_head table').end();
+	},
 
-  getId: function(event){
-    var id = $(event.target).parent("tr").data("id");
-    this.showCard(id);
-    this.setCurrentRow(id);
-  },
+	getId: function(event){
+		var id = $(event.target).parent("tr").data("id");
+		this.showCard(id);
+		this.setCurrentRow(id);
+	},
 
-  showCard: function(id) {
-    var model = app.dictionary.get( id );
-    var cards = new App.Viws.Cards( { "model": model } );
-  },
-  setCurrentRow: function(id) {
-    this.$el.find(".row-current-view").removeClass("row-current-view");
-    this.$el.find(".item-"+id).addClass("row-current-view");
+	showCard: function(id) {
+		var model = app.dictionary.get( id );
+		var cards = new App.Viws.Cards( { "model": model } );
+	},
+	setCurrentRow: function(id) {
+		this.$el.find(".row-current-view").removeClass("row-current-view");
+		this.$el.find(".item-"+id).addClass("row-current-view");
 
-	// ---- Добавил Repa ----
-	// суть такая,  пока карточка не выбрана, вся таблица по высоте занимает правую часть,
-	// если при клике на строчку в таблице выбранная карточка по инфе и высоте маленькая
-	// (ну скажем как тут 200px я сделал), то высота таблички на всю высотку правой части
-	// - высота карточки и появляется скроллинг только у блока с таблицей, а не у страницы.
-	// А типо если высота у карточки большая, то просто таблица принимает жесткую высотку
-	// минимальную имеет свой скроллинг, а карточка полотенцем вниз и скроллица уже браузером.
+		// ---- Р”РѕР±Р°РІРёР» Repa ----
+		// СЃСѓС‚СЊ С‚Р°РєР°СЏ,  РїРѕРєР° РєР°СЂС‚РѕС‡РєР° РЅРµ РІС‹Р±СЂР°РЅР°, РІСЃСЏ С‚Р°Р±Р»РёС†Р° РїРѕ РІС‹СЃРѕС‚Рµ Р·Р°РЅРёРјР°РµС‚ РїСЂР°РІСѓСЋ С‡Р°СЃС‚СЊ,
+		// РµСЃР»Рё РїСЂРё РєР»РёРєРµ РЅР° СЃС‚СЂРѕС‡РєСѓ РІ С‚Р°Р±Р»РёС†Рµ РІС‹Р±СЂР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР° РїРѕ РёРЅС„Рµ Рё РІС‹СЃРѕС‚Рµ РјР°Р»РµРЅСЊРєР°СЏ
+		// (РЅСѓ СЃРєР°Р¶РµРј РєР°Рє С‚СѓС‚ 200px СЏ СЃРґРµР»Р°Р»), С‚Рѕ РІС‹СЃРѕС‚Р° С‚Р°Р±Р»РёС‡РєРё РЅР° РІСЃСЋ РІС‹СЃРѕС‚РєСѓ РїСЂР°РІРѕР№ С‡Р°СЃС‚Рё
+		// - РІС‹СЃРѕС‚Р° РєР°СЂС‚РѕС‡РєРё Рё РїРѕСЏРІР»СЏРµС‚СЃСЏ СЃРєСЂРѕР»Р»РёРЅРі С‚РѕР»СЊРєРѕ Сѓ Р±Р»РѕРєР° СЃ С‚Р°Р±Р»РёС†РµР№ Р° РЅРµ Сѓ СЃС‚СЂР°РЅРёС†С‹.
+		// Рђ С‚РёРїРѕ РµСЃР»Рё РІС‹СЃРѕС‚Р° Сѓ РєР°СЂС‚РѕС‡РєРё Р±РѕР»СЊС€Р°СЏ, С‚Рѕ РїСЂРѕСЃС‚Рѕ С‚Р°Р±Р»РёС†Р° РїСЂРёРЅРёРјР°РµС‚ Р¶РµСЃС‚РєСѓСЋ РІС‹СЃРѕС‚РєСѓ
+		// РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РёРјРµРµС‚ СЃРІРѕР№ СЃРєСЂРѕР»Р»РёРЅРі, Р° РєР°СЂС‚РѕС‡РєР° РїРѕР»РѕС‚РµРЅС†РµРј РІРЅРёР· Рё СЃРєСЂРёР»Р»РёС†Р° СѓР¶Рµ Р±СЂР°СѓР·РµСЂРѕРј.
 
-	$('.cont_table').addClass('scroll');
-      if($('.cont_item').height() > 200){
-        $('.cont_item').addClass('select');
-      }else{
-        $('.cont_item').addClass('select');
+		if($('.content').hasClass('content-vertical')){ // РўСѓС‚ РµСЃР»Рё РІРµСЂС‚РёРєР°Р»СЊРЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РѕР±РµСЂС‚С‹РІР°РЅРёРµ РґРІСѓС… РїРѕР»РѕРІРёРЅРѕРє Рё РґРѕР±Р°РІР»РµРЅРёРµ РєР»Р°СЃСЃРѕРІ
+			if($('.cont_table').hasClass('scroll')){
 
-        $('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px");
+			}else{
+				$('.right_top_cont').wrap('<div class="vv_left"></div>');
+				$('.content-item').wrap('<div class="vv_right"></div>');
+				$('.cont_table').addClass('scroll');
+			}
 
-        $(window).resize(function(){
-      	  var height = $(window).height();
-      	  $('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px") + height;
-        });
-      }
+		}else{
+			$('.cont_table').addClass('scroll');
+			if($('.cont_item').height() > 200){
+				$('.cont_item').addClass('select');
+			}else{
+				$('.cont_item').addClass('select');
 
-	$('.fixed_head').css('display', 'block'); // Также тут повесил на клик добавление у таблицы thead абсолютный чтобы не скролися.
+				$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px");
 
-	// ----
-  }
+				$(window).resize(function(){
+					var height = $(window).height();
+					$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px") + height;
+				});
+			}
+
+			$('.fixed_head').css('display', 'block'); // С‚Р°РєР¶Рµ С‚СѓС‚ РґРѕР±Р°РІРёР» С„РёРєСЃРёСЂРѕРІР°РЅС‹Р№ С…СЌРґ Сѓ С‚Р°Р±Р»РёС†С‹ С‡С‚РѕР±С‹ РѕРЅ РЅРµ РїСЂРѕРєСЂСѓС‡РёРІР°Р»СЃСЏ.
+		}
+		// ----
+	}
 
 });
 
 App.Viws.Cards = Backbone.View.extend({
 
-  template:  JST[ "cards" ],
-  el: ".content-item",
+	template: JST[ "cards" ],
+	el: ".content-item",
 
-  initialize: function( options ){
-    this.render( options.model );
-  },
+	initialize: function( options ){
+		this.render( options.model );
+	},
 
-  render: function(model) {
-    var not_in_group = _.extend( {}, app.settings.toJSON().fields );
-    var fieldsets = app.settings.toJSON().fieldsets;
+	render: function(model) {
+		var not_in_group = _.extend( {}, app.settings.toJSON().fields );
+		var fieldsets = app.settings.toJSON().fieldsets;
 
-    _.each(fieldsets, function(fieldset){
-      _.each(fieldset.fields, function(key){
-        delete not_in_group[key];
-      });
-    });
+		_.each(fieldsets, function(fieldset){
+			_.each(fieldset.fields, function(key){
+				delete not_in_group[key];
+			});
+		});
 
-    this.$el.html(this.template({ "settings": app.settings.toJSON(), "filds": model.toJSON(), "not_in_group": not_in_group }));
+		this.$el.html(this.template({ "settings": app.settings.toJSON(), "filds": model.toJSON(), "not_in_group": not_in_group }));
 
-  }
+	}
 
 });
 
 $(function(){
 
-  app.router = new App.Router();
-  Backbone.history.start();
+	app.router = new App.Router();
+	Backbone.history.start();
 
 });
