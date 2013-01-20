@@ -2,40 +2,40 @@ window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
 
-  '<table class="table table-striped table-bordered table-condensed">'+
+  '<table class="table table-striped table-bordered table-condensed" >'+
 
-
-      '<thead>'+
-        '<tr class="">'+
+    '<thead>'+
+      '<tr class="">'+
         '<th><input type="checkbox" ></th>'+
         '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<th><%= settings["fields"][key]["title"] %></th>'+
         '<% }); %>'+
         '<th></th>'+
-        '</tr>'+
-      '</thead>'+
+      '</tr>'+
+    '</thead>'+
 
 
-      '<tbody>'+
+    '<tbody>'+
     '<% _.each( filds, function(fild) {%>'+
-        '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
-          '<td><input type="checkbox"></td>'+
+      '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
+        '<td><input type="checkbox"></td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-          '<td class="item"><%= fild[key] %></td>'+
+        '<td class="item"><%= fild[key] %></td>'+
     '<% }); %>'+
         '<td><div class="btn-group"><button class="btn btn-mini" type="button"><i class="icon-pencil"></i></button><button class="btn btn-mini" type="button"><i class="icon-remove"></i></button><button class="btn btn-mini" type="button"><i class="icon-edit"></i></button></div></button></td>'+
-        '</tr>'+
+      '</tr>'+
     '<% }); %>'+
+    '</tbody>'+
 
-      '</tbody>'+
-    '</table>'+
+  '</table>'+
 
-    '<div class="content-item"></div>'+
-  ''
+  '<div class="content-item"></div>'+
+''
 );
 
 window.JST['cards'] = _.template(''+
-  '<div class="cards">'+
+
+    '<div class="hero-unit"><div class="cards">'+
     '<div class="cont_item">'+
       '<form>'+
         '<div class="card_item">'+
@@ -64,7 +64,7 @@ window.JST['cards'] = _.template(''+
         '</div>'+
       '</form>'+
     '</div>'+
-  '</div>'
+  '</div></div>'
 );
 
 

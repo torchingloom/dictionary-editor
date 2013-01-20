@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="/css/xtree.css" />
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+<!--	<link rel="stylesheet" type="text/css" href="/css/base.css" />-->
 
 <!--	<link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
 <!--	<link rel="stylesheet" type="text/css" href="/css/default.css" />-->
@@ -26,19 +27,21 @@
       <p class="currentime"><? echo date('d.m.Y') ?></p>
     </div>
   </div>
+
   <div class="main">
     <div class="bar">
       <div class="wrapper-tree">
         <div id="treeDiv"></div>
       </div>
     </div>
-    <div class="content">
+    <div class="content" id="content">
       <div class="wrapper-content">
-        <div class="cont_right"></div>
-
+        <div class="table-content"></div>
+        <div class="cards-content"></div>
       </div>
     </div>
   </div>
+
   <div class="footer">
     <p class="cop">Версия: 1.1.0-SNAPSHOT</p>
   </div>
@@ -80,12 +83,16 @@
 <!--</div>-->
 
 <script type="text/javascript" src="/js/jquery.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fixedheadertable.js"></script>
+
 <!--xtree-->
 <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xloadtree.js"></script>
 <script type="text/javascript" src="/js/xtree-starter.js"></script>
 <!--xtree-->
+
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 <script type="text/javascript" src="js/lodash.js"></script>
 <script type="text/javascript" src="js/backbone.js"></script>
