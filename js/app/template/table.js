@@ -2,8 +2,22 @@ window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
 
-  '<table class="table table-striped table-bordered table-condensed" >'+
 
+
+  '<table class="table table-fix table-striped  table-condensed" >'+
+    '<thead>'+
+    '<tr class="">'+
+    '<th><input type="checkbox" ></th>'+
+    '<% _.each( settings.fields_in_list, function(key) {%>'+
+    '<th><%= settings["fields"][key]["title"] %></th>'+
+    '<% }); %>'+
+    '<th></th>'+
+    '</tr>'+
+    '</thead>'+
+  '</table>'+
+
+  '<div class="wrapper-table-dictionary">'+
+  '<table class="table table-striped  table-condensed table-dictionary" >'+
     '<thead>'+
       '<tr class="">'+
         '<th><input type="checkbox" ></th>'+
@@ -13,8 +27,6 @@ window.JST['dictionary'] = _.template(''+
         '<th></th>'+
       '</tr>'+
     '</thead>'+
-
-
     '<tbody>'+
     '<% _.each( filds, function(fild) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
@@ -26,9 +38,8 @@ window.JST['dictionary'] = _.template(''+
       '</tr>'+
     '<% }); %>'+
     '</tbody>'+
-
   '</table>'+
-
+  '</div>'+
   '<div class="content-item"></div>'+
 ''
 );

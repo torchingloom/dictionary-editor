@@ -68,11 +68,19 @@ App.Viws.Dictionary = Backbone.View.extend({
     data.w = $("#content").width();
     data.h = $("#content").height();
 
-    console.log( data.w );
-    console.log( data.h );
-
     this.$el.html(this.template(data));
+    this.fixTableHeader();
 	},
+
+  fixTableHeader: function() {
+    var th_dic = this.$el.find(".table-dictionary th");
+    var th_fix = this.$el.find(".table-fix th");
+
+    _.each(th_dic, function (th, key) {
+      $(th_fix[key]).width($(th).width());
+    });
+
+  },
 
 	getId: function(event){
 		var id = $(event.target).parent("tr").data("id");
