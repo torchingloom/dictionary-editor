@@ -4,7 +4,7 @@ class Config
 {
     private static $cfg = array
     (
-        'title' => 'ИС управление справочниками',
+        'title' => 'Подсистема ведения статических данных',
         'tree-default-icon' => array('node' => '/img/icons/toggle_log.png', 'dir' => '/img/icons/folder_cyan.png'),
         'dict-tree-map' => array
         (

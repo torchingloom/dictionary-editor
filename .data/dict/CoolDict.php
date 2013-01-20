@@ -2,7 +2,7 @@
 
 $arr =  array
 (
-    'display_type' => 1, // list only
+    'display_type' => 1, // gorizontal split
     'fields' => array
     (
         'id' => array('title' => 'ID', 'type' => 'int', 'readonly' => true),

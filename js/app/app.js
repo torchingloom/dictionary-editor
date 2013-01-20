@@ -86,51 +86,56 @@ App.Viws.Dictionary = Backbone.View.extend({
 		var id = $(event.target).parent("tr").data("id");
 		this.showCard(id);
 		this.setCurrentRow(id);
+    this.showTable();
 	},
 
 	showCard: function(id) {
 		var model = app.dictionary.get( id );
 		var cards = new App.Viws.Cards( { "model": model } );
 	},
-	setCurrentRow: function(id) {
+
+  showTable: function() {
+    // ---- Добавил Repa ----
+    // суть такая,  пока карточка не выбрана, вся таблица по высоте занимает правую часть,
+    // если при клике на строчку в таблице выбранная карточка по инфе и высоте маленькая
+    // (ну скажем как тут 200px я сделал), то высота таблички на всю высотку правой части
+    // - высота карточки и появляется скроллинг только у блока с таблицей а не у страницы.
+    // А типо если высота у карточки большая, то просто таблица принимает жесткую высотку
+    // минимальную имеет свой скроллинг, а карточка полотенцем вниз и скриллица уже браузером.
+
+    if($('.content').hasClass('content-vertical')){ // Тут если вертикальное представление обертывание двух половинок и добавление классов
+      if($('.cont_table').hasClass('scroll')){
+
+      }else{
+        $('.right_top_cont').wrap('<div class="vv_left"></div>');
+        $('.content-item').wrap('<div class="vv_right"></div>');
+        $('.cont_table').addClass('scroll');
+      }
+
+    }else{
+      $('.cont_table').addClass('scroll');
+      if($('.cont_item').height() > 200){
+        $('.cont_item').addClass('select');
+      }else{
+        $('.cont_item').addClass('select');
+
+        $('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px");
+
+        $(window).resize(function(){
+          var height = $(window).height();
+          $('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px") + height;
+        });
+      }
+
+      $('.fixed_head').css('display', 'block'); // также тут добавил фиксированый хэд у таблицы чтобы он не прокручивался.
+    }
+    // ----
+  },
+
+
+  setCurrentRow: function(id) {
 		this.$el.find(".row-current-view").removeClass("row-current-view");
 		this.$el.find(".item-"+id).addClass("row-current-view");
-
-		// ---- Добавил Repa ----
-		// суть такая,  пока карточка не выбрана, вся таблица по высоте занимает правую часть,
-		// если при клике на строчку в таблице выбранная карточка по инфе и высоте маленькая
-		// (ну скажем как тут 200px я сделал), то высота таблички на всю высотку правой части
-		// - высота карточки и появляется скроллинг только у блока с таблицей а не у страницы.
-		// А типо если высота у карточки большая, то просто таблица принимает жесткую высотку
-		// минимальную имеет свой скроллинг, а карточка полотенцем вниз и скриллица уже браузером.
-
-		if($('.content').hasClass('content-vertical')){ // Тут если вертикальное представление обертывание двух половинок и добавление классов
-			if($('.cont_table').hasClass('scroll')){
-
-			}else{
-				$('.right_top_cont').wrap('<div class="vv_left"></div>');
-				$('.content-item').wrap('<div class="vv_right"></div>');
-				$('.cont_table').addClass('scroll');
-			}
-
-		}else{
-			$('.cont_table').addClass('scroll');
-			if($('.cont_item').height() > 200){
-				$('.cont_item').addClass('select');
-			}else{
-				$('.cont_item').addClass('select');
-
-				$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px");
-
-				$(window).resize(function(){
-					var height = $(window).height();
-					$('.cont_table').css('height', $('.cont_right').height() - $('.cont_item').height() - $('.cont_table_bar').height() - 90 + "px") + height;
-				});
-			}
-
-			$('.fixed_head').css('display', 'block'); // также тут добавил фиксированый хэд у таблицы чтобы он не прокручивался.
-		}
-		// ----
 	}
 
 });

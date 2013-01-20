@@ -1,16 +1,17 @@
 $(document).ready(function() {
-	if ($.browser.msie && parseInt($.browser.version) < 10) {
-		$('#header H1, #header .currentime').each(function() {
-			var el = $(this);
-			el.append($('<ins />').text(el.text()));
-		});
-	}
 
-	if ($.browser.msie && parseInt($.browser.version) < 9) {
-		$('#tables tbody').each(function() {
-			$('tr:odd', this).addClass('even');
-		});
-	}
+//	if ($.browser.msie && parseInt($.browser.version, 10) < 10) {
+//		$('#header H1, #header .currentime').each(function() {
+//			var el = $(this);
+//			el.append($('<ins />').text(el.text()));
+//		});
+//	}
+//
+//	if ($.browser.msie && parseInt($.browser.version) < 9) {
+//		$('#tables tbody').each(function() {
+//			$('tr:odd', this).addClass('even');
+//		});
+//	}
 
 	var showErrorMessage = function (el, er, ep) {
 		el.closest('#form').find('SPAN.error').css({
