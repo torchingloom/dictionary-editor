@@ -9,16 +9,15 @@ App.Viws = {};
 
 App.Router = Backbone.Router.extend({
 	routes: {
-		":catalog": "catalog",
-		":catalog/:id": "catalog"
+		":catalog": "catalog"
 	},
-	catalog: function(catalog, id) {
+	catalog: function(catalog) {
 
 		app.settings = new App.Models.Settings( { name: catalog } );
 		app.dictionary = new App.Collections.Dictionary( { name: catalog, from: 0, count: 100 } );
 
 		$.when( app.settings.fetch(), app.dictionary.fetch() ).done(function(){
-			app.view = new App.Viws.Dictionary( {"curent": id} );
+			app.view = new App.Viws.Dictionary();
 		});
 
 	}

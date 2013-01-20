@@ -2,28 +2,7 @@ window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
 
-  '<div class="right_top_cont">'+
-//
-//  '<div class="cont_table_bar right clearfix">'+
-//    '<span title="кнопка">кнопка</span>'+
-//    '<span title="кнопка">кнопка</span>'+
-//    '<span title="кнопка">кнопка</span>'+
-//    '<p>Выберете строку в таблице что бы увидеть карточуку.</p>'+
-//  '</div>'+
-//
-//  '<div class="cont_table_bar left clearfix">'+
-//    '<span title="кнопка">кнопка</span>'+
-//    '<span title="кнопка">кнопка</span>'+
-//  '</div>'+
-
-  '<div class="content <%= type %>">'+
-    '<div class="content-list">'+
-
-
-  '<div class="wrapper_head">'+
-  '<div class="cont_table">'+
-
-    '<table class="table table-striped table-bordered table-main">'+
+  '<table class="table table-striped table-bordered table-condensed">'+
 
 
       '<thead>'+
@@ -51,17 +30,8 @@ window.JST['dictionary'] = _.template(''+
       '</tbody>'+
     '</table>'+
 
-    '</div>'+
-    '</div>'+
-
-  '</div>'+
-  '</div>'+
-
-'</div>'+
-
-'<div class="content-item">'+
-'</div>'
-
+    '<div class="content-item"></div>'+
+  ''
 );
 
 window.JST['cards'] = _.template(''+
@@ -69,10 +39,6 @@ window.JST['cards'] = _.template(''+
     '<div class="cont_item">'+
       '<form>'+
         '<div class="card_item">'+
-          '<div class="cont_table_bar right clearfix">'+
-            '<span title="кнопка"> >>></span>'+
-            '<span title="кнопка"><<< </span>'+
-          '</div>'+
 
           '<div class="cont_table_bar left clearfix">'+
             '<span title="кнопка">сохранить</span>'+
