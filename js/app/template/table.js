@@ -2,16 +2,14 @@ window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
 
-
-
   '<table class="table table-fix table-striped  table-condensed" >'+
     '<thead>'+
     '<tr class="">'+
     '<th><input type="checkbox" ></th>'+
+//    '<th></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-    '<th><%= settings["fields"][key]["title"] %></th>'+
+      '<th><%= settings["fields"][key]["title"] %></th>'+
     '<% }); %>'+
-    '<th></th>'+
     '</tr>'+
     '</thead>'+
   '</table>'+
@@ -31,10 +29,22 @@ window.JST['dictionary'] = _.template(''+
     '<% _.each( filds, function(fild) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
         '<td><input type="checkbox"></td>'+
+//        '<td>'+
+//        '<div class="btn-group">'+
+//          '<button class="btn btn-mini" type="button">'+
+//            '<i class="icon-pencil"></i>'+
+//          '</button>'+
+//          '<button class="btn btn-mini" type="button">'+
+//            '<i class="icon-edit"></i>'+
+//          '</button>'+
+//        '</div>'+
+//        ' <button class="btn btn-mini btn-danger" type="button">'+
+//          '<i class="icon-remove"></i>'+
+//        '</button>'+
+//        '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<td class="item"><%= fild[key] %></td>'+
     '<% }); %>'+
-        '<td><div class="btn-group"><button class="btn btn-mini" type="button"><i class="icon-pencil"></i></button><button class="btn btn-mini" type="button"><i class="icon-remove"></i></button><button class="btn btn-mini" type="button"><i class="icon-edit"></i></button></div></button></td>'+
       '</tr>'+
     '<% }); %>'+
     '</tbody>'+

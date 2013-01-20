@@ -65,11 +65,18 @@ App.Viws.Dictionary = Backbone.View.extend({
 	},
 
 	render: function(data){
+    var scope = this;
+
     data.w = $("#content").width();
     data.h = $("#content").height();
 
     this.$el.html(this.template(data));
     this.fixTableHeader();
+
+    $(window).resize(function() {
+      scope.fixTableHeader();
+    })
+
 	},
 
   fixTableHeader: function() {
@@ -79,12 +86,11 @@ App.Viws.Dictionary = Backbone.View.extend({
     _.each(th_dic, function (th, key) {
       $(th_fix[key]).width($(th).width());
     });
-
   },
 
 	getId: function(event){
 		var id = $(event.target).parent("tr").data("id");
-		this.showCard(id);
+//		this.showCard(id);
 		this.setCurrentRow(id);
 	},
 
@@ -94,8 +100,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 	},
 
   setCurrentRow: function(id) {
-		this.$el.find(".row-current-view").removeClass("row-current-view");
-		this.$el.find(".item-"+id).addClass("row-current-view");
+		this.$el.find(".current").removeClass("current");
+		this.$el.find(".item-"+id).addClass("current");
 	}
 
 });

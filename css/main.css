@@ -208,8 +208,8 @@ html, body {
 .table-content {
     position: absolute;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    top:70px;
+    bottom: 0;
 }
 .table {
     margin-bottom: 0;
@@ -225,6 +225,22 @@ html, body {
     height: 100%;
     overflow: auto;
 }
+.table-striped tbody > tr:nth-child(odd).current > td {
+    background: red;
+}
+.table-striped tbody > tr.current > td {
+    background: red;
+}
+.table-striped tbody > tr > td {
+    vertical-align: middle;
+}
+.table-striped tbody > tr > td input{
+    margin: 0 0 3px 0;
+    display: inline-block;
+
+}
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

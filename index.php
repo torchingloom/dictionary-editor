@@ -36,6 +36,10 @@
     </div>
     <div class="content" id="content">
       <div class="wrapper-content">
+        <div class="table-nav well">
+          <button class="btn btn-mini btn-primary disabled" type="button">Изменить</button>
+          <button class="btn btn-mini btn-danger disabled" type="button">Удалить</button>
+        </div>
         <div class="table-content"></div>
         <div class="cards-content"></div>
       </div>
