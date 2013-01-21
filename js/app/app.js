@@ -63,15 +63,15 @@ App.Viws.Dictionary = Backbone.View.extend({
 	initialize: function( options ){
 		this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
 
-    this.edit = $(".table-nav .btn-edit");
-    this.remove = $(".table-nav .btn-remove");
-
+//    this.edit = $(".table-nav .btn-edit");
+//    this.remove = $(".table-nav .btn-remove");
 	},
 
 	render: function(data){
     var scope = this;
     this.$el.html(this.template(data));
     this.fixTableHeader();
+    this.resetLayout();
 
     $(window).resize(function() {
       scope.fixTableHeader();
@@ -100,21 +100,54 @@ App.Viws.Dictionary = Backbone.View.extend({
     this.changeLayout();
 	},
 
+  resetLayout: function(){
+    var $table_block = $(".table-content");
+    var $card_block = $(".cards-content");
+
+    $table_block.attr( "style", "" );
+    $card_block.attr( "style", "")
+      .addClass("hidden");
+  },
+
   changeLayout: function() {
+    var type_view = app.settings.get("display_type");
+
     var scope = this;
     var $table_block = $(".table-content");
     var $card_block = $(".cards-content");
-//    var w = $("#content .wrapper-content").width();
     var h = $("#content .wrapper-content").height();
+    var w = $("#content .wrapper-content").width();
+    var block_height = parseInt((h-75-35)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
+    var block_width = parseInt((w+25)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
 
-    var block_height = parseInt((h-75-35)/2, 10);
 
+    switch(type_view)
+    {
+      case 1: {
+        //horizontal view
+        $table_block.css( "height", block_height+"px" );
+        $table_block.css( "bottom", "auto" );
+        $card_block.css( "height",  block_height+"px" );
 
-    $table_block.css( "height", block_height+"px" ); // высота контентной части + высота блока управления списком
-    $table_block.css( "bottom", "auto" ); // высота контентной части + высота блока управления списком
-    $card_block.css( "height",  block_height+"px" );
+        $card_block.removeClass("hidden");
+        break;
+      }
+      case 2:{
+        //vertical view
+        $table_block.css( "right", block_width+"px" );
+        $card_block.css( "left",  block_width+"px" );
+        $card_block.css( "top",  "75px" );
 
-    $card_block.removeClass("hidden");
+        $card_block.removeClass("hidden");
+        break;
+      }
+      case 3: {
+        break;
+      }
+      default:{
+        console.error("No table view!");
+      }
+    }
 
     $(window).resize(function() {
       scope.changeLayout();

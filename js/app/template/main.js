@@ -47,9 +47,13 @@ window.JST['dictionary'] = _.template(''+
 
 window.JST['cards'] = _.template(''+
   '<div class="wrapper-cards">'+
-    ''+
-    ''+
-    ''+
+    '<div class="well edit-well">'+
+    '<button class="btn btn-mini" type="button">Изменить</button>'+
+    '</div>'+
+    '<div class="well save-well hidden">'+
+    '<button class="btn btn-mini" type="button">Сохранить</button>'+
+    '<button class="btn btn-mini" type="button">Отмена</button>'+
+    '</div>'+
     '</form>'+
     '<% _.each( not_in_group, function( fild, key ){ %>'+
       '<%= JST[ fild["type"] ]( { settings: fild, value: filds[key]  } ) %>'+
