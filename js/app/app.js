@@ -62,7 +62,6 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	initialize: function( options ){
 		this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
-
 //    this.edit = $(".table-nav .btn-edit");
 //    this.remove = $(".table-nav .btn-remove");
 	},
