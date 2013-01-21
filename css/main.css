@@ -322,7 +322,29 @@ input[type="checkbox"].checkbox {
     display: none;
 
 }
-
+.table-fix tr th {
+    background: #006dcc;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    border: 1px solid #fff;
+    position: relative;
+}
+.table-fix tr th input {
+    margin: 0 0 4px 2px;
+}
+.icon-left {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    cursor: pointer;
+}
+.icon-left:hover {
+    color: #bfbfbf;
+}
+.icon-filter {
+    cursor: pointer;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

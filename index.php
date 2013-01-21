@@ -10,6 +10,11 @@
 
 	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="/css/font-awesome-ie7.min.css">
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="/css/xtree.css" />
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
 <!--	<link rel="stylesheet" type="text/css" href="/css/base.css" />-->

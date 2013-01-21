@@ -5,10 +5,10 @@ window.JST['dictionary'] = _.template(''+
   '<table class="table table-fix table-striped  table-condensed" >'+
     '<thead>'+
     '<tr class="">'+
-    '<th><input type="checkbox" ></th>'+
-    '<th></th>'+
+    '<th style="width:20px"><input type="checkbox" ></th>'+
+    '<th style="width:20px"></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<th><%= settings["fields"][key]["title"] %></th>'+
+      '<th><%= settings["fields"][key]["title"] %> <i class="icon-filter"></i> <i class="icon-sort icon-left"></i></th>'+
     '<% }); %>'+
     '</tr>'+
     '</thead>'+
@@ -18,8 +18,8 @@ window.JST['dictionary'] = _.template(''+
   '<table class="table table-striped  table-condensed table-dictionary" >'+
     '<thead>'+
       '<tr class="">'+
-        '<th><input type="checkbox" ></th>'+
-        '<th></th>'+
+        '<th style="width:20px"><input type="checkbox" ></th>'+
+        '<th style="width:20px"></th>'+
         '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<th><%= settings["fields"][key]["title"] %></th>'+
         '<% }); %>'+
