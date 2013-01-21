@@ -172,7 +172,7 @@ App.Viws.Cards = Backbone.View.extend({
   events: {
     "click .btn-edit": "toEdit",
     "click .btn-save": "toSave",
-    "click .btn-cancel": "toSave"
+    "click .btn-cancel": "toCancel"
   },
 
 	initialize: function( options ){
@@ -223,6 +223,45 @@ App.Viws.Cards = Backbone.View.extend({
     var save_well = this.$el.find(".save-well");
     var inputs = this.$el.find("input");
     var textarea = this.$el.find("textarea");
+    var isValid = true;
+
+    _.each(inputs, function( item ){
+      var $item = $(item);
+      if ($item.val() == "") {
+        $item.parents(".control-group").addClass("error");
+        isValid = false;
+      }
+    });
+
+    if (isValid) {
+      edit_well.removeClass("hidden");
+      save_well.addClass("hidden");
+
+      this.$el.find(".error").removeClass("error");
+
+
+      _.each(inputs, function( item ){
+        var $item = $(item);
+        if ($item.data("readonly") === false) {
+          $item.attr( "disabled","disabled" );
+        }
+      });
+
+      //TODO fix убрать дублирование кода
+      _.each(textarea, function( item ){
+        var $item = $(item);
+        if ($item.data("readonly") === false) {
+          $item.attr( "disabled","disabled" );
+        }
+      });
+    }
+
+  },
+  toCancel: function(){
+    var edit_well = this.$el.find(".edit-well");
+    var save_well = this.$el.find(".save-well");
+    var inputs = this.$el.find("input");
+    var textarea = this.$el.find("textarea");
 
     edit_well.removeClass("hidden");
     save_well.addClass("hidden");
@@ -242,6 +281,8 @@ App.Viws.Cards = Backbone.View.extend({
         $item.attr( "disabled","disabled" );
       }
     });
+
+
   }
 });
 

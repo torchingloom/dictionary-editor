@@ -102,13 +102,16 @@ window.JST['float'] = _.template(''+
 '');
 
 window.JST['varchar'] = _.template(''+
-    '<div class="small-fld">'+
+    '<div class="small-fld control-group">'+
       '<label for=""><%= settings["title"]  %></label>'+
-      '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="true" />'+
-      '<% } else { %>'+
-      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="false" />'+
-      '<% }; %>'+
+      '<div class="controls">'+
+        '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+        '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="true" />'+
+        '<% } else { %>'+
+        '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="false" />'+
+        '<% }; %>'+
+        '<span class="help-inline"><p class="text-error">Введие текст в обязательное поле</p><p class="text-bolt">&nbsp;</p></span>'+
+      '</div>'+
     '</div>'+
     '');
 

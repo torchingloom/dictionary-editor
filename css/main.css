@@ -222,6 +222,7 @@ html, body {
 .table-striped tbody > tr > td {
     vertical-align: middle;
     text-align: left;
+    cursor: pointer;
 }
 .table-striped tbody > tr > td input{
     margin: 0 0 3px 0;
@@ -298,6 +299,30 @@ input[type="checkbox"].checkbox {
     position: relative;
     margin-left: -18px;
 }
+.help-inline{
+    position: relative;
+    font-size: 12px;
+    display: block;
+}
+.help-inline .text-error {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+.help-inline .text-bolt {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.error .help-inline .text-error {
+    display: block;
+    
+}
+.error .help-inline .text-bolt {
+    display: none;
+
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
