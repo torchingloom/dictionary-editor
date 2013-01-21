@@ -118,7 +118,7 @@ App.Viws.Dictionary = Backbone.View.extend({
     var h = $("#content .wrapper-content").height();
     var w = $("#content .wrapper-content").width();
     var block_height = parseInt((h-75-35)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
-    var block_width = parseInt((w+25)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
+    var block_width = parseInt((w+23)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
 
 
     switch(type_view)
@@ -139,6 +139,8 @@ App.Viws.Dictionary = Backbone.View.extend({
         $card_block.css( "top",  "75px" );
 
         $card_block.removeClass("hidden");
+
+        this.fixTableHeader();
         break;
       }
       case 3: {
@@ -167,6 +169,12 @@ App.Viws.Cards = Backbone.View.extend({
 
   el: ".cards-content",
 
+  events: {
+    "click .btn-edit": "toEdit",
+    "click .btn-save": "toSave",
+    "click .btn-cancel": "toSave"
+  },
+
 	initialize: function( options ){
 		this.render( options.model );
 	},
@@ -183,14 +191,63 @@ App.Viws.Cards = Backbone.View.extend({
 
 		this.$el.html(this.template({ "settings": app.settings.toJSON(), "filds": model.toJSON(), "not_in_group": not_in_group }));
 
-	}
+	},
 
+  toEdit: function() {
+    var edit_well = this.$el.find(".edit-well");
+    var save_well = this.$el.find(".save-well");
+    var inputs = this.$el.find("input");
+    var textarea = this.$el.find("textarea");
+
+    edit_well.addClass("hidden");
+    save_well.removeClass("hidden");
+
+    _.each(inputs, function( item ){
+      var $item = $(item);
+      if ($item.data("readonly") === false) {
+        $item.removeAttr( "disabled" )
+      };
+    });
+
+    //TODO fix убрать дублирование кода
+    _.each(textarea, function( item ){
+      var $item = $(item);
+      if ($item.data("readonly") === false) {
+        $item.removeAttr( "disabled" )
+      }
+    });
+
+  },
+  toSave: function(){
+    var edit_well = this.$el.find(".edit-well");
+    var save_well = this.$el.find(".save-well");
+    var inputs = this.$el.find("input");
+    var textarea = this.$el.find("textarea");
+
+    edit_well.removeClass("hidden");
+    save_well.addClass("hidden");
+
+
+    _.each(inputs, function( item ){
+      var $item = $(item);
+      if ($item.data("readonly") === false) {
+        $item.attr( "disabled","disabled" );
+      }
+    });
+
+    //TODO fix убрать дублирование кода
+    _.each(textarea, function( item ){
+      var $item = $(item);
+      if ($item.data("readonly") === false) {
+        $item.attr( "disabled","disabled" );
+      }
+    });
+  }
 });
 
 $(function(){
 
   app.config = {};
-
 
 	app.router = new App.Router();
   Backbone.history.start();

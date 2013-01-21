@@ -13,7 +13,7 @@ $arr =  array
         'country_choice' => array('title' => 'Страна', 'type' => 'dictchoice', 'dict' => 'Country'),
         'array_choice' => array('title' => 'Выбор из набора', 'type' => 'сhoice', 'choice' => array('one'=>'Один', 'one1'=>'Еще один', 'two'=>'Два', 'three'=>'Три')),
         'multy_array_choice' => array('title' => 'Множественный выбор из набора', 'type' => 'сhoice', 'multy' => true, 'choice' => array('one'=>'Один', 'one1'=>'Еще один', 'two'=>'Два', 'three'=>'Три', 'two1'=>'Снова Два', 'three1'=>'Ну и Три')),
-        'radio_choice' => array('title' => 'Радио', 'type' => 'radio', 'choice' => array(12=>'Двенадцать', 'over9000'=>'Очень много')), //TODO непонятно array(12=>'Двенадцать', 'over9000'=>'Очень много')
+        'radio_choice' => array('title' => 'Радио', 'type' => 'radio', 'choice' => array(12=>'Двенадцать', 'over9000'=>'Очень много')),
         'checkbox' => array('title' => 'Галка', 'type' => 'checkbox'),
     ),
     'fields_in_list' => array('id', 'name', 'title', 'country_choice'),
@@ -23,7 +23,7 @@ $arr =  array
     (
         array('title' => 'Строчка', 'fields' => array('name', 'title')),
         array('title' => 'Текстовая зона с датой', 'fields' => array('text', 'date')),
-        array('title' => 'Выборы', 'fields' => array('country_choice', 'array_choice', 'multy_array_choice')),
+//        array('title' => 'Выборы', 'fields' => array('country_choice', 'array_choice', 'multy_array_choice')),
         array('title' => 'Радио и галка', 'fields' => array('radio_choice', 'checkbox')),
     ),
     'items' => unserialize(file_get_contents(APP_DIR ."/.data/dict/CoolDict.items")),

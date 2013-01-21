@@ -48,13 +48,15 @@ window.JST['dictionary'] = _.template(''+
 window.JST['cards'] = _.template(''+
   '<div class="wrapper-cards">'+
     '<div class="well edit-well">'+
-    '<button class="btn btn-mini" type="button">Изменить</button>'+
+      '<button class="btn btn-mini btn-edit" type="button">Изменить</button>'+
     '</div>'+
     '<div class="well save-well hidden">'+
-    '<button class="btn btn-mini" type="button">Сохранить</button>'+
-    '<button class="btn btn-mini" type="button">Отмена</button>'+
+      '<button class="btn btn-mini btn-save btn-primary" type="button">Сохранить</button> '+
+      '<button class="btn btn-mini btn-cancel" type="button">Отмена</button>'+
     '</div>'+
+
     '</form>'+
+
     '<% _.each( not_in_group, function( fild, key ){ %>'+
       '<%= JST[ fild["type"] ]( { settings: fild, value: filds[key]  } ) %>'+
     '<% }); %>'+
@@ -78,45 +80,45 @@ window.JST['cards'] = _.template(''+
 
 
 window.JST['int'] = _.template(''+
-    '<p>'+
-    '<label for=""><%= settings["title"]  %></label>'+
-    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<input type="text" value="<%= value %>" disabled="disabled"  />'+
-    '<% } else { %>'+
-    '<input type="text" value="<%= value %>"  />'+
-    '<% }; %>'+
-    '</p>'+
+    '<div class="small-fld">'+
+      '<label for=""><%= settings["title"]  %></label>'+
+      '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="true" />'+
+      '<% } else { %>'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="false" />'+
+      '<% }; %>'+
+    '</div>'+
 '');
 
 window.JST['float'] = _.template(''+
-    '<p>'+
-    '<label for=""><%= settings["title"]  %></label>'+
-    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<input type="text" value="<%= value %>" disabled="disabled"  />'+
-    '<% } else { %>'+
-    '<input type="text" value="<%= value %>"  />'+
-    '<% }; %>'+
-    '</p>'+
+    '<div class="small-fld">'+
+      '<label for=""><%= settings["title"]  %></label>'+
+      '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="true" />'+
+      '<% } else { %>'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="false" />'+
+      '<% }; %>'+
+    '</div>'+
 '');
 
 window.JST['varchar'] = _.template(''+
-    '<p>'+
-    '<label for=""><%= settings["title"]  %></label>'+
-    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<input type="text" value="<%= value %>" disabled="disabled"  />'+
-    '<% } else { %>'+
-    '<input type="text" value="<%= value %>"  />'+
-    '<% }; %>'+
-    '</p>'+
+    '<div class="small-fld">'+
+      '<label for=""><%= settings["title"]  %></label>'+
+      '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="true" />'+
+      '<% } else { %>'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="false" />'+
+      '<% }; %>'+
+    '</div>'+
     '');
 
 window.JST['textarea'] = _.template(''+
     '<div>'+
     '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<textarea disabled="disabled" ><%= value %></textarea>'+
+    '<textarea  disabled="disabled" data-readonly="true"><%= value %></textarea>'+
     '<% } else { %>'+
-    '<textarea ><%= value %></textarea>'+
+    '<textarea disabled="disabled" data-readonly="false" ><%= value %></textarea>'+
     '<% }; %>'+
     '</div>'+
     '');
@@ -124,10 +126,10 @@ window.JST['date'] = _.template(''+
     '<p class="input-append date datepicker" data-date="<%= value %>" data-date-format="yyyy-mm-dd">'+
       '<label for=""><%= settings["title"]  %></label>'+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-      '<input type="text" value="<%= value %>">'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="true">'+
       '<span class="add-on"><i class="icon-calendar"></i></span>'+
     '<% } else { %>'+
-      '<input type="text" value="<%= value %>">'+
+      '<input type="text" value="<%= value %>" disabled="disabled" data-readonly="false">'+
       '<span class="add-on"><i class="icon-calendar"></i></span>'+
     '<% }; %>'+
     '</p>'+
@@ -138,23 +140,28 @@ window.JST['сhoice'] = _.template(''+
     '');
 window.JST['radio'] = _.template(''+
     '<div>'+
-    ''+
+    '<% console.log(settings, value) %>'+
+
+  '<% _.each( settings.choice, function( text ){ %>'+
+    '<label class="radio">'+
+
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<input type="radio" value="<%= value %>" disabled="disabled" class="date"  />'+
+      ' <input type="radio" class="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked data-readonly="true" disabled="disabled"> <%= text  %>'+
     '<% } else { %>'+
-    '<input type="radio" value="<%= value %>" class="date" />'+
+      ' <input type="radio" class="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked disabled="disabled" data-readonly="false"> <%= text  %>'+
     '<% }; %>'+
-	'<label for=""><%= settings["title"]  %></label>'+
-    ''+
+    '</label>'+
+
+    '<% }); %>'+
+
     '</div>'+
     '');
 window.JST['checkbox'] = _.template(''+
-    '<div>'+
-    '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
-    '<input type="checkbox" value="<%= value %>" disabled="disabled" class="date"  />'+
-    '<% } else { %>'+
-    '<input type="checkbox" value="<%= value %>" class="date" />'+
-    '<% }; %>'+
-	'<label for=""><%= settings["title"]  %></label>'+
-    '</div>'+
+    '<label class="checkbox inline">'+
+      '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
+      '<input type="checkbox" class="checkbox" id="inlineCheckbox3" value="option3" disabled="disabled" data-readonly="true"> <%= settings["title"]  %>'+
+      '<% } else { %>'+
+      '<input type="checkbox" class="checkbox" id="inlineCheckbox3" value="option3" disabled="disabled" data-readonly="false"> <%= settings["title"]  %>'+
+      '<% }; %>'+
+    '</label>'+
     '');

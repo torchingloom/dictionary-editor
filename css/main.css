@@ -286,6 +286,18 @@ html, body {
     left: 10px;
     right: 10px;
 }
+.small-fld {
+    display: inline-block;
+    width: 230px;
+}
+input[type="radio"].radio {
+    position: relative;
+    margin-left: -18px;
+}
+input[type="checkbox"].checkbox {
+    position: relative;
+    margin-left: -18px;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
