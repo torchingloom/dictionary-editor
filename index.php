@@ -37,11 +37,11 @@
     <div class="content" id="content">
       <div class="wrapper-content">
         <div class="table-nav well">
-          <button class="btn btn-mini btn-primary disabled" type="button">Изменить</button>
-          <button class="btn btn-mini btn-danger disabled" type="button">Удалить</button>
+          <button class="btn btn-edit btn-mini btn-primary disabled" type="button">Изменить</button>
+          <button class="btn btn-remove btn-mini btn-danger disabled" type="button">Удалить</button>
         </div>
         <div class="table-content"></div>
-        <div class="cards-content"></div>
+        <div class="cards-content hidden"></div>
       </div>
     </div>
   </div>
@@ -52,43 +52,8 @@
 </div>
 
 
-<!--<div id="main">-->
-<!---->
-<!--	<div id="header">-->
-<!--		<div class="header clearfix">-->
-<!--			<h1>--><?// echo Config::get('title') ?><!--</h1>-->
-
-<!--		</div>-->
-<!--		<div class="menu clearfix">-->
-<!--			<ul>-->
-<!--			</ul>-->
-<!--		</div>-->
-<!--	</div>-->
-<!---->
-<!--	<div id="body" class="clearfix">-->
-<!--		<div id="tables" class="cont clearfix">-->
-<!--			<div class="cont_left">-->
-<!--				<div class="menu_cont">-->
-<!--		      <div id="treeDiv"></div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!---->
-<!--			<div class="cont_right">-->
-<!---->
-<!--			</div>-->
-<!---->
-<!--		</div>-->
-<!--	</div>-->
-<!---->
-<!--</div>-->
-<!---->
-<!--<div id="footer">-->
-<!--	Версия: 1.1.0-SNAPSHOT-->
-<!--</div>-->
-
 <script type="text/javascript" src="/js/jquery.js"></script>
 
-<script type="text/javascript" src="/js/jquery.fixedheadertable.js"></script>
 
 <!--xtree-->
 <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
@@ -106,7 +71,7 @@
 <!--<script type="text/javascript" src="/js/custom.js"></script>-->
 <!--<script type="text/javascript" src="/js/select2.js"></script>-->
 
-<script type="text/javascript" src="js/app/template/table.js"></script>
+<script type="text/javascript" src="js/app/template/main.js"></script>
 <script type="text/javascript" src="js/app/app.js"></script>
 
 </body>

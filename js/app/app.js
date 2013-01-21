@@ -62,20 +62,20 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	initialize: function( options ){
 		this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
+
+    this.edit = $(".table-nav .btn-edit");
+    this.remove = $(".table-nav .btn-remove");
+
 	},
 
 	render: function(data){
     var scope = this;
-
-    data.w = $("#content").width();
-    data.h = $("#content").height();
-
     this.$el.html(this.template(data));
     this.fixTableHeader();
 
     $(window).resize(function() {
       scope.fixTableHeader();
-    })
+    });
 
 	},
 
@@ -90,14 +90,36 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	getId: function(event){
 		var id = $(event.target).parent("tr").data("id");
-//		this.showCard(id);
+		this.showCard(id);
 		this.setCurrentRow(id);
 	},
 
 	showCard: function(id) {
 		var model = app.dictionary.get( id );
 		var cards = new App.Viws.Cards( { "model": model } );
+    this.changeLayout();
 	},
+
+  changeLayout: function() {
+    var scope = this;
+    var $table_block = $(".table-content");
+    var $card_block = $(".cards-content");
+//    var w = $("#content .wrapper-content").width();
+    var h = $("#content .wrapper-content").height();
+
+    var block_height = parseInt((h-75-35)/2, 10);
+
+
+    $table_block.css( "height", block_height+"px" ); // высота контентной части + высота блока управления списком
+    $table_block.css( "bottom", "auto" ); // высота контентной части + высота блока управления списком
+    $card_block.css( "height",  block_height+"px" );
+
+    $card_block.removeClass("hidden");
+
+    $(window).resize(function() {
+      scope.changeLayout();
+    });
+  },
 
   setCurrentRow: function(id) {
 		this.$el.find(".current").removeClass("current");
@@ -109,7 +131,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 App.Viws.Cards = Backbone.View.extend({
 
 	template: JST[ "cards" ],
-	el: ".content-item",
+
+  el: ".cards-content",
 
 	initialize: function( options ){
 		this.render( options.model );

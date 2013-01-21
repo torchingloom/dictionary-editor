@@ -6,7 +6,7 @@ window.JST['dictionary'] = _.template(''+
     '<thead>'+
     '<tr class="">'+
     '<th><input type="checkbox" ></th>'+
-//    '<th></th>'+
+    '<th></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
       '<th><%= settings["fields"][key]["title"] %></th>'+
     '<% }); %>'+
@@ -19,29 +19,21 @@ window.JST['dictionary'] = _.template(''+
     '<thead>'+
       '<tr class="">'+
         '<th><input type="checkbox" ></th>'+
+        '<th></th>'+
         '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<th><%= settings["fields"][key]["title"] %></th>'+
         '<% }); %>'+
-        '<th></th>'+
       '</tr>'+
     '</thead>'+
     '<tbody>'+
     '<% _.each( filds, function(fild) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
         '<td><input type="checkbox"></td>'+
-//        '<td>'+
-//        '<div class="btn-group">'+
-//          '<button class="btn btn-mini" type="button">'+
-//            '<i class="icon-pencil"></i>'+
-//          '</button>'+
-//          '<button class="btn btn-mini" type="button">'+
-//            '<i class="icon-edit"></i>'+
-//          '</button>'+
-//        '</div>'+
-//        ' <button class="btn btn-mini btn-danger" type="button">'+
-//          '<i class="icon-remove"></i>'+
-//        '</button>'+
-//        '</td>'+
+        '<td>'+
+          '<button class="btn btn-mini" type="button">'+
+            '<i class="icon-pencil"></i>'+
+          '</button>'+
+        '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<td class="item"><%= fild[key] %></td>'+
     '<% }); %>'+
@@ -50,42 +42,34 @@ window.JST['dictionary'] = _.template(''+
     '</tbody>'+
   '</table>'+
   '</div>'+
-  '<div class="content-item"></div>'+
 ''
 );
 
 window.JST['cards'] = _.template(''+
-
-    '<div class="hero-unit"><div class="cards">'+
-    '<div class="cont_item">'+
-      '<form>'+
-        '<div class="card_item">'+
-
-          '<div class="cont_table_bar left clearfix">'+
-            '<span title="кнопка">сохранить</span>'+
-            '<span title="кнопка">отмена</span>'+
-          '</div>'+
-
+  '<div class="wrapper-cards">'+
+    ''+
+    ''+
+    ''+
+    '</form>'+
     '<% _.each( not_in_group, function( fild, key ){ %>'+
       '<%= JST[ fild["type"] ]( { settings: fild, value: filds[key]  } ) %>'+
     '<% }); %>'+
 
+    '<% _.each( settings.fieldsets, function( fieldset ){ %>'+
+      '<fieldset>'+
+        '<legend><%= fieldset.title %></legend>'+
 
-'<% _.each( settings.fieldsets, function( fieldset ){ %>'+
+    '<% _.each( fieldset.fields, function( key ){ %>'+
+        '<%= JST[ settings["fields"][key]["type"] ]( { settings: settings["fields"][key], value: filds[key]  } ) %>'+
+    '<% }); %>'+
 
-          '<fieldset>'+
-            '<legend><%= fieldset.title %></legend>'+
-  '<% _.each( fieldset.fields, function( key ){ %>'+
-          '<%= JST[ settings["fields"][key]["type"] ]( { settings: settings["fields"][key], value: filds[key]  } ) %>'+
+      '</fieldset>'+
+
   '<% }); %>'+
-          '</fieldset>'+
 
-'<% }); %>'+
-
-        '</div>'+
-      '</form>'+
-    '</div>'+
-  '</div></div>'
+    '</form>'+
+  '</div>'+
+''
 );
 
 
