@@ -88,7 +88,7 @@ App.Viws.Dictionary = Backbone.View.extend({
 
     if ($("html").hasClass("lte-ie9")){
       var table = this.$el.find(".table-fix");
-      table.width( table.width() - 32 );
+      table.width( table.width() - 36 );
     }
   },
 
