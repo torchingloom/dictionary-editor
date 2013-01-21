@@ -6,7 +6,7 @@ window.JST['dictionary'] = _.template(''+
     '<thead>'+
     '<tr class="">'+
     '<th style="width:20px"><input type="checkbox" ></th>'+
-    '<th style="width:20px"></th>'+
+    '<th style=""></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
       '<th><%= settings["fields"][key]["title"] %> <i class="icon-filter"></i> <i class="icon-sort icon-left"></i></th>'+
     '<% }); %>'+
@@ -29,11 +29,20 @@ window.JST['dictionary'] = _.template(''+
     '<% _.each( filds, function(fild) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
         '<td><input type="checkbox"></td>'+
-        '<td>'+
-          '<button class="btn btn-mini" type="button">'+
+        '<td class="wrapper-inline-edit-btns">'+
+          '<button class="btn btn-mini btn-edit-inline" type="button" alt="Изменить">'+
             '<i class="icon-pencil"></i>'+
           '</button>'+
-        '</td>'+
+
+          '<div class="edit-nav-group">'+
+            '<button class="btn btn-mini btn-save-inline" type="button" alt="Сохранить изменения">'+
+              '<i class="icon-save"></i>'+
+            '</button>'+
+            '<button class="btn btn-mini btn-cancel-inline" type="button" alt="Отменить изменения">'+
+              '<i class="icon-remove"></i>'+
+            '</button>'+
+          '</div>'+
+    '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<td class="item"><%= fild[key] %></td>'+
     '<% }); %>'+

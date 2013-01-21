@@ -57,7 +57,10 @@ App.Viws.Dictionary = Backbone.View.extend({
 	el: ".table-content",
 
 	events: {
-		"click .item": "getId"
+		"click .item": "getId",
+		"click .btn-edit-inline": "editInline",
+		"click .btn-cancel-inline": "cancelInline",
+		"click .btn-save-inline": "saveInline"
 	},
 
 	initialize: function( options ){
@@ -94,13 +97,18 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	getId: function(event){
 		var id = $(event.target).parent("tr").data("id");
-		this.showCard(id);
-		this.setCurrentRow(id);
+    var type_view = app.settings.get("display_type");
+    if (type_view !== 3) {
+      this.showCard(id);
+      this.setCurrentRow(id);
+    } else {
+      this.editInline(event);
+    }
 	},
 
 	showCard: function(id) {
-		var model = app.dictionary.get( id );
-		var cards = new App.Viws.Cards( { "model": model } );
+    var model = app.dictionary.get( id );
+    var cards = new App.Viws.Cards( { "model": model } );
     this.changeLayout();
 	},
 
@@ -148,6 +156,7 @@ App.Viws.Dictionary = Backbone.View.extend({
         break;
       }
       case 3: {
+
         break;
       }
       default:{
@@ -159,6 +168,53 @@ App.Viws.Dictionary = Backbone.View.extend({
       scope.changeLayout();
     });
   },
+
+  editInline: function(event) {
+    var tr = $(event.target).parents("tr");
+    var bt_edit = tr.find(".btn-edit-inline").addClass("hidden");
+    var td = $(event.target).parents("tr").find("td.item");
+
+
+    tr.addClass("edit");
+
+    _.each(td, function(item){
+      var cell = $(item);
+
+      var val = cell.text();
+      var width_cell = cell.width();
+      cell.width(width_cell);
+
+      cell.html("<input class='inline-fld' style='width:"+(width_cell-10)+"px' value='"+val+"'/>")
+//      cell.html("<input class='inline-fld' style='' value='"+val+"'/>")
+
+    });
+
+  },
+
+  cancelInline: function() {
+    //заглушка
+    this.saveInline();
+
+  },
+  saveInline: function() {
+    var tr = $(event.target).parents("tr");
+    var bt_edit = tr.find(".btn-edit-inline").removeClass("hidden");
+    var td = $(event.target).parents("tr").find("td.item");
+
+    tr.removeClass("edit");
+
+    _.each(td, function(item){
+      var cell = $(item);
+      var input = cell.find("input");
+
+      var val = cell.text(input.val());
+      cell.attr("style", "");
+
+    });
+  },
+
+
+
 
   setCurrentRow: function(id) {
 		this.$el.find(".current").removeClass("current");

@@ -345,6 +345,21 @@ input[type="checkbox"].checkbox {
 .icon-filter {
     cursor: pointer;
 }
+.wrapper-inline-edit-btns {
+
+}
+.table-striped tbody > tr > td input.inline-fld {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    width: auto;
+}
+.edit-nav-group {
+    display: none;
+}
+.edit .edit-nav-group {
+    display: block;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
