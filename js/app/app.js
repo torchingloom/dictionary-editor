@@ -85,6 +85,11 @@ App.Viws.Dictionary = Backbone.View.extend({
     _.each(th_dic, function (th, key) {
       $(th_fix[key]).width($(th).width());
     });
+
+    if ($("html").hasClass("lte-ie9")){
+      var table = this.$el.find(".table-fix");
+      table.width( table.width() - 32 );
+    }
   },
 
 	getId: function(event){
