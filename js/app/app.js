@@ -71,6 +71,12 @@ App.Viws.Dictionary = Backbone.View.extend({
 	},
 
 	render: function(data){
+    var hash = window.location.hash
+
+    $("a.active-dic").removeClass("active-dic").css("font-weight", "normal");
+    $('a[href="'+ hash +'"]').css("font-weight", "bold").addClass("active-dic");
+
+
     var scope = this;
     this.$el.html(this.template(data));
 
