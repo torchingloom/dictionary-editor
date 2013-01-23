@@ -40,7 +40,7 @@ for ($i = 0; $i < 114; $i++)
     $item[] = randomstring(10, 25);
     $item[] = randomstring(50, 200);
     $item[] = date('Y-m-d', rand(strtotime('2012-06-06'), time()));
-    $item[] = 'country';
+    $item[] = '<a href="#Country">country</a>';
     $item[] = array_rand($arr['fields']['array_choice']['choice']);
     $item[] = array_rand($arr['fields']['multy_array_choice']['choice']);
     $item[] = array_rand($arr['fields']['radio_choice']['choice']);

@@ -45,9 +45,13 @@ window.JST['dictionary'] = _.template(''+
               '<i class="icon-remove"></i>'+
             '</button>'+
           '</div>'+
-    '</td>'+
+        '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
+      '<% if (fild[key] == "country") {%>'+
+        '<td class="item"><a href="#Country"><%= fild[key] %></a></td>'+
+      '<% }else{ %>'+
         '<td class="item"><%= fild[key] %></td>'+
+      '<% } %>'+
     '<% }); %>'+
       '</tr>'+
     '<% }); %>'+
