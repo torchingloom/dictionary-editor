@@ -66,8 +66,9 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	initialize: function( options ){
 		this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
-//    this.edit = $(".table-nav .btn-edit");
-//    this.remove = $(".table-nav .btn-remove");
+
+
+
 	},
 
 	render: function(data){
@@ -84,10 +85,6 @@ App.Viws.Dictionary = Backbone.View.extend({
     setTimeout(function(){scope.fixTableHeader();}, 200);
 
     this.resetLayout();
-
-    var throttled = _.throttle(scope.fixTableHeader, 500);
-    $(window).resize(throttled);
-
 	},
 
   fixTableHeader: function() {
@@ -164,7 +161,7 @@ App.Viws.Dictionary = Backbone.View.extend({
         $card_block.css( "height",  block_height+"px" );
 
         $card_block.removeClass("hidden");
-        this.fixTableHeader();
+        app.view.fixTableHeader();
         break;
       }
       case 2:{
@@ -175,20 +172,23 @@ App.Viws.Dictionary = Backbone.View.extend({
 
         $card_block.removeClass("hidden");
 
-        this.fixTableHeader();
+        app.view.fixTableHeader();
         break;
       }
       case 3: {
+        app.view.fixTableHeader();
         break;
       }
       default:{
         console.error("No table view!");
+        app.view.fixTableHeader();
       }
     }
 
-    var throttled = _.throttle(scope.changeLayout, 500);
+    var throttled = _.throttle( app.view.changeLayout, 500 );
+    $(window).off("resize");
+    $(window).on("resize", throttled);
 
-    $(window).resize(throttled);
   },
 
   editInline: function(event) {
