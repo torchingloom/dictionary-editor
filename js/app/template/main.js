@@ -8,7 +8,7 @@ window.JST['dictionary'] = _.template(''+
     '<th style="width:20px"><input type="checkbox" ></th>'+
     '<th style=""></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<th><%= settings["fields"][key]["title"] %> <i class="icon-filter"></i> <i class="icon-sort icon-left"></i></th>'+
+      '<th><span class="th-text"><%= settings["fields"][key]["title"] %></span> <i class="icon-sort icon-left"></i></th>'+
     '<% }); %>'+
     '</tr>'+
     '</thead>'+
@@ -26,9 +26,9 @@ window.JST['dictionary'] = _.template(''+
       '</tr>'+
     '</thead>'+
     '<tbody>'+
-    '<% _.each( filds, function(fild) {%>'+
-      '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
-        '<td><input type="checkbox"></td>'+
+    '<% _.each( filds, function(fild, key) {%>'+
+      '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %> item<%= key %>">'+
+        '<td style="width:20px;"><input type="checkbox"></td>'+
         '<td class="wrapper-inline-edit-btns" style="width:60px;">'+
           '<button class="btn btn-mini btn-edit-inline" type="button" alt="Изменить">'+
             '<i class="icon-pencil"></i>'+
@@ -59,12 +59,18 @@ window.JST['dictionary'] = _.template(''+
 
 window.JST['cards'] = _.template(''+
   '<div class="wrapper-cards">'+
-    '<div class="well edit-well well-small">'+
-      '<button class="btn btn-mini btn-edit" type="button">Изменить</button>'+
+    '<div class="edit-well wall">'+
+      '<button class="btn btn-mini btn-edit" type="button"><i class="icon-edit"></i>Изменить</button>'+
     '</div>'+
-    '<div class="well save-well hidden well-small">'+
+    '<div class="save-well hidden wall">'+
       '<button class="btn btn-mini btn-save btn-primary" type="button">Сохранить</button> '+
       '<button class="btn btn-mini btn-cancel" type="button">Отмена</button>'+
+    '</div>'+
+    '<div class="navi">'+
+        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-left"></i></button> '+
+        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-left"></i></button> '+
+        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-right"></i></button> '+
+        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-right"></i></button> '+
     '</div>'+
 
     '</form>'+

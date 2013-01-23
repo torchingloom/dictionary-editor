@@ -73,7 +73,10 @@ App.Viws.Dictionary = Backbone.View.extend({
 	render: function(data){
     var scope = this;
     this.$el.html(this.template(data));
-    this.fixTableHeader();
+
+    setTimeout(function(){scope.fixTableHeader();}, 100); //да да это пиздец
+    setTimeout(function(){scope.fixTableHeader();}, 200);
+
     this.resetLayout();
 
     var throttled = _.throttle(scope.fixTableHeader, 500);
@@ -82,16 +85,26 @@ App.Viws.Dictionary = Backbone.View.extend({
 	},
 
   fixTableHeader: function() {
-    var th_dic = this.$el.find(".table-dictionary th");
-    var th_fix = this.$el.find(".table-fix th");
+    var th_dic = $(".table-dictionary tr.item0 td");
+    var th_fix = $(".table-fix th");
+    var table_fix = $(".table-fix");
+    var table_dic = $(".table-dictionary");
+    var h;
 
-    _.each(th_dic, function (th, key) {
-      $(th_fix[key]).width($(th).width());
+    _.each(th_dic, function (td, key) {
+      $(th_fix[key]).width($(td).width());
     });
 
+    h = table_fix.height()+10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
+    table_dic.find("thead").hide();
+
+    console.log( h );
+
+    $(".wrapper-table-dictionary").css( "top", h+"px" );
+
     if ($("html").hasClass("lte-ie9")){
-      var table = this.$el.find(".table-fix");
-      table.width( table.width() - 36 );
+      var table = $(".table-fix");
+      table.width( table.width() - 37 ); //двигаем на скрол для интернет эксплорера
     }
   },
 
@@ -152,7 +165,7 @@ App.Viws.Dictionary = Backbone.View.extend({
         //vertical view
         $table_block.css( "right", block_width+"px" );
         $card_block.css( "left",  block_width+"px" );
-        $card_block.css( "top",  "75px" );
+        $card_block.css( "top",  "55px" );
 
         $card_block.removeClass("hidden");
 
