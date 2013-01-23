@@ -75,9 +75,8 @@ App.Viws.Dictionary = Backbone.View.extend({
     this.fixTableHeader();
     this.resetLayout();
 
-    $(window).resize(function() {
-      scope.fixTableHeader();
-    });
+    var throttled = _.throttle(scope.fixTableHeader, 500);
+    $(window).resize(throttled);
 
 	},
 
@@ -122,6 +121,7 @@ App.Viws.Dictionary = Backbone.View.extend({
   },
 
   changeLayout: function() {
+
     var type_view = app.settings.get("display_type");
 
     var scope = this;
@@ -129,6 +129,8 @@ App.Viws.Dictionary = Backbone.View.extend({
     var $card_block = $(".cards-content");
     var h = $("#content .wrapper-content").height();
     var w = $("#content .wrapper-content").width();
+
+    var c;
     var block_height = parseInt((h-75-35)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
     var block_width = parseInt((w+23)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
 
@@ -142,6 +144,7 @@ App.Viws.Dictionary = Backbone.View.extend({
         $card_block.css( "height",  block_height+"px" );
 
         $card_block.removeClass("hidden");
+        this.fixTableHeader();
         break;
       }
       case 2:{
@@ -156,7 +159,6 @@ App.Viws.Dictionary = Backbone.View.extend({
         break;
       }
       case 3: {
-
         break;
       }
       default:{
@@ -164,9 +166,9 @@ App.Viws.Dictionary = Backbone.View.extend({
       }
     }
 
-    $(window).resize(function() {
-      scope.changeLayout();
-    });
+    var throttled = _.throttle(scope.changeLayout, 500);
+
+    $(window).resize(throttled);
   },
 
   editInline: function(event) {

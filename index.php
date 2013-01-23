@@ -17,10 +17,10 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="/css/xtree.css" />
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
-<!--	<link rel="stylesheet" type="text/css" href="/css/base.css" />-->
 
-<!--	<link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
-<!--	<link rel="stylesheet" type="text/css" href="/css/default.css" />-->
+  <!--	<link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
+  	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+  	<link rel="stylesheet" type="text/css" href="/css/base.css" />
 
 </head>
 <body>
