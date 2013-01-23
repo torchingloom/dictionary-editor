@@ -429,7 +429,6 @@ input[type="checkbox"].checkbox {
     top: 0;
 }
 fieldset {
-    /*background-color: #e6e2af;*/
     border: 1px solid #bfbfbf;
     border-radius: 5px;
     padding: 10px 4px 10px 10px;
