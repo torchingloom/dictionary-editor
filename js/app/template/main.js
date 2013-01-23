@@ -29,15 +29,18 @@ window.JST['dictionary'] = _.template(''+
     '<% _.each( filds, function(fild) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %>">'+
         '<td><input type="checkbox"></td>'+
-        '<td class="wrapper-inline-edit-btns">'+
+        '<td class="wrapper-inline-edit-btns" style="width:60px;">'+
           '<button class="btn btn-mini btn-edit-inline" type="button" alt="Изменить">'+
             '<i class="icon-pencil"></i>'+
+          '</button> '+
+          '<button class="btn btn-danger btn-mini btn-remove-inline" type="button" alt="Удалить">'+
+            '<i class="icon-trash"></i>'+
           '</button>'+
 
           '<div class="edit-nav-group">'+
             '<button class="btn btn-mini btn-save-inline" type="button" alt="Сохранить изменения">'+
               '<i class="icon-save"></i>'+
-            '</button>'+
+            '</button> '+
             '<button class="btn btn-mini btn-cancel-inline" type="button" alt="Отменить изменения">'+
               '<i class="icon-remove"></i>'+
             '</button>'+
@@ -56,10 +59,10 @@ window.JST['dictionary'] = _.template(''+
 
 window.JST['cards'] = _.template(''+
   '<div class="wrapper-cards">'+
-    '<div class="well edit-well">'+
+    '<div class="well edit-well well-small">'+
       '<button class="btn btn-mini btn-edit" type="button">Изменить</button>'+
     '</div>'+
-    '<div class="well save-well hidden">'+
+    '<div class="well save-well hidden well-small">'+
       '<button class="btn btn-mini btn-save btn-primary" type="button">Сохранить</button> '+
       '<button class="btn btn-mini btn-cancel" type="button">Отмена</button>'+
     '</div>'+

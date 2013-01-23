@@ -19,8 +19,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
 
   <!--	<link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
-  <link rel="stylesheet" type="text/css" href="/css/default.css" />
-  <link rel="stylesheet" type="text/css" href="/css/base.css" />
+<!--  <link rel="stylesheet" type="text/css" href="/css/default.css" />-->
+<!--  <link rel="stylesheet" type="text/css" href="/css/base.css" />-->
 
 </head>
 <body>
@@ -50,9 +50,9 @@
     </div>
     <div class="content" id="content">
       <div class="wrapper-content">
-        <div class="table-nav well">
-          <button class="btn btn-edit btn-mini btn-primary disabled" type="button">Изменить</button>
-          <button class="btn btn-remove btn-mini btn-danger disabled" type="button">Удалить</button>
+        <div class="table-nav well well-small">
+          <button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Изменить</button>
+          <button class="btn btn-remove btn-mini btn-danger disabled" type="button"><i class="icon-trash"></i> Удалить</button>
         </div>
         <div class="table-content"></div>
         <div class="cards-content hidden"></div>

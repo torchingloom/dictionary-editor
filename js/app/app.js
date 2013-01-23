@@ -60,7 +60,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 		"click .item": "getId",
 		"click .btn-edit-inline": "editInline",
 		"click .btn-cancel-inline": "cancelInline",
-		"click .btn-save-inline": "saveInline"
+		"click .btn-save-inline": "saveInline",
+		"click .btn-remove-inline": "removeInline"
 	},
 
 	initialize: function( options ){
@@ -173,8 +174,10 @@ App.Viws.Dictionary = Backbone.View.extend({
 
   editInline: function(event) {
     var tr = $(event.target).parents("tr");
-    var bt_edit = tr.find(".btn-edit-inline").addClass("hidden");
     var td = $(event.target).parents("tr").find("td.item");
+
+    tr.find(".btn-edit-inline").addClass("hidden");
+    tr.find(".btn-remove-inline").addClass("hidden");
 
 
     tr.addClass("edit");
@@ -198,10 +201,12 @@ App.Viws.Dictionary = Backbone.View.extend({
     this.saveInline();
 
   },
+
   saveInline: function() {
     var tr = $(event.target).parents("tr");
-    var bt_edit = tr.find(".btn-edit-inline").removeClass("hidden");
     var td = $(event.target).parents("tr").find("td.item");
+    tr.find(".btn-edit-inline").removeClass("hidden");
+    tr.find(".btn-remove-inline").removeClass("hidden");
 
     tr.removeClass("edit");
 
@@ -213,6 +218,9 @@ App.Viws.Dictionary = Backbone.View.extend({
       cell.attr("style", "");
 
     });
+  },
+  removeInline: function() {
+    $(event.target).parents("tr").hide();
   },
 
 
