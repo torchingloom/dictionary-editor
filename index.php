@@ -19,8 +19,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
 
   <!--	<link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
-  	<link rel="stylesheet" type="text/css" href="/css/default.css" />
-  	<link rel="stylesheet" type="text/css" href="/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="/css/default.css" />
+  <link rel="stylesheet" type="text/css" href="/css/base.css" />
 
 </head>
 <body>
@@ -31,6 +31,15 @@
       <h1 class="text-logo"><? echo Config::get('title') ?></h1>
       <p class="currentime"><? echo date('d.m.Y') ?></p>
     </div>
+  </div>
+  <div class="menu">
+    <ul>
+      <li class="active"><a href="/">Справочники</a></li>
+      <li>|</li>
+      <li><a href="#">Метаданные</a></li>
+      <li>|</li>
+      <li><a href="#">Матрица доступа</a></li>
+    </ul>
   </div>
 
   <div class="main">

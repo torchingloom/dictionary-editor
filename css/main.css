@@ -166,7 +166,7 @@ html, body {
 }
 .main {
     position: absolute;
-    top:45px;
+    top:70px;
     bottom: 30px;
     width: 100%;
     min-width: 1000px;
@@ -351,6 +351,56 @@ input[type="checkbox"].checkbox {
 .edit .edit-nav-group {
     display: block;
 }
+.menu {
+    position: absolute;
+    width: 100%;
+    background-color: #e6e2af;
+    top:45px;
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
+    background-image: -o-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 33%);
+}
+.menu ul{
+    display: inline;
+    margin: 0 32px;
+    padding: 0;
+}
+.menu ul li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+.menu ul li a{
+    cursor: pointer;
+}
+.menu ul li.active a{
+    color: #000;
+}
+.menu ul li.active a:hover{
+    color: #000;
+    text-decoration: none;
+    cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
