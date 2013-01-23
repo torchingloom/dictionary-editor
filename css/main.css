@@ -446,6 +446,37 @@ fieldset legend {
     height: 14px;
     line-height: 12px;
 }
+.favorites-dic {
+    margin-bottom: 30px;
+}
+.favorites-dic h3{
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 0 4px 0;
+    padding: 0;
+}
+.favorites-dic ul{
+    margin: 0 0 0 5px;
+    padding: 0;
+    list-style: none;
+}
+.favorites-dic ul li{
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 /*xtreee*/
 
 .webfx-tree-icon {

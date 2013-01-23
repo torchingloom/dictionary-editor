@@ -45,6 +45,13 @@
   <div class="main">
     <div class="bar">
       <div class="wrapper-tree">
+
+        <div class="favorites-dic">
+          <h3 class="">Избранное</h3>
+          <ul>
+            <li><a href="#Country">Страны</a></li>
+          </ul>
+        </div>
         <div id="treeDiv"></div>
       </div>
     </div>
