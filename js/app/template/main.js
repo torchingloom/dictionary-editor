@@ -63,18 +63,18 @@ window.JST['dictionary'] = _.template(''+
 
 window.JST['cards'] = _.template(''+
   '<div class="wrapper-cards">'+
+	'<div class="navi">'+
+	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-left"></i></button> '+
+	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-left"></i></button> '+
+	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-right"></i></button> '+
+	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-right"></i></button> '+
+	'</div>'+
     '<div class="edit-well wall">'+
       '<button class="btn btn-mini btn-edit" type="button"><i class="icon-edit"></i>Изменить</button>'+
     '</div>'+
     '<div class="save-well hidden wall">'+
       '<button class="btn btn-mini btn-save btn-primary" type="button">Сохранить</button> '+
       '<button class="btn btn-mini btn-cancel" type="button">Отмена</button>'+
-    '</div>'+
-    '<div class="navi">'+
-        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-left"></i></button> '+
-        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-left"></i></button> '+
-        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-right"></i></button> '+
-        '<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-right"></i></button> '+
     '</div>'+
 
     '</form>'+

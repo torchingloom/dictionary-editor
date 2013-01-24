@@ -690,3 +690,158 @@ fieldset legend {
         page-break-after: avoid;
     }
 }
+
+
+
+
+
+/* add_new */
+.logo{
+	margin: 10px 13px;
+}
+
+.menu{
+	padding: 8px 12px;
+}
+
+.menu ul{
+	margin-left: 0;
+}
+
+.menu ul li{
+
+}
+
+.menu ul li a{
+	color: #046380;
+	display: inline-block;
+	border-radius: 3px 3px 3px 3px;
+	padding: 2px 8px;
+	text-decoration: underline;
+}
+
+.menu ul li:hover a,
+.menu ul li a:hover{
+	color: #cc3300;
+}
+
+
+.menu ul li.active a{
+	background: none repeat scroll 0 0 #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
+	color: #111111;
+	text-decoration: none;
+	padding: 2px 8px;
+}
+
+.main {
+	top:85px;
+}
+
+a.selected,
+a.selected-inactive{
+	-background-color: #e6e2af;
+	color: #cc3300;
+	font-weight: bold;
+}
+
+.wall{
+	padding: 0;
+}
+
+.content.horizontal .wrapper-cards .small-fld{
+	width: auto;
+	margin: 0 20px 0 0;
+}
+
+fieldset{
+	padding-top: 0;
+}
+
+.content.horizontal .wrapper-cards fieldset label,
+.content.horizontal .wrapper-cards .small-fld label{
+	float: left;
+	margin: 5px 10px 0 0;
+}
+
+.content.horizontal .wrapper-cards .small-fld label,
+.content.horizontal .wrapper-cards .small-fld .controls{
+	display: inline-block;
+}
+
+.wrapper-cards fieldset .controls input,
+.wrapper-cards .small-fld .controls input{
+	margin-bottom: 0;
+}
+
+.wrapper-cards .edit-well.wall,
+.wrapper-cards .save-well.wall{
+	margin-bottom: 10px;
+}
+
+.wrapper-cards .navi{
+	float: right;
+}
+
+.wrapper-cards fieldset legend{
+	margin-bottom:5px;
+}
+
+.wrapper-cards .small-fld{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+
+
+button.btn,
+button.btn.btn-primary,
+button.btn.btn-danger{
+	position: relative;
+	width: 90px;
+	height: 23px;
+	border: 1px solid #ccc;
+	border-bottom-color: #aaa;
+	border-radius: 4px;
+	font-family: Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 21px;
+	cursor: pointer;
+	color: #333;
+	text-shadow: 1px 1px 0 #f3f3f3;
+	background-color: #fff;
+
+	background-image: -webkit-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:    -moz-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:     -ms-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:      -o-linear-gradient(top, transparent 25%, rgba(0,0,0,0.2) 100%);
+	background-image:   linear-gradient(to bottom, transparent 25%, rgba(0,0,0,0.2) 100%);
+}
+
+.ie9 button.btn,
+.ie9 button.btn.btn-primary,
+.ie9 button.btn.btn-danger{
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPg0KCTxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KCQk8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDAuMCkiIG9mZnNldD0iMC4yNSIgLz4NCgkJPHN0b3Agc3RvcC1jb2xvcj0icmdiYSgwLDAsMCwwLjIpIiBvZmZzZXQ9IjEiIC8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgkNCgk8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDp1cmwoI2dyYWQpIiAvPg0KPC9zdmc+');
+}
+
+.lte-ie8 button.btn,
+.lte-ie8 button.btn.btn-primary,
+.lte-ie8 button.btn.btn-danger{
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#33000000', GradientType=0);
+}
+
+button.btn:hover{
+	background-position: 0 0;
+}
+
+.navi .btn.btn-mini-navi,
+.btn.btn-edit-inline,
+.btn.btn-save-inline,
+.btn.btn-cancel-inline,
+.btn.btn-danger.btn-remove-inline{
+	width: auto;
+}
+
+.help-inline .text-bolt{
+	display: none;
+}

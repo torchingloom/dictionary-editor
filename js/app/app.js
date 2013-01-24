@@ -152,10 +152,14 @@ App.Viws.Dictionary = Backbone.View.extend({
     var block_width = parseInt((w+23)/2, 10); // * странные магические числа = 75 - высота блока с кноп. (Изменить и Удалить), 35 это поправка на пaддинг у блоков
 
 
+
+	$(".content").removeClass("horizontal vertical");
+
     switch(type_view)
     {
       case 1: {
         //horizontal view
+		$(".content").addClass("horizontal");
         $table_block.css( "height", block_height+"px" );
         $table_block.css( "bottom", "auto" );
         $card_block.css( "height",  block_height+"px" );
@@ -166,6 +170,7 @@ App.Viws.Dictionary = Backbone.View.extend({
       }
       case 2:{
         //vertical view
+		$(".content").addClass("vertical");
         $table_block.css( "right", block_width+"px" );
         $card_block.css( "left",  block_width+"px" );
         $card_block.css( "top",  "55px" );

@@ -35,9 +35,7 @@
   <div class="menu">
     <ul>
       <li class="active"><a href="/">Справочники</a></li>
-      <li>|</li>
       <li><a href="#">Метаданные</a></li>
-      <li>|</li>
       <li><a href="#">Матрица доступа</a></li>
     </ul>
   </div>
