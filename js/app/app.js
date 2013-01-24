@@ -66,10 +66,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	initialize: function( options ){
 		this.render({"settings": app.settings.toJSON(), "filds": app.dictionary.toJSON()});
-
-
-
-	},
+    this.flag = true;
+  },
 
 	render: function(data){
     var hash = window.location.hash
@@ -94,6 +92,7 @@ App.Viws.Dictionary = Backbone.View.extend({
     var table_dic = $(".table-dictionary");
     var h;
 
+
     _.each(th_dic, function (td, key) {
       $(th_fix[key]).width($(td).width());
     });
@@ -105,6 +104,11 @@ App.Viws.Dictionary = Backbone.View.extend({
 
     $(".wrapper-table-dictionary").css( "top", h+"px" );
 
+    if ($("html").hasClass("lte-ie9") && this.flag ){
+      var table = $(".table-fix");
+      table.width( table.width() - 37 ); //двигаем на скрол для интернет эксплорера
+      this.flag = false
+    }
   },
 
 	getId: function(event){
