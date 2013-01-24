@@ -105,10 +105,6 @@ App.Viws.Dictionary = Backbone.View.extend({
 
     $(".wrapper-table-dictionary").css( "top", h+"px" );
 
-    if ($("html").hasClass("lte-ie9")){
-      var table = $(".table-fix");
-      table.width( table.width() - 37 ); //двигаем на скрол для интернет эксплорера
-    }
   },
 
 	getId: function(event){
@@ -214,7 +210,6 @@ App.Viws.Dictionary = Backbone.View.extend({
       cell.width(width_cell);
 
       cell.html("<input class='inline-fld' style='width:"+(width_cell-10)+"px' value='"+val+"'/>")
-//      cell.html("<input class='inline-fld' style='' value='"+val+"'/>")
 
     });
 
@@ -383,7 +378,6 @@ App.Viws.Cards = Backbone.View.extend({
 $(function(){
 
   app.config = {};
-
 	app.router = new App.Router();
   Backbone.history.start();
 
