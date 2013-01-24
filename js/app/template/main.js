@@ -164,10 +164,11 @@ window.JST['dictchoice'] = _.template(''+
 window.JST['сhoice'] = _.template(''+
     '');
 window.JST['radio'] = _.template(''+
-    '<div>'+
+
     '<% console.log(settings, value) %>'+
 
-  '<% _.each( settings.choice, function( text ){ %>'+
+    '<% _.each( settings.choice, function( text ){ %>'+
+
     '<label class="radio">'+
 
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
@@ -175,14 +176,15 @@ window.JST['radio'] = _.template(''+
     '<% } else { %>'+
       ' <input type="radio" class="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked disabled="disabled" data-readonly="false"> <%= text  %>'+
     '<% }; %>'+
+
     '</label>'+
 
     '<% }); %>'+
 
-    '</div>'+
+
     '');
 window.JST['checkbox'] = _.template(''+
-    '<label class="checkbox inline">'+
+    '<label class="checkbox">'+
       '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
       '<input type="checkbox" class="checkbox" id="inlineCheckbox3" value="option3" disabled="disabled" data-readonly="true"> <%= settings["title"]  %>'+
       '<% } else { %>'+

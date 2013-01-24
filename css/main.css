@@ -758,6 +758,10 @@ fieldset{
 	padding-top: 0;
 }
 
+.content .wrapper-cards label input{
+	margin: 1px 3px 0 0;
+}
+
 .content.horizontal .wrapper-cards fieldset label,
 .content.horizontal .wrapper-cards .small-fld label{
 	float: left;
@@ -785,14 +789,13 @@ fieldset{
 
 .wrapper-cards fieldset legend{
 	margin-bottom:5px;
+	display:block;
 }
 
 .wrapper-cards .small-fld{
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-
-
 
 button.btn,
 button.btn.btn-primary,
