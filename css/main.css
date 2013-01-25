@@ -867,7 +867,7 @@ button.btn:hover{
 	width: auto;
 }
 
-.help-inline .text-bolt{
+.help-inline .text-bolt {
 	display: none;
 }
 
@@ -893,7 +893,24 @@ button.btn:hover{
 	z-index: 11;
 }
 
-
+#treeDiv {
+	font-size: 13px;
+	line-height: 16px;
+	padding-left: 10px;
+	margin-right: -10px;
+}
+UL.jqtree-tree DIV {
+	margin-left: -2px;
+	padding-left: 2px;
+}
+UL.jqtree-tree .jqtree-toggler {
+	left: -1.2em;
+	text-decoration: none !important;
+}
+UL.jqtree-tree LI.jqtree-folder .jqtree-title {
+	position: relative;
+	left: 2px;
+}
 
 
 

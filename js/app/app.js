@@ -425,4 +425,11 @@ $(function() {
 			app.view.changeLayout();
 		}
 	});
+	
+	$('#treeDiv').tree({
+		data      : data,
+		saveState : true,
+		autoEscape: false,
+		autoOpen  : true
+	});
 });

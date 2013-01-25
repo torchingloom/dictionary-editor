@@ -16,12 +16,43 @@
 <!--[if IE 7]>
 <link rel="stylesheet" href="/css/font-awesome-ie7.min.css">
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="/css/xtree.css" />
+<link rel="stylesheet" type="text/css" href="/js/jqtree.css" />
 <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
 <!-- <link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
 <!-- <link rel="stylesheet" type="text/css" href="/css/default.css" />-->
 <!-- <link rel="stylesheet" type="text/css" href="/css/base.css" />-->
+
+<script type="text/javascript">
+//<![CDATA[
+var data = [
+	{
+		label: 'Общие справочники',
+		children: [
+			{ label: '<a href="#Currency">Валюты</a>' },
+			
+			{ 
+				label: 'Города',
+				children: [
+					{
+						label: 'На что ссылается',
+						children: [
+							{ label: '<a href="#Country">Страны</a>' }
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		label: 'node2',
+		children: [
+			{ label: 'child3' }
+		]
+	}
+];
+//]]>
+</script>
 
 </head>
 
@@ -82,24 +113,26 @@
 
 
 <script type="text/javascript" src="/js/jquery.js"></script>
-
+<? /*
 <!--xtree-->
 <script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>
 <script type="text/javascript" src="/js/xtree/js/xloadtree.js"></script>
 <script type="text/javascript" src="/js/xtree-starter.js"></script>
 <!--xtree-->
+*/ ?>
+<script type="text/javascript" src="/js/tree.jquery.js"></script>
 
 <script type="text/javascript" src="/js/bootstrap.js"></script>
-<script type="text/javascript" src="js/lodash.js"></script>
-<script type="text/javascript" src="js/backbone.js"></script>
+<script type="text/javascript" src="/js/lodash.js"></script>
+<script type="text/javascript" src="/js/backbone.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 
-<!--<script type="text/javascript" src="/js/jquery.cookie.js"></script>-->
 <!--<script type="text/javascript" src="/js/custom.js"></script>-->
 <!--<script type="text/javascript" src="/js/select2.js"></script>-->
 
-<script type="text/javascript" src="js/app/template/main.js"></script>
-<script type="text/javascript" src="js/app/app.js"></script>
+<script type="text/javascript" src="/js/app/template/main.js"></script>
+<script type="text/javascript" src="/js/app/app.js"></script>
 
 </body>
 </html>
