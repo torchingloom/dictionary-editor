@@ -5,8 +5,8 @@ window.JST['dictionary'] = _.template(''+
   '<table class="table table-fix table-striped table-condensed" >'+
     '<thead>'+
     '<tr class="">'+
-    '<th style="width:20px"><input type="checkbox" ></th>'+
-    '<th style="width:60px"></th>'+
+    //'<th style="width:20px"><input type="checkbox" ></th>'+
+    '<th style="width:1%; padding-right: 15px;"></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
       '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
     '<% }); %>'+
@@ -19,8 +19,8 @@ window.JST['dictionary'] = _.template(''+
   '<table class="table table-striped  table-condensed table-dictionary" >'+
     '<thead>'+
       '<tr class="">'+
-        '<th style="width:20px"><input type="checkbox" ></th>'+
-        '<th style="width:60px"></th>'+
+        //'<th style="width:20px"><input type="checkbox" ></th>'+
+        '<th style="width:1%; padding-right: 15px;"></th>'+
         '<% _.each( settings.fields_in_list, function(key) {%>'+
         '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
         '<% }); %>'+
@@ -29,8 +29,8 @@ window.JST['dictionary'] = _.template(''+
     '<tbody>'+
     '<% _.each( filds, function(fild, key) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %> item<%= key %>">'+
-        '<td style="width:20px;"><input type="checkbox"></td>'+
-        '<td class="wrapper-inline-edit-btns" style="width:60px;">'+
+        //'<td style="width:20px;"><input type="checkbox"></td>'+
+        '<td class="wrapper-inline-edit-btns" style="width:1%; padding-right: 15px;">'+
           '<button class="btn btn-mini btn-edit-inline" type="button" alt="Изменить">'+
             '<i class="icon-pencil"></i>'+
           '</button> '+

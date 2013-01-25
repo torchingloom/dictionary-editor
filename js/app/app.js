@@ -228,8 +228,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 	},
 
 	editInline: function(event) {
-		var tr = $(event.target).parents("tr");
-		var td = $(event.target).parents("tr").find("td.item");
+		var tr = $(event.target).closest("tr");
+		var td = tr.find("td.item");
 
 		tr.find(".btn-edit-inline").addClass("hidden");
 		tr.find(".btn-remove-inline").addClass("hidden");
@@ -237,21 +237,23 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 		_.each(td, function(item){
 			var cell = $(item);
-			var val = cell.text();
-			var width_cell = cell.width();
 			
-			cell.width(width_cell).html("<input class='inline-fld' style='width:"+(width_cell-10)+"px' value='"+val+"'/>");
-			//cell.html("<input class='inline-fld' style='' value='"+val+"'/>")
+			cell.width(cell.width()).html('<input class="inline-fld" style="" value="'+cell.text()+'" />');
+		});
+		
+		$(".table-content").delegate(".inline-fld", "click", function(e) {
+			e.stopPropagation();
+			e.preventDefault();
 		});
 	},
 
-	cancelInline: function() {
+	cancelInline: function(event) {
 		//заглушка
-		this.saveInline();
+		this.saveInline(event);
 	},
 
-	saveInline: function() {
-		var tr = $(event.target).parents("tr");
+	saveInline: function(event) {
+		var tr = $(event.target).closest("tr");
 		var td = tr.find("td.item");
 		tr.find(".btn-edit-inline").removeClass("hidden").end().find(".btn-remove-inline").removeClass("hidden");
 
@@ -265,8 +267,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 		});
 	},
 	
-	removeInline: function() {
-		$(event.target).parents("tr").hide();
+	removeInline: function(event) {
+		$(event.target).closest("tr").hide();
 	},
 
 	setCurrentRow: function(id) {
