@@ -166,7 +166,7 @@ html, body {
 }
 .main {
     position: absolute;
-    top:70px;
+    top: 85px;
     bottom: 30px;
     width: 100%;
     min-width: 1000px;
@@ -175,21 +175,34 @@ html, body {
 .bar {
     position: absolute;
     width: 18%;
-    min-width: 200px;
+    min-width: 180px;
     bottom: 0;
     top: 0;
     overflow: auto;
 }
+.nobar .bar {
+	width: 30px;
+	min-width: 0;
+	overflow: hidden;
+}
 .content {
     position: absolute;
     width: 82%;
-    min-width: 800px;
+    min-width: 820px;
     bottom: 0;
     top: 0;
     left: 18%;
 }
+.nobar .content {
+	left: 30px;
+	width: auto;
+	right: 0;
+}
 .wrapper-tree {
     padding: 20px 10px 10px;
+}
+.nobar .wrapper-tree {
+	visibility: hidden;
 }
 .wrapper-content {
     position: absolute;
@@ -203,28 +216,28 @@ html, body {
     margin-bottom: 0;
 }
 .table-fix {
-    position: absolute;
+	position: absolute;
     z-index: 10;
     background: #fff;
 }
-.table-striped tbody > tr:nth-child(odd).current > td {
+.table-striped TBODY > tr:nth-child(odd).current > td {
     background: #E6F0FA;
 }
-.table-striped tbody > tr.current > td {
+.table-striped TBODY > TR.current > TD {
     background: #E6F0FA;
 }
-.table-striped tbody > tr > td {
+.table-striped TBODY > TR > TD {
     vertical-align: middle;
     text-align: left;
     cursor: pointer;
 }
-.table-striped tbody > tr > td input{
+.table-striped TBODY > TR > TD INPUT {
     margin: 0 0 3px 0;
     display: inline-block;
 }
 .table-content {
     position: absolute;
-    top:55px;
+    top: 10px;
     bottom: 10px;
     left: 10px;
     right: 10px;
@@ -243,8 +256,8 @@ html, body {
 }
 .wrapper-table-dictionary {
     position: absolute;
-    overflow: auto;
-    top:10px;
+	overflow: auto;
+    top: 10px;
     bottom: 10px;
     left: 10px;
     right: 10px;
@@ -315,26 +328,23 @@ input[type="checkbox"].checkbox {
     display: none;
 
 }
-.table-dictionary tr th,
-.table-fix tr th {
-    /*background: #006dcc;*/
+.table-dictionary THEAD TR TH,
+.table-fix THEAD TR TH {
     color: #777;
     font-size: 12px;
     font-weight: bold;
-    /*border: 1px solid #fff;*/
-    position: relative;
-    vertical-align: top;
+    vertical-align: middle;
 }
 .table-fix tr th input {
-    margin: 0 0 4px 2px;
+    margin: 0 0 4px 0;
 }
 .table tr td {
     font-size: 12px;
 }
 .icon-left {
     position: absolute;
-    right: 6px;
-    top: 6px;
+    right: 0;
+    top: 3px;
     cursor: pointer;
 }
 .icon-left:hover {
@@ -344,7 +354,11 @@ input[type="checkbox"].checkbox {
     cursor: pointer;
 }
 .wrapper-inline-edit-btns {
-
+	white-space: nowrap;
+}
+.wrapper-inline-edit-btns .btn.btn-mini {
+	width: 24px !important;
+	text-align: center;
 }
 .table-striped tbody > tr > td input.inline-fld {
     margin: 0;
@@ -416,29 +430,30 @@ input[type="checkbox"].checkbox {
     display: inline-block;
     padding: 0 20px 0 0;
     vertical-align: top;
+	position: relative;
 }
 .wall {
     padding: 5px 0 20px;
 }
 .btn-mini-navi {
-    width: 23px;
+    width: 24px;
 }
 .navi {
     position: absolute;
     right: 0;
     top: 0;
 }
-fieldset {
+FIELDSET {
     border: 1px solid #bfbfbf;
     border-radius: 5px;
     padding: 10px 4px 10px 10px;
     margin: 0 0 10px 0;
 }
-fieldset legend {
+FIELDSET LEGEND {
     color: #fff;
     font-weight: bold;
     background-color: #bfbfbf;
-    padding: 3px 5px;
+    padding: 4px 5px 2px;
     border-radius: 4px;
     width: auto;
     font-size: 12px;
@@ -712,7 +727,7 @@ fieldset legend {
 
 }
 
-.menu ul li a{
+.menu ul li a {
 	color: #046380;
 	display: inline-block;
 	border-radius: 3px 3px 3px 3px;
@@ -721,7 +736,7 @@ fieldset legend {
 }
 
 .menu ul li:hover a,
-.menu ul li a:hover{
+.menu ul li a:hover {
 	color: #cc3300;
 }
 
@@ -734,22 +749,18 @@ fieldset legend {
 	padding: 2px 8px;
 }
 
-.main {
-	top:85px;
-}
-
 a.selected,
-a.selected-inactive{
+a.selected-inactive {
 	-background-color: #e6e2af;
 	color: #cc3300;
 	font-weight: bold;
 }
 
-.wall{
+.wall {
 	padding: 0;
 }
 
-.content.horizontal .wrapper-cards .small-fld{
+.content.horizontal .wrapper-cards .small-fld {
 	width: auto;
 	margin: 0 20px 0 0;
 }
@@ -758,41 +769,45 @@ fieldset{
 	padding-top: 0;
 }
 
-.content .wrapper-cards label input{
+.content .wrapper-cards label input {
 	margin: 1px 3px 0 0;
 }
 
 .content.horizontal .wrapper-cards fieldset label,
-.content.horizontal .wrapper-cards .small-fld label{
+.content.horizontal .wrapper-cards .small-fld label {
 	float: left;
 	margin: 5px 10px 0 0;
 }
 
 .content.horizontal .wrapper-cards .small-fld label,
-.content.horizontal .wrapper-cards .small-fld .controls{
+.content.horizontal .wrapper-cards .small-fld .controls {
 	display: inline-block;
 }
 
 .wrapper-cards fieldset .controls input,
-.wrapper-cards .small-fld .controls input{
+.wrapper-cards .small-fld .controls input {
 	margin-bottom: 0;
 }
 
 .wrapper-cards .edit-well.wall,
-.wrapper-cards .save-well.wall{
+.wrapper-cards .save-well.wall {
 	margin-bottom: 10px;
 }
 
-.wrapper-cards .navi{
-	float: right;
+.wrapper-cards .navi {
+	/*float: right;*/
+}
+.wrapper-cards .navi .btn {
+	min-width: 24px;
+	text-align: center;
 }
 
-.wrapper-cards fieldset legend{
+.wrapper-cards fieldset legend {
 	margin-bottom:5px;
 	display:block;
 }
 
-.wrapper-cards .small-fld{
+.wrapper-cards .small-fld {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
@@ -841,10 +856,55 @@ button.btn:hover{
 .btn.btn-edit-inline,
 .btn.btn-save-inline,
 .btn.btn-cancel-inline,
-.btn.btn-danger.btn-remove-inline{
+.btn.btn-danger.btn-remove-inline,
+.btn.btn-toggle-bar {
 	width: auto;
 }
 
 .help-inline .text-bolt{
 	display: none;
 }
+
+.webfx-tree-item {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.btn.btn-toggle-bar {
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+.nobar .bar .icon-chevron-left:before {
+	content: '\f054';
+}
+.btn.btn-toggleDict {
+	width: 24px !important;
+	min-width: 24px;
+	position: absolute;
+	left: 10px;
+	top: 11px;
+	z-index: 11;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

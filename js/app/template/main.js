@@ -1,27 +1,28 @@
 window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
-
-  '<table class="table table-fix table-striped  table-condensed" >'+
+  
+  '<table class="table table-fix table-striped table-condensed" >'+
     '<thead>'+
     '<tr class="">'+
     '<th style="width:20px"><input type="checkbox" ></th>'+
-    '<th style=""></th>'+
+    '<th style="width:60px"></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<th><span class="th-text"><%= settings["fields"][key]["title"] %></span> <i class="icon-sort icon-left"></i></th>'+
+      '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
     '<% }); %>'+
     '</tr>'+
     '</thead>'+
   '</table>'+
-
+  '<button class="btn btn-mini btn-mini-navi btn-toggleDict hidden" type="button"><i class="icon-fullscreen"></i></button>'+
+  
   '<div class="wrapper-table-dictionary">'+
   '<table class="table table-striped  table-condensed table-dictionary" >'+
     '<thead>'+
       '<tr class="">'+
         '<th style="width:20px"><input type="checkbox" ></th>'+
-        '<th style="width:20px"></th>'+
+        '<th style="width:60px"></th>'+
         '<% _.each( settings.fields_in_list, function(key) {%>'+
-        '<th><%= settings["fields"][key]["title"] %></th>'+
+        '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
         '<% }); %>'+
       '</tr>'+
     '</thead>'+
@@ -68,9 +69,10 @@ window.JST['cards'] = _.template(''+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-left"></i></button> '+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-right"></i></button> '+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-right"></i></button> '+
+	'<button class="btn btn-mini btn-mini-navi btn-toggleCard" type="button"><i class="icon-fullscreen"></i></button> '+
 	'</div>'+
     '<div class="edit-well wall">'+
-      '<button class="btn btn-mini btn-edit" type="button"><i class="icon-edit"></i>Изменить</button>'+
+      '<button class="btn btn-mini btn-edit" type="button"><i class="icon-edit"></i> Изменить</button>'+
     '</div>'+
     '<div class="save-well hidden wall">'+
       '<button class="btn btn-mini btn-save btn-primary" type="button">Сохранить</button> '+
