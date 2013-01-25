@@ -361,15 +361,18 @@ input[type="checkbox"].checkbox {
 	width: 24px !important;
 	text-align: center;
 }
-.table-striped tbody > tr > td input.inline-fld {
+.table-striped TBODY > TR > TD INPUT.inline-fld {
     margin: 0;
-    padding: 0;
+    padding: 0 3px;;
     display: inline;
-    width: 96%;
+    width: 94%;
 	font-size: 12px;
-	height: 1.6em;
+	height: 1.7em;
 	position: relative;
-	left: -2px;
+	left: -4px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	outline: none !important;
 }
 .edit-nav-group {
     display: none;
