@@ -310,6 +310,8 @@ App.Viws.Cards = Backbone.View.extend({
 			"filds"        : model.toJSON(),
 			"not_in_group" : not_in_group
 		}));
+		
+		//$("BODY").removeClass("fullCard fullDict"); //вот хрен его знает... решим позже
 	},
 
 	toEdit: function() {

@@ -332,8 +332,9 @@ input[type="checkbox"].checkbox {
 .table-fix THEAD TR TH {
     color: #777;
     font-size: 12px;
+	line-height: 15px;
     font-weight: bold;
-    vertical-align: middle;
+    vertical-align: top;
 }
 .table-fix tr th input {
     margin: 0 0 4px 0;
@@ -344,7 +345,7 @@ input[type="checkbox"].checkbox {
 .icon-left {
     position: absolute;
     right: 0;
-    top: 3px;
+    top: 5px;
     cursor: pointer;
 }
 .icon-left:hover {
@@ -428,9 +429,10 @@ input[type="checkbox"].checkbox {
 }
 .th-text {
     display: inline-block;
-    padding: 0 20px 0 0;
+    padding: 3px 20px 3px 0;
     vertical-align: top;
 	position: relative;
+	line-height: 15px;
 }
 .wall {
     padding: 5px 0 20px;
@@ -711,23 +713,23 @@ FIELDSET LEGEND {
 
 
 /* add_new */
-.logo{
+.logo {
 	margin: 10px 13px;
 }
 
-.menu{
+.menu {
 	padding: 8px 12px;
 }
 
-.menu ul{
+.menu UL {
 	margin-left: 0;
 }
 
-.menu ul li{
+.menu UL LI {
 
 }
 
-.menu ul li a {
+.menu UL LI A {
 	color: #046380;
 	display: inline-block;
 	border-radius: 3px 3px 3px 3px;
@@ -735,13 +737,13 @@ FIELDSET LEGEND {
 	text-decoration: underline;
 }
 
-.menu ul li:hover a,
-.menu ul li a:hover {
+.menu UL LI:hover A,
+.menu UL LI A:hover {
 	color: #cc3300;
 }
 
 
-.menu ul li.active a{
+.menu UL LI.active A {
 	background: none repeat scroll 0 0 #FFFFFF;
 	border-radius: 3px 3px 3px 3px;
 	color: #111111;
@@ -749,8 +751,8 @@ FIELDSET LEGEND {
 	padding: 2px 8px;
 }
 
-a.selected,
-a.selected-inactive {
+A.selected,
+A.selected-inactive {
 	-background-color: #e6e2af;
 	color: #cc3300;
 	font-weight: bold;
@@ -765,21 +767,21 @@ a.selected-inactive {
 	margin: 0 20px 0 0;
 }
 
-fieldset{
+FIELDSET {
 	padding-top: 0;
 }
 
-.content .wrapper-cards label input {
+.content .wrapper-cards LABEL INPUT {
 	margin: 1px 3px 0 0;
 }
 
-.content.horizontal .wrapper-cards fieldset label,
-.content.horizontal .wrapper-cards .small-fld label {
+.content.horizontal .wrapper-cards FIELDSET LABEL,
+.content.horizontal .wrapper-cards .small-fld LABEL {
 	float: left;
 	margin: 5px 10px 0 0;
 }
 
-.content.horizontal .wrapper-cards .small-fld label,
+.content.horizontal .wrapper-cards .small-fld LABEL,
 .content.horizontal .wrapper-cards .small-fld .controls {
 	display: inline-block;
 }
@@ -802,9 +804,9 @@ fieldset{
 	text-align: center;
 }
 
-.wrapper-cards fieldset legend {
-	margin-bottom:5px;
-	display:block;
+.wrapper-cards FIELDSET LEGEND {
+	margin-bottom: 5px;
+	display: block;
 }
 
 .wrapper-cards .small-fld {
