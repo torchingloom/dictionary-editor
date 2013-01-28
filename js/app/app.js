@@ -87,6 +87,21 @@ App.Viws.Dictionary = Backbone.View.extend({
     this.fixTableTop()
   },
 
+  fixTableHeader: function(scope) {
+    var table_fix = $(".table-fix");
+    var table_dic = $(".table-dictionary");
+    var th_fix = $("TH", table_fix);
+    var th_dic = $("TBODY TR.item-1 td", table_dic);
+
+    table_fix.width(table_dic.width());
+
+    _.each(th_dic, function (th, key) {
+      $(th_fix[key]).width($(th).width());
+    });
+
+    app.view.fixTableTop();
+  },
+
   toggleDict: function() {
 		$("BODY").toggleClass("fullDict");
 		this.changeLayout();
@@ -124,21 +139,10 @@ App.Viws.Dictionary = Backbone.View.extend({
 		$("BODY").removeClass("fullCard fullDict");
 	},
 
-	fixTableHeader: function() {
-		var table_fix = $(".table-fix");
-		var table_dic = $(".table-dictionary");
-		var th_fix = $("TH", table_fix);
-		var th_dic = $("TBODY TR.item-0 td", table_dic);
-
-		table_fix.width(table_dic.width());
-
-		_.each(th_dic, function (th, key) {
-			$(th_fix[key]).width($(th).width());
-		});
-	},
 
   fixTableTop: function(){
     var h = $(".table-fix").height() + 10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
+    console.log( h );
     $(".wrapper-table-dictionary").css("top", h+"px" )
   },
 
@@ -204,7 +208,7 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 				$(".btn-toggleDict").removeClass("hidden");
 
-				app.view.fixTableHeader();
+        app.view.fixTableHeader();
 				break;
 			}
 			case 2:{
@@ -224,16 +228,16 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 				$(".btn-toggleDict").removeClass("hidden");
 
-				app.view.fixTableHeader();
+        app.view.fixTableHeader();
 				break;
 			}
 			case 3: {
-				app.view.fixTableHeader();
+        app.view.fixTableHeader();
 				break;
 			}
 			default:{
+        app.view.fixTableHeader();
 				console.error("No table view!");
-				app.view.fixTableHeader();
 			}
 		}
 
@@ -310,6 +314,7 @@ App.Viws.Cards = Backbone.View.extend({
 
 	initialize: function( options ){
 		this.render( options.model );
+    this.$el.off('click')
 	},
 
 	render: function(model) {

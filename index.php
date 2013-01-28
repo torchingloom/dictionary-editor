@@ -73,11 +73,11 @@
     <div class="modal-body">
       <table class="table table-striped  table-condensed table-dictionary table-another-dictionary">
         <thead>
-        <tr>
-          <th>Наименование</th>
-          <th>Наименование (анг)</th>
-          <th>Код страны</th>
-          <th>Наименование страны</th>
+        <tr class="example-head-dic">
+          <th><span class="th-text">Наименование</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
+          <th><span class="th-text">Наименование (анг)</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
+          <th><span class="th-text">Код страны</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
+          <th><span class="th-text">Наименование страны</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
         </tr>
         </thead>
         <tbody>

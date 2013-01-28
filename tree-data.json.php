@@ -51,26 +51,26 @@ var __treeData__ = [
     label: 'Ценные бумаги',
     children: [
       {
-      	label: '<a href="#Country">Выпуски бумаг</a>',
+      	label: '<a href="#IssueOfSecurities">Выпуски бумаг</a>',
        	children: [
        		{
        			label: 'На что ссылается',
        			children: [
        				{
-       					label: '<a href="#Country">Типы выпусков</a>'
+       					label: '<a href="#TypeIssueOfSecurities">Типы выпусков</a>'
        				}
        			]
        		}
        	]
       },
       {
-      	label: '<a href="#Country">Типы выпусков</a>',
+      	label: '<a href="#TypeIssueOfSecurities">Типы выпусков</a>',
 	     	children: [
        		{
        			label: 'Что ссылается',
        			children: [
        				{
-       					label: '<a href="#Country">Выпуски бумаг</a>'
+       					label: '<a href="#IssueOfSecurities">Выпуски бумаг</a>'
        				}
        			]
        		}

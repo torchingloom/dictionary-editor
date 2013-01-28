@@ -344,7 +344,7 @@ input[type="checkbox"].checkbox {
 }
 .icon-left {
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 8px;
     cursor: pointer;
 }
@@ -502,7 +502,7 @@ FIELDSET LEGEND {
 }
 .icon-right {
     position: absolute;
-    left: 2px;
+    left: 10px;
     top: 8px;
     cursor: pointer;
 }
@@ -941,16 +941,22 @@ UL.jqtree-tree LI.jqtree-folder .jqtree-title {
 	left: 2px;
 }
 .btn.btn-toggleCard {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 23px;
     position: absolute;
-    top: 40px;
-    right: 10px;
+    top: 1px;
+    right: 113px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
 }
 button.btn, button.btn.btn-primary, button.btn.btn-danger {
     line-height: 14px;
 }
-
+.example-head-dic th {
+    position: relative;
+    vertical-align: top;
+}
 
 
 
