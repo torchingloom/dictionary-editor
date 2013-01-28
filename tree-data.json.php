@@ -17,7 +17,10 @@ var __treeData__ = [
         label: '<a href="#Currency">Валюты</a>'
       },
       {
-      	label: '<a href="#CoolDict">Города</a>',
+        label: '<a href="#CoolDict">Для теста</a>'
+      },
+      {
+      	label: '<a href="#City">Города</a>',
        	children: [
        		{
        			label: 'На что ссылается',
