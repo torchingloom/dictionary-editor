@@ -247,22 +247,28 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	editInline: function(event) {
 		var tr = $(event.target).closest("tr");
-		var td = tr.find("td.item");
+		if ( !tr.hasClass("inline-edit") ) {
+      tr.addClass("inline-edit");
+      var td = tr.find("td.item");
 
-		tr.find(".btn-edit-inline").addClass("hidden");
-		tr.find(".btn-remove-inline").addClass("hidden");
-		tr.addClass("edit");
+      tr.find(".btn-edit-inline").addClass("hidden");
+      tr.find(".btn-remove-inline").addClass("hidden");
+      tr.addClass("edit");
 
-		_.each(td, function(item){
-			var cell = $(item);
+      _.each(td, function(item){
+        var cell = $(item);
+        if ( cell.find("a").length ) {
+          cell.width(cell.width()).html('<a href="#myModal" role="button" data-toggle="modal" >' + input.val() + '</a>');
+        } else {
+          cell.width(cell.width()).html('<input class="inline-fld" style="" value="'+cell.text()+'" />');
+        }
+      });
 
-			cell.width(cell.width()).html('<input class="inline-fld" style="" value="'+cell.text()+'" />');
-		});
-
-		$(".table-content").delegate(".inline-fld", "click", function(e) {
-			e.stopPropagation();
-			e.preventDefault();
-		});
+      $(".table-content").delegate(".inline-fld", "click", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+      });
+    }
 	},
 
 	cancelInline: function(event) {
@@ -275,13 +281,17 @@ App.Viws.Dictionary = Backbone.View.extend({
 		var td = tr.find("td.item");
 		tr.find(".btn-edit-inline").removeClass("hidden").end().find(".btn-remove-inline").removeClass("hidden");
 
-		tr.removeClass("edit");
+		tr.removeClass("edit inline-edit");
 
 		_.each(td, function(item) {
 			var cell = $(item);
 			var input = cell.find("input");
-			var val = cell.text(input.val());
-			cell.attr("style", "");
+			if ( input.data("dic") ) {
+        cell.html( '<a href="#myModal" role="button" data-toggle="modal" >' + input.val() + '</a>' );
+      } else {
+        cell.text(input.val());
+      }
+      cell.attr("style", "");
 		});
 	},
 

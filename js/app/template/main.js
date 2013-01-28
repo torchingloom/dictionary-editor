@@ -28,14 +28,6 @@ window.JST['dictionary'] = _.template(''+
 
   '<div class="wrapper-table-dictionary">'+
   '<table class="table table-striped  table-condensed table-dictionary" >'+
-//    '<thead>'+
-//      '<tr class="">'+
-//        '<th style="width:1%; padding-right: 15px;"></th>'+
-//        '<% _.each( settings.fields_in_list, function(key) {%>'+
-//        '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
-//        '<% }); %>'+
-//      '</tr>'+
-//    '</thead>'+
     '<tbody>'+
     '<% _.each( filds, function(fild, key) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %> item<%= key %>">'+
@@ -57,7 +49,8 @@ window.JST['dictionary'] = _.template(''+
           '</div>'+
         '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<% if (fild[key] == "country") {%>'+
+
+      '<% if (key == "country_name") {%>'+
         '<td class="item"><a href="#myModal" role="button" data-toggle="modal"><%= fild[key] %></a></td>'+
       '<% }else{ %>'+
         '<td class="item"><%= fild[key] %></td>'+
@@ -159,6 +152,7 @@ window.JST['textarea'] = _.template(''+
     '<% }; %>'+
     '</div>'+
     '');
+
 window.JST['date'] = _.template(''+
     '<p class="input-append date datepicker" data-date="<%= value %>" data-date-format="yyyy-mm-dd">'+
       '<label for=""><%= settings["title"]  %></label>'+
@@ -171,30 +165,26 @@ window.JST['date'] = _.template(''+
     '<% }; %>'+
     '</p>'+
     '');
+
 window.JST['dictchoice'] = _.template(''+
     '');
+
 window.JST['сhoice'] = _.template(''+
     '');
+
 window.JST['radio'] = _.template(''+
-
     '<% console.log(settings, value) %>'+
-
     '<% _.each( settings.choice, function( text ){ %>'+
-
     '<label class="radio">'+
-
     '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
       ' <input type="radio" class="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked data-readonly="true" disabled="disabled"> <%= text  %>'+
     '<% } else { %>'+
       ' <input type="radio" class="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked disabled="disabled" data-readonly="false"> <%= text  %>'+
     '<% }; %>'+
-
     '</label>'+
-
     '<% }); %>'+
-
-
     '');
+
 window.JST['checkbox'] = _.template(''+
     '<label class="checkbox">'+
       '<% if( settings["readonly"] !== undefined && settings["readonly"] ) { %>'+
