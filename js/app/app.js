@@ -63,8 +63,29 @@ App.Viws.Dictionary = Backbone.View.extend({
 		"click .btn-cancel-inline": "cancelInline",
 		"click .btn-save-inline": "saveInline",
 		"click .btn-remove-inline": "removeInline",
-		"click .btn-toggleDict": "toggleDict"
+		"click .btn-toggleDict": "toggleDict",
+		"click .icon-filter": "toggleFilter"
 	},
+
+  toggleFilter: function() {
+
+    var th = $(".js-thead th");
+    var td = $(".js-tfilter td");
+
+    _.each(th, function(item, key){
+      var w = $(item).width();
+      $(td[key]).width(w);
+      $(td[key]).find("input").width(w-40);
+    });
+
+    if ($(".js-tfilter").hasClass("hidden")){
+      $(".js-tfilter").removeClass("hidden");
+    } else {
+      $(".js-tfilter").addClass("hidden");
+    }
+
+    this.fixTableTop()
+  },
 
   toggleDict: function() {
 		$("BODY").toggleClass("fullDict");
@@ -107,28 +128,20 @@ App.Viws.Dictionary = Backbone.View.extend({
 		var table_fix = $(".table-fix");
 		var table_dic = $(".table-dictionary");
 		var th_fix = $("TH", table_fix);
-		var th_dic = $("THEAD TH", table_dic);
-		var h;
+		var th_dic = $("TBODY TR.item-0 td", table_dic);
 
 		table_fix.width(table_dic.width());
 
 		_.each(th_dic, function (th, key) {
 			$(th_fix[key]).width($(th).width());
 		});
-
-		h = table_fix.height() + 10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
-
-		//table_dic.find("thead").hide();
-
-		//$(".wrapper-table-dictionary").css( "top", h+"px" );
-
-		//if ($("html").hasClass("ie7")){
-		//	var table = $(".table-fix");
-		//	table.width( table.width() - 37 ); //двигаем на скрол для интернет эксплорера
-		//}
-
-		// --- Вернул скрываемый хедер таблицы. От этого и глюки и рендер говно.
 	},
+
+  fixTableTop: function(){
+    var h = $(".table-fix").height() + 10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
+    $(".wrapper-table-dictionary").css("top", h+"px" )
+  },
+
 
 	getId: function(event){
 		var id = $(event.target).parent("tr").data("id");
@@ -294,6 +307,7 @@ App.Viws.Cards = Backbone.View.extend({
 		app.view.changeLayout();
 	},
 
+
 	initialize: function( options ){
 		this.render( options.model );
 	},
@@ -330,10 +344,9 @@ App.Viws.Cards = Backbone.View.extend({
 			var $item = $(item);
 			if ($item.data("readonly") === false) {
 				$item.removeAttr( "disabled" );
-			};
+			}
 		});
 
-		//TODO fix убрать дублирование кода
 		_.each(textarea, function( item ){
 			var $item = $(item);
 			if ($item.data("readonly") === false) {
@@ -351,7 +364,7 @@ App.Viws.Cards = Backbone.View.extend({
 
 		_.each(inputs, function( item ){
 			var $item = $(item);
-			if ($item.val() == "") {
+			if ( $item.val() === "" ) {
 				$item.parents(".control-group").addClass("error");
 				isValid = false;
 			}
@@ -371,7 +384,6 @@ App.Viws.Cards = Backbone.View.extend({
 				}
 			});
 
-			//TODO fix убрать дублирование кода
 			_.each(textarea, function( item ){
 				var $item = $(item);
 				if ($item.data("readonly") === false) {
@@ -433,5 +445,12 @@ $(function() {
 		autoEscape: false,
 		autoOpen  : 0
 	});
+
+  $(".item-another-dic").click(function(){
+    $(".table-another-dictionary").find(".current").removeClass("current");
+    $(this).addClass("current");
+  });
+
+
 
 });
