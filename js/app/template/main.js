@@ -1,35 +1,44 @@
 window.JST = {};
 window.JST['dictionary'] = _.template(''+
   '<% var type = "content-widescreen"; if (settings.display_type === 1) { type = "content-horizotal" }; if (settings.display_type === 2) { type = "content-vertical" }; %>'+
-  
+
   '<table class="table table-fix table-striped table-condensed" >'+
-    '<thead>'+
+    '<thead class="js-thead">'+
     '<tr class="">'+
-    //'<th style="width:20px"><input type="checkbox" ></th>'+
     '<th style="width:1%; padding-right: 15px;"></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
+      '<th><span class="th-text"><%= settings["fields"][key]["title"] %></span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>'+
     '<% }); %>'+
     '</tr>'+
     '</thead>'+
+    '<tbody class="js-tfilter hidden">'+
+    '<tr class="">'+
+    '<td style="width:1%; padding-right: 15px;" >' +
+    '<input type="text" class="input-mini visuallyhidden" />'+
+    '</td>'+
+    '<% _.each( settings.fields_in_list, function(key) {%>'+
+    '<td>' +
+    '<input type="text" class="input-mini" />'+
+    '</td>'+
+    '<% }); %>'+
+    '</tr>'+
+    '</tbody>'+
   '</table>'+
   '<button class="btn btn-mini btn-mini-navi btn-toggleDict hidden" type="button"><i class="icon-fullscreen"></i></button>'+
-  
+
   '<div class="wrapper-table-dictionary">'+
   '<table class="table table-striped  table-condensed table-dictionary" >'+
-    '<thead>'+
-      '<tr class="">'+
-        //'<th style="width:20px"><input type="checkbox" ></th>'+
-        '<th style="width:1%; padding-right: 15px;"></th>'+
-        '<% _.each( settings.fields_in_list, function(key) {%>'+
-        '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
-        '<% }); %>'+
-      '</tr>'+
-    '</thead>'+
+//    '<thead>'+
+//      '<tr class="">'+
+//        '<th style="width:1%; padding-right: 15px;"></th>'+
+//        '<% _.each( settings.fields_in_list, function(key) {%>'+
+//        '<th><span class="th-text"><%= settings["fields"][key]["title"] %> <i class="icon-sort icon-left"></i></span></th>'+
+//        '<% }); %>'+
+//      '</tr>'+
+//    '</thead>'+
     '<tbody>'+
     '<% _.each( filds, function(fild, key) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %> item<%= key %>">'+
-        //'<td style="width:20px;"><input type="checkbox"></td>'+
         '<td class="wrapper-inline-edit-btns" style="width:1%; padding-right: 15px;">'+
           '<button class="btn btn-mini btn-edit-inline" type="button" alt="Изменить">'+
             '<i class="icon-pencil"></i>'+
@@ -49,7 +58,7 @@ window.JST['dictionary'] = _.template(''+
         '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
       '<% if (fild[key] == "country") {%>'+
-        '<td class="item"><a href="#Country"><%= fild[key] %></a></td>'+
+        '<td class="item"><a href="#myModal" role="button" data-toggle="modal"><%= fild[key] %></a></td>'+
       '<% }else{ %>'+
         '<td class="item"><%= fild[key] %></td>'+
       '<% } %>'+
@@ -64,12 +73,13 @@ window.JST['dictionary'] = _.template(''+
 
 window.JST['cards'] = _.template(''+
   '<div class="wrapper-cards">'+
+
+  '<button class="btn btn-mini btn-mini-navi btn-toggleCard" type="button"><i class="icon-fullscreen"> </i></button> '+
 	'<div class="navi">'+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-left"></i></button> '+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-left"></i></button> '+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-angle-right"></i></button> '+
 	'<button class="btn btn-mini btn-mini-navi" type="button"><i class="icon-double-angle-right"></i></button> '+
-	'<button class="btn btn-mini btn-mini-navi btn-toggleCard" type="button"><i class="icon-fullscreen"></i></button> '+
 	'</div>'+
     '<div class="edit-well wall">'+
       '<button class="btn btn-mini btn-edit" type="button"><i class="icon-edit"></i> Изменить</button>'+

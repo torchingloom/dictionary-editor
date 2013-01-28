@@ -26,30 +26,80 @@
 <script type="text/javascript">
 //<![CDATA[
 var data = [
-	{
-		label: 'Общие справочники',
-		children: [
-			{ label: '<a href="#Currency">Валюты</a>' },
-			
-			{ 
-				label: 'Города',
-				children: [
-					{
-						label: 'На что ссылается',
-						children: [
-							{ label: '<a href="#Country">Страны</a>' }
-						]
-					}
-				]
-			}
-		]
-	},
-	{
-		label: 'node2',
-		children: [
-			{ label: 'child3' }
-		]
-	}
+  {
+    label: 'Избранное',
+    children: [
+      {
+      	label: '<a href="#Country">Страны</a>'
+    	}
+    ]
+  },
+  {
+    label: 'Общие справочники',
+    children: [
+      {
+        label: '<a href="#Currency">Валюты</a>'
+      },
+      {
+      	label: '<a href="#CoolDict">Города</a>',
+       	children: [
+       		{
+       			label: 'На что ссылается',
+       			children: [
+       				{
+       					label: '<a href="#Country">Страны</a>'
+       				}
+       			]
+       		}
+       	]
+      },
+      {
+      	label: '<a href="#Country">Страны</a>',
+       	children: [
+       		{
+       			label: 'Что ссылается',
+       			children: [
+       				{
+       					label: '<a href="#City">Города</a>'
+       				}
+     				]
+       		}
+       	]
+  	  }
+    ]
+  },
+  {
+    label: 'Ценные бумаги',
+    children: [
+      {
+      	label: '<a href="#Country">Выпуски бумаг</a>',
+       	children: [
+       		{
+       			label: 'На что ссылается',
+       			children: [
+       				{
+       					label: '<a href="#Country">Типы выпусков</a>'
+       				}
+       			]
+       		}
+       	]
+      },
+      {
+      	label: '<a href="#Country">Типы выпусков</a>',
+	     	children: [
+       		{
+       			label: 'Что ссылается',
+       			children: [
+       				{
+       					label: '<a href="#Country">Выпуски бумаг</a>'
+       				}
+       			]
+       		}
+       	]
+
+      }
+    ]
+  }
 ];
 //]]>
 </script>
@@ -62,11 +112,11 @@ var data = [
 	<div class="header">
 		<div class="logo">
 			<h1 class="text-logo"><? echo Config::get('title') ?></h1>
-			
+
 			<p class="currentime"><? echo date('d.m.Y') ?></p>
 		</div>
 	</div>
-	
+
 	<div class="menu">
 		<ul>
 			<li class="active"><a href="/">Справочники</a></li>
@@ -78,33 +128,70 @@ var data = [
 	<div class="main">
 		<div class="bar">
 			<div class="wrapper-tree">
-				<div class="favorites-dic">
-					<h3 class="">Избранное</h3>
-					
-					<ul>
-						<li><a href="#Country">Страны</a></li>
-					</ul>
-				</div>
-				
 				<div id="treeDiv"></div>
 			</div>
-			
+
 			<button class="btn btn-mini btn-toggle-bar hidden"><i class="icon-chevron-left"></i></button>
 		</div>
-		
+
 		<div class="content" id="content">
 			<div class="wrapper-content">
 				<div class="table-nav well well-small hidden">
 					<button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Изменить</button>
 					<button class="btn btn-remove btn-mini btn-danger disabled" type="button"><i class="icon-trash"></i> Удалить</button>
 				</div>
-				
+
 				<div class="table-content"></div>
-				
+
 				<div class="cards-content hidden"></div>
 			</div>
 		</div>
 	</div>
+
+
+
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Выбор из справочника городов</h3>
+    </div>
+    <div class="modal-body">
+      <table class="table table-striped  table-condensed table-dictionary table-another-dictionary">
+        <thead>
+        <tr>
+          <th>Наименование</th>
+          <th>Наименование (анг)</th>
+          <th>Код страны</th>
+          <th>Наименование страны</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="item-another-dic">
+          <td>Москва</td>
+          <td>Moscow</td>
+          <td>RF</td>
+          <td>Россия</td>
+        </tr>
+        <tr class="item-another-dic">
+          <td>Лондон</td>
+          <td>London</td>
+          <td>GB</td>
+          <td>Великобритания</td>
+        </tr>
+        <tr class="item-another-dic">
+          <td>Вашингтон</td>
+          <td>ashington</td>
+          <td>US</td>
+          <td>США</td>
+        </tr>
+        <tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Выбрать</button>
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+    </div>
+  </div>
 
 	<div class="footer">
 		<p class="cop">Версия: 1.1.0-SNAPSHOT</p>

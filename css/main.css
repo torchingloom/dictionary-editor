@@ -322,7 +322,7 @@ input[type="checkbox"].checkbox {
 }
 .error .help-inline .text-error {
     display: block;
-    
+
 }
 .error .help-inline .text-bolt {
     display: none;
@@ -345,7 +345,7 @@ input[type="checkbox"].checkbox {
 .icon-left {
     position: absolute;
     right: 0;
-    top: 5px;
+    top: 8px;
     cursor: pointer;
 }
 .icon-left:hover {
@@ -361,15 +361,18 @@ input[type="checkbox"].checkbox {
 	width: 24px !important;
 	text-align: center;
 }
-.table-striped tbody > tr > td input.inline-fld {
+.table-striped TBODY > TR > TD INPUT.inline-fld {
     margin: 0;
-    padding: 0;
+    padding: 0 3px;;
     display: inline;
-    width: 96%;
+    width: 94%;
 	font-size: 12px;
-	height: 1.6em;
+	height: 1.7em;
 	position: relative;
-	left: -2px;
+	left: -4px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	outline: none !important;
 }
 .edit-nav-group {
     display: none;
@@ -433,7 +436,7 @@ input[type="checkbox"].checkbox {
 }
 .th-text {
     display: inline-block;
-    padding: 3px 20px 3px 0;
+    padding: 3px 20px 3px 20px;
     vertical-align: top;
 	position: relative;
 	line-height: 15px;
@@ -488,11 +491,38 @@ FIELDSET LEGEND {
     list-style: none;
     font-weight: bold;
 }
-
-
-
-
-
+.navi {
+    z-index: 50;
+}
+.icon-fullscreen {
+    cursor: pointer;
+}
+.table-fix th {
+    position: relative;
+}
+.icon-right {
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    cursor: pointer;
+}
+.icon-filter {
+    cursor: pointer;
+}
+.icon-filter:hover {
+    color: #000;
+}
+.js-tfilter td {
+    position: relative;
+    height: 27px;
+}
+.input-mini {
+    position: absolute;
+    top: 2px;
+}
+button.btn, button.btn.btn-primary, button.btn.btn-danger {
+    line-height: 14px;
+}
 
 
 
@@ -513,7 +543,6 @@ FIELDSET LEGEND {
 #1-plus {
 
 }
-
 
 
 
@@ -888,8 +917,8 @@ button.btn:hover{
 	width: 24px !important;
 	min-width: 24px;
 	position: absolute;
-	left: 10px;
-	top: 11px;
+	right: 15px;
+	top: 13px;
 	z-index: 11;
 }
 
@@ -911,7 +940,16 @@ UL.jqtree-tree LI.jqtree-folder .jqtree-title {
 	position: relative;
 	left: 2px;
 }
-
+.btn.btn-toggleCard {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+button.btn, button.btn.btn-primary, button.btn.btn-danger {
+    line-height: 14px;
+}
 
 
 
