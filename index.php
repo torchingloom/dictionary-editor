@@ -19,91 +19,6 @@
 <link rel="stylesheet" type="text/css" href="/js/jqtree.css" />
 <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
-<!-- <link rel="stylesheet" type="text/css" href="/css/select2.css" />-->
-<!-- <link rel="stylesheet" type="text/css" href="/css/default.css" />-->
-<!-- <link rel="stylesheet" type="text/css" href="/css/base.css" />-->
-
-<script type="text/javascript">
-//<![CDATA[
-var data = [
-  {
-    label: 'Избранное',
-    children: [
-      {
-      	label: '<a href="#Country">Страны</a>'
-    	}
-    ]
-  },
-  {
-    label: 'Общие справочники',
-    children: [
-      {
-        label: '<a href="#Currency">Валюты</a>'
-      },
-      {
-      	label: '<a href="#CoolDict">Города</a>',
-       	children: [
-       		{
-       			label: 'На что ссылается',
-       			children: [
-       				{
-       					label: '<a href="#Country">Страны</a>'
-       				}
-       			]
-       		}
-       	]
-      },
-      {
-      	label: '<a href="#Country">Страны</a>',
-       	children: [
-       		{
-       			label: 'Что ссылается',
-       			children: [
-       				{
-       					label: '<a href="#City">Города</a>'
-       				}
-     				]
-       		}
-       	]
-  	  }
-    ]
-  },
-  {
-    label: 'Ценные бумаги',
-    children: [
-      {
-      	label: '<a href="#Country">Выпуски бумаг</a>',
-       	children: [
-       		{
-       			label: 'На что ссылается',
-       			children: [
-       				{
-       					label: '<a href="#Country">Типы выпусков</a>'
-       				}
-       			]
-       		}
-       	]
-      },
-      {
-      	label: '<a href="#Country">Типы выпусков</a>',
-	     	children: [
-       		{
-       			label: 'Что ссылается',
-       			children: [
-       				{
-       					label: '<a href="#Country">Выпуски бумаг</a>'
-       				}
-       			]
-       		}
-       	]
-
-      }
-    ]
-  }
-];
-//]]>
-</script>
-
 </head>
 
 <body>
@@ -200,23 +115,14 @@ var data = [
 
 
 <script type="text/javascript" src="/js/jquery.js"></script>
-<? /*
-<!--xtree-->
-<script type="text/javascript" src="/js/xtree/js/xtree.js"></script>
-<script type="text/javascript" src="/js/xtree/js/xmlextras.js"></script>
-<script type="text/javascript" src="/js/xtree/js/xloadtree.js"></script>
-<script type="text/javascript" src="/js/xtree-starter.js"></script>
-<!--xtree-->
-*/ ?>
+
 <script type="text/javascript" src="/js/tree.jquery.js"></script>
+<script type="text/javascript" src="/tree-data.json.php"></script>
 
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 <script type="text/javascript" src="/js/lodash.js"></script>
 <script type="text/javascript" src="/js/backbone.js"></script>
 <script type="text/javascript" src="/js/jquery.cookie.js"></script>
-
-<!--<script type="text/javascript" src="/js/custom.js"></script>-->
-<!--<script type="text/javascript" src="/js/select2.js"></script>-->
 
 <script type="text/javascript" src="/js/app/template/main.js"></script>
 <script type="text/javascript" src="/js/app/app.js"></script>

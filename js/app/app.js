@@ -440,7 +440,7 @@ $(function() {
 	});
 
 	$('#treeDiv').tree({
-		data      : data,
+		data      : __treeData__,
 		saveState : false,
 		autoEscape: false,
 		autoOpen  : 0
