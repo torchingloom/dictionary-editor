@@ -148,16 +148,21 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 
 	getId: function(event){
-		var tr = $(event.target).parent("tr");
-		var id = $(event.target).parent("tr").data("id");
-		var type_view = app.settings.get("display_type");
-		if (type_view !== 3) {
-			this.showCard(id);
-			this.setCurrentRow(id);
-      $(".wrapper-table-dictionary").scrollTop(tr.height() * id);
+    var tr = $(event.target).parent("tr");
+    var id = $(event.target).parent("tr").data("id");
+    if (event.ctrlKey) {
+      tr.addClass("current");
     } else {
-			this.editInline(event);
-		}
+      var type_view = app.settings.get("display_type");
+
+      if (type_view !== 3) {
+        this.showCard(id);
+        this.setCurrentRow(id);
+        $(".wrapper-table-dictionary").scrollTop(tr.height() * id);
+      } else {
+        this.editInline(event);
+      }
+    }
 	},
 
 	showCard: function(id) {
@@ -165,6 +170,8 @@ App.Viws.Dictionary = Backbone.View.extend({
 		var cards = new App.Viws.Cards( { "model": model } );
 		this.changeLayout();
 	},
+
+
 
 	resetLayout: function(){
 		var $table_block = $(".table-content");
