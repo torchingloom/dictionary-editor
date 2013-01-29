@@ -10,15 +10,15 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html,
-button,
-input,
-select,
-textarea {
+HTML,
+BUTTON,
+INPUT,
+SELECT,
+TEXTAREA {
     color: #222;
 }
 
-body {
+BODY {
     font-size: 1em;
     line-height: 1.4;
 }
@@ -43,7 +43,7 @@ body {
  * A better looking default horizontal rule
  */
 
-hr {
+HR {
     display: block;
     height: 1px;
     border: 0;
@@ -56,7 +56,7 @@ hr {
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
 
-img {
+IMG {
     vertical-align: middle;
 }
 
@@ -64,7 +64,7 @@ img {
  * Remove default fieldset styles.
  */
 
-fieldset {
+FIELDSET {
     border: 0;
     margin: 0;
     padding: 0;
@@ -74,7 +74,7 @@ fieldset {
  * Allow only vertical resizing of textareas.
  */
 
-textarea {
+TEXTAREA {
     resize: vertical;
 }
 
@@ -93,7 +93,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-html, body {
+HTML, BODY {
     position: relative;
     width: 100%;
     height: 100%;
@@ -359,10 +359,15 @@ input[type="checkbox"].checkbox {
     font-weight: bold;
     vertical-align: top;
 }
-.table-fix tr th input {
+.table-dictionary TFOOT TR TH {
+	padding: 0 5px 0 15px;
+	font-size: 0;
+	line-height: 0;
+}
+.table-fix TR TH input {
     margin: 0 0 4px 0;
 }
-.table tr td {
+.table TR TD {
     font-size: 12px;
 }
 .icon-left {
@@ -462,6 +467,10 @@ input[type="checkbox"].checkbox {
 .th-wrap {
 	position: relative;
 }
+.table-dictionary TFOOT .th-wrap {
+	height: 1px;
+	overflow: hidden;
+}
 .th-text {
     display: inline-block;
     padding: 3px 15px 3px 0;
@@ -474,20 +483,6 @@ input[type="checkbox"].checkbox {
 	display: inline-block;
 	width: 100%;
 	line-height: 15px;
-}
-.table-dictionary TFOOT .th-text {
-	height: 1px;
-	padding: 0;
-	overflow: hidden;
-}
-.table-dictionary TFOOT [class^="icon-"] {
-	height: 1px;
-	overflow: hidden;
-}
-.table-dictionary TFOOT TR TH {
-	padding: 0 5px 0 15px;
-	font-size: 0;
-	line-height: 0;
 }
 .wall {
     padding: 5px 0 20px;
@@ -896,9 +891,9 @@ FIELDSET {
 	margin-bottom: 0px;
 }
 
-button.btn,
-button.btn.btn-primary,
-button.btn.btn-danger{
+BUTTON.btn,
+BUTTON.btn.btn-primary,
+BUTTON.btn.btn-danger {
 	position: relative;
 	width: 90px;
 	height: 23px;
@@ -920,15 +915,15 @@ button.btn.btn-danger{
 	background-image:   linear-gradient(to bottom, transparent 25%, rgba(0,0,0,0.2) 100%);
 }
 
-.ie9 button.btn,
-.ie9 button.btn.btn-primary,
-.ie9 button.btn.btn-danger{
+.ie9 BUTTON.btn,
+.ie9 BUTTON.btn.btn-primary,
+.ie9 BUTTON.btn.btn-danger {
 	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPg0KCTxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KCQk8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDAsMCwwLDAuMCkiIG9mZnNldD0iMC4yNSIgLz4NCgkJPHN0b3Agc3RvcC1jb2xvcj0icmdiYSgwLDAsMCwwLjIpIiBvZmZzZXQ9IjEiIC8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgkNCgk8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDp1cmwoI2dyYWQpIiAvPg0KPC9zdmc+');
 }
 
-.lte-ie8 button.btn,
-.lte-ie8 button.btn.btn-primary,
-.lte-ie8 button.btn.btn-danger{
+.lte-ie8 BUTTON.btn,
+.lte-ie8 BUTTON.btn.btn-primary,
+.lte-ie8 BUTTON.btn.btn-danger {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#33000000', GradientType=0);
 }
 
