@@ -5,16 +5,21 @@ window.JST['dictionary'] = _.template(''+
   '<table class="table table-fix table-striped table-condensed" >'+
     '<thead class="js-thead">'+
     '<tr class="">'+
-    '<th style="width:1%; padding-right: 15px;"></th>'+
+    '<th style="width: 1%;"></th>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
-      '<th><span class="th-text"><%= settings["fields"][key]["title"] %></span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>'+
+      '<th>'+
+	    '<div class="th-wrap">'+
+		  '<i class="icon-sort icon-left"></i>'+
+		  '<span class="th-text"><%= settings["fields"][key]["title"] %><i class="icon-filter icon-right"></i></span>'+
+		'</div>'+
+	  '</th>'+
     '<% }); %>'+
     '</tr>'+
     '</thead>'+
     '<tbody class="js-tfilter hidden">'+
     '<tr class="">'+
-    '<td style="width:1%; padding-right: 15px;" >' +
-    '<input type="text" class="input-mini visuallyhidden" />'+
+    '<td style="width: 1%;" >' +
+    '<input type="text" class="input-mini visually hidden" />'+
     '</td>'+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
     '<td>' +
@@ -28,10 +33,23 @@ window.JST['dictionary'] = _.template(''+
 
   '<div class="wrapper-table-dictionary">'+
   '<table class="table table-striped  table-condensed table-dictionary" >'+
+    '<tfoot>'+
+    '<tr>'+
+    '<th style="width: 1%;"></th>'+
+    '<% _.each( settings.fields_in_list, function(key) {%>'+
+      '<th>'+
+	    '<div class="th-wrap">'+
+		  '<i class="icon-sort icon-left"></i>'+
+		  '<span class="th-text"><%= settings["fields"][key]["title"] %><i class="icon-filter icon-right"></i></span>'+
+		'</div>'+
+	  '</th>'+
+    '<% }); %>'+
+    '</tr>'+
+    '</tfoot>'+
     '<tbody>'+
     '<% _.each( filds, function(fild, key) {%>'+
       '<tr data-id="<%= fild.id %>" class="item-<%= fild.id %> item<%= key %>">'+
-        '<td class="wrapper-inline-edit-btns" style="width:1%; padding-right: 15px;">'+
+        '<td class="wrapper-inline-edit-btns" style="width: 1%;">'+
           '<button class="btn btn-mini btn-edit-inline" type="button" alt="Изменить">'+
             '<i class="icon-pencil"></i>'+
           '</button> '+
@@ -51,7 +69,7 @@ window.JST['dictionary'] = _.template(''+
     '<% _.each( settings.fields_in_list, function(key) {%>'+
 
       '<% if (key == "country_name") {%>'+
-        '<td class="item"><a href="#myModal" role="button" data-toggle="modal"><%= fild[key] %></a></td>'+
+        '<td class="item"><a href="#myModal" role="button" data-toggle="modal" class="nobubble"><%= fild[key] %></a></td>'+
       '<% }else{ %>'+
         '<td class="item"><%= fild[key] %></td>'+
       '<% } %>'+

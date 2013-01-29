@@ -50,10 +50,11 @@
 		</div>
 
 		<div class="content" id="content">
-      <div class="group-operation">
-        <button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Изменить</button>
-        <button class="btn btn-remove btn-mini btn-danger disabled" type="button"><i class="icon-trash"></i> Удалить</button>
-      </div>
+			<div class="group-operation">
+				<button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Добавить</button>
+				<button class="btn btn-remove btn-mini btn-danger disabled" type="button"><i class="icon-trash"></i> Удалить</button>
+			</div>
+			
 			<div class="wrapper-content">
 				<div class="table-nav well well-small hidden">
 					<button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Изменить</button>
@@ -69,48 +70,70 @@
 
 
 
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Выбор из справочника городов</h3>
-    </div>
-    <div class="modal-body">
-      <table class="table table-striped  table-condensed table-dictionary table-another-dictionary">
-        <thead>
-        <tr class="example-head-dic">
-          <th><span class="th-text">Наименование</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
-          <th><span class="th-text">Наименование (анг)</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
-          <th><span class="th-text">Код страны</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
-          <th><span class="th-text">Наименование страны</span><i class="icon-sort icon-left"></i><i class="icon-filter icon-right"></i></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="item-another-dic">
-          <td>Москва</td>
-          <td>Moscow</td>
-          <td>RF</td>
-          <td>Россия</td>
-        </tr>
-        <tr class="item-another-dic">
-          <td>Лондон</td>
-          <td>London</td>
-          <td>GB</td>
-          <td>Великобритания</td>
-        </tr>
-        <tr class="item-another-dic">
-          <td>Вашингтон</td>
-          <td>ashington</td>
-          <td>US</td>
-          <td>США</td>
-        </tr>
-        <tbody>
-      </table>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Выбрать</button>
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
-    </div>
-  </div>
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Выбор из справочника городов</h3>
+		</div>
+		
+		<div class="modal-body">
+			<table class="table table-striped  table-condensed table-dictionary table-another-dictionary">
+			<thead>
+				<tr class="example-head-dic">
+					<th>
+						<div class="th-wrap">
+							<i class="icon-sort icon-left"></i>
+							<span class="th-text">Наименование<i class="icon-filter icon-right"></i></span>
+						</div>
+					</th>
+					<th>
+						<div class="th-wrap">
+							<i class="icon-sort icon-left"></i>
+							<span class="th-text">Наименование (анг)<i class="icon-filter icon-right"></i></span>
+						</div>
+					</th>
+					<th>
+						<div class="th-wrap">
+							<i class="icon-sort icon-left"></i>
+							<span class="th-text">Код страны<i class="icon-filter icon-right"></i></span>
+						</div>
+					</th>
+					<th>
+						<div class="th-wrap">
+							<i class="icon-sort icon-left"></i>
+							<span class="th-text">Наименование страны<i class="icon-filter icon-right"></i></span>
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="item-another-dic">
+					<td>Москва</td>
+					<td>Moscow</td>
+					<td>RF</td>
+					<td>Россия</td>
+				</tr>
+				<tr class="item-another-dic">
+					<td>Лондон</td>
+					<td>London</td>
+					<td>GB</td>
+					<td>Великобритания</td>
+				</tr>
+				<tr class="item-another-dic">
+					<td>Вашингтон</td>
+					<td>Washington</td>
+					<td>US</td>
+					<td>США</td>
+				</tr>
+			<tbody>
+			</table>
+		</div>
+		
+		<div class="modal-footer">
+			<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Выбрать</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+		</div>
+	</div>
 
 	<div class="footer">
 		<p class="cop">Версия: 1.1.0-SNAPSHOT</p>

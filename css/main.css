@@ -337,7 +337,21 @@ input[type="checkbox"].checkbox {
     display: none;
 
 }
+.table-dictionary TD,
+.table-dictionary TH,
+.table-fix TD,
+.table-fix TH {
+	padding-left: 15px;
+}
+.table-dictionary TR TD:first-child,
+.table-dictionary TR TH:first-child,
+.table-fix TR TD:first-child,
+.table-fix TR TH:first-child {
+	padding-left: 5px;
+	min-width: 51px;
+}
 .table-dictionary THEAD TR TH,
+.table-dictionary TFOOT TR TH,
 .table-fix THEAD TR TH {
     color: #777;
     font-size: 12px;
@@ -353,9 +367,9 @@ input[type="checkbox"].checkbox {
 }
 .icon-left {
     position: absolute;
-    right: 10px;
-    top: 8px;
-    cursor: pointer;
+    right: 3px;
+	top: 4px;
+	cursor: pointer;
 }
 .icon-left:hover {
     color: #bfbfbf;
@@ -370,9 +384,10 @@ input[type="checkbox"].checkbox {
 	width: 24px !important;
 	text-align: center;
 }
-.table-striped TBODY > TR > TD INPUT.inline-fld {
+.table-striped TBODY > TR > TD INPUT.inline-fld,
+.table-fix TBODY > TR > TD INPUT.input-mini {
     margin: 0;
-    padding: 0 3px;;
+    padding: 0 3px;
     display: inline;
     width: 94%;
 	font-size: 12px;
@@ -393,7 +408,7 @@ input[type="checkbox"].checkbox {
     position: absolute;
     width: 100%;
     background-color: #e6e2af;
-    top:45px;
+    top: 45px;
     background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
     background-image: -moz-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
     background-image: -ms-linear-gradient(top, rgba(0,0,0,0.1) 0%, transparent 33%);
@@ -401,29 +416,28 @@ input[type="checkbox"].checkbox {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 33%);
     font-size: 12px;
 }
-.menu ul{
+.menu UL {
     display: inline;
     margin: 0 32px;
     padding: 0;
 }
-.menu ul li {
+.menu UL LI {
     display: inline;
     margin: 0;
     padding: 0;
 }
-.menu ul li a{
+.menu UL LI A {
     cursor: pointer;
 }
-.menu ul li.active a{
+.menu UL LI.active A {
     color: #000;
 }
-.menu ul li.active a:hover{
+.menu UL LI.active A:hover {
     color: #000;
     text-decoration: none;
     cursor: default;
 }
 .well {
-
     background: #F3F4F6 !important;
     border: none;
     margin-bottom: 0;
@@ -436,19 +450,44 @@ input[type="checkbox"].checkbox {
        -moz-box-shadow: none;
             box-shadow: none;
     margin: 0 -1px 0 0;
-
 }
 .btn {
     -webkit-border-radius: 3px !important;
        -moz-border-radius: 3px !important;
             border-radius: 3px !important;
 }
+.btn:focus {
+	outline: none !important;
+}
+.th-wrap {
+	position: relative;
+}
 .th-text {
     display: inline-block;
-    padding: 3px 20px 3px 20px;
+    padding: 3px 15px 3px 0;
     vertical-align: top;
 	position: relative;
+	font-size: 12px;
 	line-height: 15px;
+}
+.td-text {
+	display: inline-block;
+	width: 100%;
+	line-height: 15px;
+}
+.table-dictionary TFOOT .th-text {
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+}
+.table-dictionary TFOOT [class^="icon-"] {
+	height: 1px;
+	overflow: hidden;
+}
+.table-dictionary TFOOT TR TH {
+	padding: 0 5px 0 15px;
+	font-size: 0;
+	line-height: 0;
 }
 .wall {
     padding: 5px 0 20px;
@@ -482,18 +521,18 @@ FIELDSET LEGEND {
 .favorites-dic {
     margin-bottom: 30px;
 }
-.favorites-dic h3{
+.favorites-dic H3 {
     font-size: 12px;
     line-height: 16px;
     margin: 0 0 4px 0;
     padding: 0;
 }
-.favorites-dic ul{
+.favorites-dic UL {
     margin: 0 0 0 5px;
     padding: 0;
     list-style: none;
 }
-.favorites-dic ul li{
+.favorites-dic UL LI {
     font-size: 12px;
     margin: 0;
     padding: 0;
@@ -511,8 +550,8 @@ FIELDSET LEGEND {
 }
 .icon-right {
     position: absolute;
-    left: 10px;
-    top: 8px;
+    left: -13px;
+    top: 4px;
     cursor: pointer;
 }
 .icon-filter {
@@ -526,10 +565,11 @@ FIELDSET LEGEND {
     height: 27px;
 }
 .input-mini {
-    position: absolute;
-    top: 2px;
+    
 }
-button.btn, button.btn.btn-primary, button.btn.btn-danger {
+BUTTON.btn,
+BUTTON.btn.btn-primary,
+BUTTON.btn.btn-danger {
     line-height: 14px;
 }
 
@@ -842,7 +882,7 @@ FIELDSET {
 	/*float: right;*/
 }
 .wrapper-cards .navi .btn {
-	min-width: 24px;
+	width: 24px !important;
 	text-align: center;
 }
 
@@ -924,7 +964,6 @@ button.btn:hover{
 }
 .btn.btn-toggleDict {
 	width: 24px !important;
-	min-width: 24px;
 	position: absolute;
 	left: 14px;
 	top: 13px;
@@ -954,17 +993,29 @@ UL.jqtree-tree LI.jqtree-folder .jqtree-title {
     height: 23px;
     position: absolute;
     top: 1px;
-    right: 113px;
+    right: 114px;
     font-size: 12px;
     text-align: center;
     vertical-align: middle;
 }
-button.btn, button.btn.btn-primary, button.btn.btn-danger {
+BUTTON.btn,
+BUTTON.btn.btn-primary,
+BUTTON.btn.btn-danger {
     line-height: 14px;
 }
-.example-head-dic th {
+.example-head-dic TH {
     position: relative;
     vertical-align: top;
+}
+
+.nobubble {
+	position: relative;
+	display: inline-block;
+}
+
+.modal {
+	width: 640px;
+	margin-left: -320px;
 }
 
 

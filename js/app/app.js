@@ -68,21 +68,7 @@ App.Viws.Dictionary = Backbone.View.extend({
 	},
 
 	toggleFilter: function() {
-		var th = $(".js-thead th");
-		var td = $(".js-tfilter td");
-
-		_.each(th, function(item, key) {
-			var w = $(item).width();
-			$(td[key]).width(w);
-			$(td[key]).find("input").width(w-40);
-		});
-
-		if ($(".js-tfilter").hasClass("hidden")) {
-			$(".js-tfilter").removeClass("hidden");
-		} else {
-			$(".js-tfilter").addClass("hidden");
-		}
-
+		$(".js-tfilter").toggleClass("hidden");
 		this.fixTableTop();
 	},
 
@@ -90,12 +76,12 @@ App.Viws.Dictionary = Backbone.View.extend({
 		var table_fix = $(".table-fix");
 		var table_dic = $(".table-dictionary");
 		var th_fix = $("TH", table_fix);
-		var th_dic = $("TBODY TR.item-1 TD", table_dic);
+		var th_dic = $("TFOOT TH", table_dic);
 
 		table_fix.width(table_dic.width());
 
-		_.each(th_dic, function (td, key) {
-			$(th_fix[key]).width($(td).width());
+		_.each(th_dic, function (th, key) {
+			$(th_fix[key]).width($(th).width());
 		});
 
 		app.view.fixTableTop();
@@ -106,7 +92,7 @@ App.Viws.Dictionary = Backbone.View.extend({
 		this.changeLayout();
 	},
 
-	initialize: function( options ){
+	initialize: function(options) {
 		this.render({
 			"settings" : app.settings.toJSON(),
 			"filds"    : app.dictionary.toJSON()
@@ -121,7 +107,7 @@ App.Viws.Dictionary = Backbone.View.extend({
 		$('a[href="'+ hash +'"]').css("font-weight", "bold").addClass("active-dic");
 		$("#content").addClass("nolayout");
 
-		scope.$el.off('click').empty().append(scope.template(data)); // ну почему догадка анбиндить клик посетила меня только под утро?!?!?
+		scope.$el.off('click').empty().append(scope.template(data));
 
 		setTimeout(function() {
 			scope.fixTableHeader();
@@ -140,26 +126,29 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	fixTableTop: function() {
 		var h = $(".table-fix").height() + 10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
-		console.log( h );
-		$(".wrapper-table-dictionary").css("top", h+"px" );
+		$(".wrapper-table-dictionary").css("top", h + "px");
 	},
 
-	getId: function(event){
-    var tr = $(event.target).parent("tr");
-    var id = $(event.target).parent("tr").data("id");
-    if (event.ctrlKey) {
-      tr.toggleClass("current");
-    } else {
-      var type_view = app.settings.get("display_type");
+	getId: function(event) {
+		var tr = $(event.target).parent("tr");
+		var id = tr.data("id");
+		
+		if (event.ctrlKey) {
+			tr.toggleClass("current");
+		} else {
+			var type_view = app.settings.get("display_type");
 
-      if (type_view !== 3) {
-        this.showCard(id);
-        this.setCurrentRow(id);
-        $(".wrapper-table-dictionary").scrollTop(tr.height() * id);
-      } else {
-        this.editInline(event);
-      }
-    }
+			if (type_view !== 3) {
+				this.showCard(id);
+				this.setCurrentRow(id);
+				
+				setTimeout(function() {
+					$(".wrapper-table-dictionary").scrollTop(tr.height() * (tr.index() - tr.prevAll('.hidden').length));
+				}, 100);
+			} else {
+				this.editInline(event);
+			}
+		}
 	},
 
 	showCard: function(id) {
@@ -167,8 +156,6 @@ App.Viws.Dictionary = Backbone.View.extend({
 		var cards = new App.Viws.Cards( { "model": model } );
 		this.changeLayout();
 	},
-
-
 
 	resetLayout: function(){
 		var $table_block = $(".table-content");
@@ -214,7 +201,7 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 				$(".btn-toggleDict").removeClass("hidden");
 
-        app.view.fixTableHeader();
+				app.view.fixTableHeader();
 				break;
 			}
 			case 2:{
@@ -234,15 +221,15 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 				$(".btn-toggleDict").removeClass("hidden");
 
-        app.view.fixTableHeader();
+				app.view.fixTableHeader();
 				break;
 			}
 			case 3: {
-        app.view.fixTableHeader();
+				app.view.fixTableHeader();
 				break;
 			}
 			default:{
-        app.view.fixTableHeader();
+				app.view.fixTableHeader();
 				console.error("No table view!");
 			}
 		}
@@ -253,28 +240,30 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 	editInline: function(event) {
 		var tr = $(event.target).closest("tr");
-		if ( !tr.hasClass("inline-edit") ) {
-      tr.addClass("inline-edit");
-      var td = tr.find("td.item");
+		
+		if (!tr.hasClass("inline-edit")) {
+			tr.addClass("inline-edit");
+			var td = tr.find("td.item");
 
-      tr.find(".btn-edit-inline").addClass("hidden");
-      tr.find(".btn-remove-inline").addClass("hidden");
-      tr.addClass("edit");
+			tr.find(".btn-edit-inline").addClass("hidden");
+			tr.find(".btn-remove-inline").addClass("hidden");
+			tr.addClass("edit");
 
-      _.each(td, function(item){
-        var cell = $(item);
-        if ( cell.find("a").length ) {
-          cell.width(cell.width()).html('<a href="#myModal" role="button" data-toggle="modal" >' + input.val() + '</a>');
-        } else {
-          cell.width(cell.width()).html('<input class="inline-fld" style="" value="'+cell.text()+'" />');
-        }
-      });
+			_.each(td, function(item){
+				var cell = $(item);
+				var cell_w = cell.width();
+				
+				if (cell.find("a").length) {
+					cell.width(cell_w).html('<a href="#myModal" role="button" data-toggle="modal" class="">' + cell.text() + '</a>');
+				} else {
+					cell.width(cell_w).html('<input class="inline-fld" style="" value="' + cell.text() + '" />');
+				}
+			});
 
-      $(".table-content").delegate(".inline-fld", "click", function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-      });
-    }
+			$(".table-content").delegate(".inline-fld", "click", function(e) {
+				e.stopPropagation();
+			});
+		}
 	},
 
 	cancelInline: function(event) {
@@ -292,17 +281,19 @@ App.Viws.Dictionary = Backbone.View.extend({
 		_.each(td, function(item) {
 			var cell = $(item);
 			var input = cell.find("input");
-			if ( input.data("dic") ) {
-        cell.html( '<a href="#myModal" role="button" data-toggle="modal" >' + input.val() + '</a>' );
-      } else {
-        cell.text(input.val());
-      }
-      cell.attr("style", "");
+			
+			if (input.data("dic")) {
+				cell.html( '<a href="#myModal" role="button" data-toggle="modal" class="">' + input.val() + '</a>' );
+			} else {
+				cell.text(input.val());
+			}
+			
+			cell.attr("style", "");
 		});
 	},
 
 	removeInline: function(event) {
-		$(event.target).closest("tr").hide();
+		$(event.target).closest("tr").addClass('hidden');
 	},
 
 	setCurrentRow: function(id) {
@@ -330,7 +321,7 @@ App.Viws.Cards = Backbone.View.extend({
 
 	initialize: function( options ){
 		this.render( options.model );
-    this.$el.off('click')
+		this.$el.off('click');
 	},
 
 	render: function(model) {
@@ -449,6 +440,10 @@ $(function() {
 	$('A[href="#"]').click(function(e) {
 		e.preventDefault();
 	});
+	
+	$('BODY').on('mousedown', '.nobubble', function(e) {
+		e.stopPropagation();
+	});
 
 	$('.btn-toggle-bar').click(function(e) {
 		$('BODY').toggleClass('nobar');
@@ -461,17 +456,20 @@ $(function() {
 	});
 
 	$('#treeDiv').tree({
-		data      : __treeData__,
-		saveState : false,
-		autoEscape: false,
-		autoOpen  : 0
+		data       : __treeData__,
+		saveState  : false,
+		autoEscape : false,
+		autoOpen   : 0
 	});
 
-  $(".item-another-dic").click(function(){
-    $(".table-another-dictionary").find(".current").removeClass("current");
-    $(this).addClass("current");
-  });
-
-
-
+	$(".item-another-dic").click(function() {
+		$(".table-another-dictionary").find(".current").removeClass("current");
+		$(this).addClass("current");
+	});
+	
+	$('BODY').on('mousedown', 'TD', function(e) {
+		if (e.ctrlKey) {
+			e.preventDefault();
+		}
+	});
 });
