@@ -50,6 +50,10 @@
 		</div>
 
 		<div class="content" id="content">
+      <div class="group-operation">
+        <button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Изменить</button>
+        <button class="btn btn-remove btn-mini btn-danger disabled" type="button"><i class="icon-trash"></i> Удалить</button>
+      </div>
 			<div class="wrapper-content">
 				<div class="table-nav well well-small hidden">
 					<button class="btn btn-edit btn-mini btn-primary disabled" type="button"><i class="icon-edit"></i> Изменить</button>

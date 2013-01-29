@@ -148,12 +148,14 @@ App.Viws.Dictionary = Backbone.View.extend({
 
 
 	getId: function(event){
+		var tr = $(event.target).parent("tr");
 		var id = $(event.target).parent("tr").data("id");
 		var type_view = app.settings.get("display_type");
 		if (type_view !== 3) {
 			this.showCard(id);
 			this.setCurrentRow(id);
-		} else {
+      $(".wrapper-table-dictionary").scrollTop(tr.height() * id);
+    } else {
 			this.editInline(event);
 		}
 	},
