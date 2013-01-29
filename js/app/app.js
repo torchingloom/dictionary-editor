@@ -151,7 +151,7 @@ App.Viws.Dictionary = Backbone.View.extend({
     var tr = $(event.target).parent("tr");
     var id = $(event.target).parent("tr").data("id");
     if (event.ctrlKey) {
-      tr.addClass("current");
+      tr.toggleClass("current");
     } else {
       var type_view = app.settings.get("display_type");
 
