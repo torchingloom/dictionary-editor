@@ -67,42 +67,41 @@ App.Viws.Dictionary = Backbone.View.extend({
 		"click .icon-filter": "toggleFilter"
 	},
 
-  toggleFilter: function() {
+	toggleFilter: function() {
+		var th = $(".js-thead th");
+		var td = $(".js-tfilter td");
 
-    var th = $(".js-thead th");
-    var td = $(".js-tfilter td");
+		_.each(th, function(item, key) {
+			var w = $(item).width();
+			$(td[key]).width(w);
+			$(td[key]).find("input").width(w-40);
+		});
 
-    _.each(th, function(item, key){
-      var w = $(item).width();
-      $(td[key]).width(w);
-      $(td[key]).find("input").width(w-40);
-    });
+		if ($(".js-tfilter").hasClass("hidden")) {
+			$(".js-tfilter").removeClass("hidden");
+		} else {
+			$(".js-tfilter").addClass("hidden");
+		}
 
-    if ($(".js-tfilter").hasClass("hidden")){
-      $(".js-tfilter").removeClass("hidden");
-    } else {
-      $(".js-tfilter").addClass("hidden");
-    }
+		this.fixTableTop();
+	},
 
-    this.fixTableTop()
-  },
+	fixTableHeader: function(scope) {
+		var table_fix = $(".table-fix");
+		var table_dic = $(".table-dictionary");
+		var th_fix = $("TH", table_fix);
+		var th_dic = $("TBODY TR.item-1 TD", table_dic);
 
-  fixTableHeader: function(scope) {
-    var table_fix = $(".table-fix");
-    var table_dic = $(".table-dictionary");
-    var th_fix = $("TH", table_fix);
-    var th_dic = $("TBODY TR.item-1 td", table_dic);
+		table_fix.width(table_dic.width());
 
-    table_fix.width(table_dic.width());
+		_.each(th_dic, function (td, key) {
+			$(th_fix[key]).width($(td).width());
+		});
 
-    _.each(th_dic, function (th, key) {
-      $(th_fix[key]).width($(th).width());
-    });
+		app.view.fixTableTop();
+	},
 
-    app.view.fixTableTop();
-  },
-
-  toggleDict: function() {
+	toggleDict: function() {
 		$("BODY").toggleClass("fullDict");
 		this.changeLayout();
 	},
@@ -139,13 +138,11 @@ App.Viws.Dictionary = Backbone.View.extend({
 		$("BODY").removeClass("fullCard fullDict");
 	},
 
-
-  fixTableTop: function(){
-    var h = $(".table-fix").height() + 10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
-    console.log( h );
-    $(".wrapper-table-dictionary").css("top", h+"px" )
-  },
-
+	fixTableTop: function() {
+		var h = $(".table-fix").height() + 10; // ? .table-content pading:10px; margin:-10px; они не учитываются в размер
+		console.log( h );
+		$(".wrapper-table-dictionary").css("top", h+"px" );
+	},
 
 	getId: function(event){
 		var tr = $(event.target).parent("tr");
